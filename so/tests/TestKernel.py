@@ -52,21 +52,11 @@ class Test(unittest.TestCase):
 
 
     def runTest(self):
-        self.kernel.runProgram(self.program)
-        self.assertEqual(self.cpu.pcb,self.kernel.generateProcess(self.program))
-
-    def generarProcesoTest(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-
-    def runTest(self):
         self.kernel.runProgram(self.program.getName())
         self.assertEqual(self.cpu.pcb,self.kernel.generateProcess(self.program))
-        #Resvisa el assert, estas comparando dos instancias distintas.
-    def generarProcesoTest(self):
+        #Resvisa el assert, estas comparando dos instancias distintas y ademas accedes sin getter.
+        
+    def generateProcessTest(self):
         pcb=self.kernel.generateProcess(self.program)
         self.assertEqual(pcb.getFinalPc(),self.program.getInstructionsCount())
         self.assertEqual(pcb.getPc(),0)
