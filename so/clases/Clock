@@ -1,0 +1,8 @@
+from threading import Thread
+class Clock(Thread):
+
+    def __init__(self,cpu):
+        Threa.__init()
+        self.cpu=cpu
+
+    
