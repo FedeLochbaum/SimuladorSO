@@ -1,14 +1,6 @@
-'''
-Created on 15/05/2015
-
-@author: apiorno
-'''
 import unittest
-
-
 from clases.Cpu import Cpu
 from clases.Disk import Disk
-
 from clases.Kernel import Kernel
 from clases.Memory import Memory
 from clases.Program import Program

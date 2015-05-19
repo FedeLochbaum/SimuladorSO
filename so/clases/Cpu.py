@@ -1,5 +1,6 @@
 from clases.IrqHandler import IrqHandler
 from clases.IrqKill import IrqKill
+from clases.IrqTimeOut import IrqTimeOut
 class Cpu:
 
     def __init__(self,memory):
@@ -39,8 +40,8 @@ class Cpu:
 
 
 
-    def setProcess(self, proceso):
-        self.pcb = proceso
+    def setProcess(self, process):
+        self.pcb = process
 
     def noRunning(self):
         return self.pcb==None
@@ -50,3 +51,7 @@ class Cpu:
     
     def getIrqHandler(self):
         return self.irqHandler
+
+    def timeOut(self):
+        self.irqHandler.handle(IrqTimeOut(self.pcb))
+        self.pcb=None
