@@ -9,7 +9,7 @@ class Timer:
 
 
     def notifyCycle(self):
-        self.count--
+        self.count-=1
         if(self.count == 0):
             self.cpu.timeOut()
 
