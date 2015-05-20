@@ -1,5 +1,3 @@
-
-
 class Pcb:
 
     def __init__(self,name,pid,pc,finalPc,baseDirection):

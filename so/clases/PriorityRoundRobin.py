@@ -1,13 +1,13 @@
-from clases.RoundRobin import RoundRobin
+from clases.SchedullingPolitic import SchedullingPolitic
 
 
-class RoundRobinConPrioridad(RoundRobin):
+class ConPrioridad(SchedullingPolitic):
 
-    def __init__(self):
-        RoundRobin.__init__(self)
+    def __init__(self,queuesManager):
+        SchedullingPolitic.__init__(self,queuesManager)
 
 
 
     def next(self):
-        '''ya veremos'''
+        return self.queuesManager.getReadyQueue().get()
     

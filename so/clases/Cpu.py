@@ -53,5 +53,5 @@ class Cpu:
         return self.irqHandler
 
     def timeOut(self):
-        self.irqHandler.handle(IrqTimeOut(self.pcb))
+        self.irqHandler.handle(IrqTimeOut(self.pcb))#TODO : creo que deberiamos pasarle el irqHandler a los irq para que desp les diga que hacer con el process
         self.pcb=None
