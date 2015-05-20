@@ -5,7 +5,7 @@ class ReadyQueuePriority:
         self.ready = heapq
    
     def put(self,elemet):
-        self.ready.heappush(self.ready, elemet)
+        self.ready.heappush(self.ready,(elemet.getPriority(), elemet))
 
     def get(self):
         return self.ready.heappop(self.ready)

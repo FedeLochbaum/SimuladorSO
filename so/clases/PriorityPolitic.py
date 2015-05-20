@@ -1,7 +1,7 @@
 from clases.SchedullingPolitic import SchedullingPolitic
 
 
-class ConPrioridad(SchedullingPolitic):
+class PriorityPolitic(SchedullingPolitic):
 
     def __init__(self,queuesManager):
         SchedullingPolitic.__init__(self,queuesManager)
