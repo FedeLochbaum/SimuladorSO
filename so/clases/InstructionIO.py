@@ -6,10 +6,11 @@ class InstructionIO(Instruction):
         self.io = io
         self.answer = NULL
         
-    def hacerIO(self):
+    def loadIO(self):
         self.window.show(self.getMessage())  
         
     def setAnsert(self,answer):
         self.answer = answer    
+        
         
     

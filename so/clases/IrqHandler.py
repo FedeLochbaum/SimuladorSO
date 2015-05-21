@@ -1,7 +1,10 @@
+from test._test_multiprocessing import QueueManager
+
 class IrqHandler:
     
-    def __init__(self):
+    def __init__(self,queueManager):
         self.irqs=[]
+        self.queueManager = queueManager
         
     def handle(self,irq):
         self.put(irq)
@@ -14,3 +17,6 @@ class IrqHandler:
     
     def cantIrqs(self):
         return self.irqs.__len__()
+    
+    def addToReady(self,process):
+        self.queueManager.getReadyQueue().put(process)#a observar.. puede ser mas simple

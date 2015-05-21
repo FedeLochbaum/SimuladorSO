@@ -67,7 +67,10 @@ class Test(unittest.TestCase):
         self.program=None
 
 
-    
+    def funcionamientoTotalTest(self):
+        
+        
+        
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

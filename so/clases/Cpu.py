@@ -17,8 +17,8 @@ class Cpu:
         self.pcb.incrementPc()
         instruccionActual.execute()
         if(self.pcb.getPc()==self.pcb.getFinalPc()):
-            self.irqHandler.handle(IrqKill())
-            self.pcb=None
+            self.irqHandler.handle(IrqKill())#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
+            self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
        
 
     '''def decode(self):
@@ -26,7 +26,7 @@ class Cpu:
 
     def execute(self):
         print("execute", self.operacionActual)'''
-
+                ###  aca deberia ver que onda con la instruccion .. si es IO tiene que lanzar irqIO    ###
     ''' def avanzarClock(self):
         self.fetch()
 
@@ -53,5 +53,5 @@ class Cpu:
         return self.irqHandler
 
     def timeOut(self):
-        self.irqHandler.handle(IrqTimeOut(self.pcb))#TODO : creo que deberiamos pasarle el irqHandler a los irq para que desp les diga que hacer con el process
-        self.pcb=None
+        self.irqHandler.handle(IrqTimeOut(self.pcb,self.irqHandler))#TODO : creo que deberiamos pasarle el irqHandler a los irq para que desp les diga que hacer con el process
+        self.cleanRegisters()

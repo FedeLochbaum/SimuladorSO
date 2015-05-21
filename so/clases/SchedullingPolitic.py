@@ -7,12 +7,4 @@ class SchedullingPolitic:
         return self.queuesManager.getReady().firstQ()
 
 
-    def interruptProcess(self,process,cpu):
-        if process.haveNextInstruction():
-            cpu.loadPrceso((process.getPid(), process.avanzarSigInstruccion()))
-            #Ver esto
-        else:
-            return False
-        
-    def getQueuesManager(self):
-        return self.queuesManager    
+     
