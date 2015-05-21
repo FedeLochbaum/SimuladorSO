@@ -1,8 +1,4 @@
-'''
-Created on 13/05/2015
 
-@author: apiorno
-'''
 import unittest
 from clases.Cpu import Cpu
 from clases.Pcb import Pcb

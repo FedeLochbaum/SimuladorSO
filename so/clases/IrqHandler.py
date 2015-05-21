@@ -1,5 +1,3 @@
-from test._test_multiprocessing import QueueManager
-
 class IrqHandler:
     
     def __init__(self,queueManager):
@@ -8,6 +6,7 @@ class IrqHandler:
         
     def handle(self,irq):
         self.put(irq)
+        irq.execute()
     
     def put(self,irq):
         self.irqs.append(irq)

@@ -1,22 +1,14 @@
-'''
-Created on 15/05/2015
 
-@author: apiorno
-'''
 import unittest
-
 
 from clases.Cpu import Cpu
 from clases.Disk import Disk
-
+from clases.Instruction import Instruction
 from clases.Kernel import Kernel
 from clases.Memory import Memory
+from clases.MemoryManager import MemoryManager
 from clases.Program import Program
 from clases.Window import Window
-from clases.Instruction import Instruction
-from clases.MemoryManager import MemoryManager
-
-
 
 
 class Test(unittest.TestCase):
@@ -44,13 +36,10 @@ class Test(unittest.TestCase):
         self.kernel=Kernel(self.cpu,self.disk,self.memoryManager,self.queuesManager)
 
 
-    def clockCycle(self):
-        time.sleep(1)
-        assertEquals(self.window.getCantContents(),1)
-        time.sleep(1)
-        assertEquals(self.window.getCantContents(),1)
-        time.sleep(1)
-        assertEquals(self.window.getCantContents(),1)
+    def testClockCycle(self):
+        self.assertTrue(self.kernel.getClock().is_alive())
+        self.assertEquals(self.window.getCantContents(),1)
+       
         
 
     def tearDown(self):

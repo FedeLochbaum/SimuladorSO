@@ -1,5 +1,6 @@
 from clases.PidGenerator import PidGenerator
 from clases.Pcb import Pcb
+from clases.Clock import Clock
 
 class Kernel :
     def __init__(self,cpu,disk,memoryManager,queuesManager):
@@ -8,6 +9,8 @@ class Kernel :
         self.memoryManager = memoryManager
         self.queuesManager=queuesManager
         self.pidGenerator = PidGenerator()
+        self.clock=Clock()
+        self.clock.start()
     
     def loadProgram(self,programName):
         program = self.disk.getprogram(programName)
@@ -29,3 +32,5 @@ class Kernel :
     def generateProcess(self,program):
         return Pcb(program.getName(),self.generadorDePid.generateNewPid(),0,program.getInstructionsCount(),self.memoryManager.getMemory().getNextIndex())
     
+    def getClock(self):
+        return self.clock

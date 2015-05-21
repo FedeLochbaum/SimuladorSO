@@ -1,12 +1,15 @@
 from clases.IrqHandler import IrqHandler
 from clases.IrqKill import IrqKill
 from clases.IrqTimeOut import IrqTimeOut
+from clases.QueuesManager import QueuesManager
+from clases.ReadyQueuePriority import ReadyQueuePriority
+from clases.WaitingQueue import WaitingQueue
 class Cpu:
 
     def __init__(self,memory):
         self.memory=memory
         self.pcb=None
-        self.irqHandler=IrqHandler()
+        self.irqHandler=IrqHandler(QueuesManager(ReadyQueuePriority(),WaitingQueue()))
        
 
 
@@ -19,7 +22,8 @@ class Cpu:
         if(self.pcb.getPc()==self.pcb.getFinalPc()):
             self.irqHandler.handle(IrqKill())#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
             self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
-       
+    def notify(self):
+        self.fetch()   
 
     '''def decode(self):
         print("decode",self.instruccionActual)

@@ -1,6 +1,6 @@
 class WaitingQueue :
      
-    def __init__(self,scheduller):
+    def __init__(self):
         self.wait = []
         
      
