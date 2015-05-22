@@ -52,11 +52,13 @@ class Test(unittest.TestCase):
         self.colaReadyFifo.put(Pcb('proceso4',1,0,1,0))
         self.colaReadyFifo.put(Pcb('proceso2',1,0,1,0))
         
+        #con politicaFifo Simple
         self.assertEqual(self.politicaFifo.next().getName(),"proceso")
         self.assertEqual(self.politicaFifo.next().getName(),"proceso1")
         self.assertEqual(self.politicaFifo.next().getName(),"proceso4")
         self.assertEqual(self.politicaFifo.next().getName(),"proceso2")
         
+        #con politica RoundRobin Simple
         self.assertEqual(self.politicaRoundRobin.next().getName(),"proceso")
         self.assertEqual(self.politicaRoundRobin.next().getName(),"proceso1")
         self.assertEqual(self.politicaRoundRobin.next().getName(),"proceso4")
@@ -68,11 +70,13 @@ class Test(unittest.TestCase):
         self.colaReadyPrioridad.put(PcbPriority('proceso4',1,0,1,0,4))
         self.colaReadyPrioridad.put(PcbPriority('proceso2',1,0,1,0,5))
         
+        #con politicaFifo con prioridad
         self.assertEqual(self.politicaFifoPrioridad.next().getPriority(),22)
         self.assertEqual(self.politicaFifoPrioridad.next().getPriority(),5)
         self.assertEqual(self.politicaFifoPrioridad.next().getPriority(),4)
         self.assertEqual(self.politicaFifoPrioridad.next().getPriority(),2)
         
+        #con politicaRoundRobin con prioridad
         self.assertEqual(self.politicaRRPrioridad.next().getPriority(),22)
         self.assertEqual(self.politicaRRPrioridad.next().getPriority(),5)
         self.assertEqual(self.politicaRRPrioridad.next().getPriority(),4)

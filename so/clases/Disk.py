@@ -1,24 +1,26 @@
+from clases.Program import Program
+from clases.Instruction import Instruction
+from clases.Window import Window
+
+
 class Disk:
 
     def __init__(self):
-        self.programs = []
+        self.programas = {}
 
     def getProgram(self, programName):
-        
-        for program in self.programs:
-            if program.getName()==programName:
-                return program    
-        return;   
+        return self.programas[programName]
     
     def indexProgram(self, nameProgram):
-        return self.programs.index(self.returnProgram(nameProgram))
+        return self.programs.index(self.returnProgram(nameProgram))#nose que carajo es esto 
 
-    def addProgram(self, program):
-            self.programs.append(program)
+    def addProgram(self,program):
+            self.programas[program.getName()] = program
 
     def removeProgram(self, nameProgram):
-            self.programs.pop(self.indexProgram(nameProgram))
+            self.programas[nameProgram] = None
             
     def getProgramas(self):
         return self.programs
+
 

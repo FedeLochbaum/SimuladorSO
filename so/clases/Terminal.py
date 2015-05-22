@@ -1,14 +1,25 @@
 import os
 import re
-from clases import Window, Program, Disk, Memory, Cpu, IoWaitingQueue, \
-    MemoryManager, Instruction, WaitingQueue, QueuesManager, Kernel, Terminal
+from clases.Window import Window
+from clases.Program import Program
+from clases.Disk import Disk
+from clases.Memory import Memory
+from clases.Cpu import Cpu
+from clases.MemoryManager import MemoryManager
+from clases.Instruction import Instruction
+from clases.WaitingQueue import WaitingQueue
+from clases.QueuesManager import QueuesManager
+from clases.Kernel import Kernel
+from clases.ReadyQueuePriority import ReadyQueuePriority
+
 
 class Terminal :
         def __init__(self,kernel):
             os.chdir("C:/")
             self.ubicacion = os.getcwd()
-            self.main()
             self.kernel = kernel
+            self.main()
+            
 
         def main(self):
             self.ubicacion = os.getcwd()
@@ -33,7 +44,8 @@ class Terminal :
             elif(self.esLoad(promp)):
                 self.kernel.loadProgram(self.contenido(promp))
             elif(self.esRun(promp)):
-                print("run " + self.contenidoDeRun(promp))#self.kernel.runProgram(self.contenido(promp))
+                self.kernel.runProgram(self.contenido(promp))
+                self.main()
             else :
                 print("error invalid command")
 
@@ -72,16 +84,16 @@ class Terminal :
             return promp[5:100]
 
 
-        window=Window()
-        instruction=Instruction('hola',window)
-        program=Program('cacho',instruction)
-        disk=Disk()
-        disk.addProgram(program)
-        memory = Memory(20)
-        memoryManager = MemoryManager(memory)
-        cpu = Cpu(memory)
-        readyQueue = IoWaitingQueue()
-        waitingQueue = WaitingQueue()
-        queuesManager = QueuesManager(readyQueue,waitingQueue)
-        kernel=Kernel(cpu,disk,memoryManager,queuesManager)
-        terminal = Terminal(kernel)
+window=Window()
+instruction=Instruction('hola',window)
+program=Program('program',instruction)
+disk=Disk()
+disk.addProgram(program)
+memory = Memory(20)
+memoryManager = MemoryManager(memory)
+cpu = Cpu(memory)
+readyQueue = ReadyQueuePriority()
+waitingQueue = WaitingQueue()
+queuesManager = QueuesManager(readyQueue,waitingQueue)
+kernel=Kernel(cpu,disk,memoryManager,queuesManager)
+terminal = Terminal(kernel)
