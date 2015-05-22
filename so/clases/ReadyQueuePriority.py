@@ -1,6 +1,6 @@
 from heapq import heappush, heappop, heapify
 from queue import Queue
-from clases.PcbPriority import PcbPriority
+
 
 
 class ReadyQueuePriority:
@@ -13,12 +13,12 @@ class ReadyQueuePriority:
 
     def next(self):
         resultado = heappop(self.ready)[1]
-        #self.envejecerHeap()
+        self.envejecerHeap()
         return resultado
     
     def envejecerHeap(self):
-        for  item  in  self.ready:
-            item[0] = item[0]-1 ##esto no anda.. asique lo comento arriba
+        for  i,(priority,item)  in  enumerate(self.ready):
+            self.ready[i]=(priority-1,item)
     
 #i = ReadyQueuePriority()
 #i.put(PcbPriority('proceso',1,0,1,0,22))

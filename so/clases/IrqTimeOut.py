@@ -1,4 +1,4 @@
-from clases.IrqHandler import IrqHandler
+
 class IrqTimeOut:
     
     def __init__(self,process,irqHandler):
@@ -8,4 +8,4 @@ class IrqTimeOut:
 
 
     def processToReady(self):
-        self.IrqHandler.addToReady(self.process)
+        self.irqHandler.addToReady(self.process)

@@ -1,11 +1,12 @@
-from clases import SchedullingPolitic, Timer
+from clases.SchedullingPolitic import SchedullingPolitic 
+from clases.Timer import Timer
 
 
 class RoundRobin(SchedullingPolitic):
-    def __init__(self,quantum,queuesManager):
+    def __init__(self,quantum,queuesManager,cpu):
         self.quantum = quantum
         self.queuesManager = queuesManager
-        self.temp = Timer(self.quantum)
+        self.temp = Timer(self.quantum,cpu)
         
 
         
