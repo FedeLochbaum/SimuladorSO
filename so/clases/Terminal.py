@@ -42,9 +42,9 @@ class Terminal :
             elif(self.esShow(promp)):
                 print(open(self.contenidoDeShow(promp),"rb").read())
             elif(self.esLoad(promp)):
-                self.kernel.loadProgram(self.contenido(promp))
+                self.kernel.loadProgram(self.contenidoDeLoad(promp))
             elif(self.esRun(promp)):
-                self.kernel.runProgram(self.contenido(promp))
+                self.kernel.runProgram(self.contenidoDeRun(promp))
                 self.main()
             else :
                 print("error invalid command")
