@@ -1,12 +1,17 @@
-from queue import Queue
+from collections import deque
 class FIFOReadyQueue:
 
     def __init__(self):
-        self.readyQueue = Queue()
+        self.readyQueue = deque()
 
     def put(self,elemet):
-        self.readyQueue._put(elemet)
+        self.readyQueue.append(elemet)
 
-    def get(self,element):
-        self.readyQueue._get()
         
+    def next(self): 
+        return self.readyQueue.popleft()
+        
+    
+    
+
+   

@@ -10,10 +10,9 @@ class RoundRobin(SchedullingPolitic):
 
         
     def next(self):
-        first = self.queuesManager.getReadyQueue().first()
-        self.queuesManager.getReadyQueue().deque()
+        next = self.queuesManager.getReadyQueue().next()
         self.temp.restart()
-        return first
+        return next
 
 
         

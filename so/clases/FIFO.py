@@ -7,8 +7,6 @@ class FIFO(SchedullingPolitic):
 
 
     def next(self):
-        first = self.queuesManager.getReadyQueue().first()
-        self.queuesManager.getReadyQueue().deque()
-        return first
+        return self.queuesManager.getReadyQueue().next()
 
         
