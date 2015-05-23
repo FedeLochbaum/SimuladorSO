@@ -4,9 +4,9 @@ import time
 
 class Clock(Thread):
     
-    def __init__(self):
+    def __init__(self,cpu):
         Thread.__init__(self)
-        self.observers=[]
+        self.observers=[cpu]
     
     def registerObserver(self,observer):
         self.observers.append(observer)

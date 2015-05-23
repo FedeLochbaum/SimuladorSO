@@ -2,7 +2,7 @@ class Memory():
     
     
     def __init__(self,space):
-        self.instructions = dict()
+        self.instructions = {}
         self.freeSpace=space
     
     def put(self,celda,instruction):
@@ -18,7 +18,7 @@ class Memory():
 
     def get(self,cell):
         return self.instructions[cell]
-    
+        
     def getNextIndex(self):
         return self.instructions.__len__()+1
 

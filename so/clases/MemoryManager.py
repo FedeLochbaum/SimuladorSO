@@ -7,7 +7,7 @@ class MemoryManager:
         return self.memory
     
     def addinstructionsToMemory(self,program):
-        if(self.memory.freeSpace()>=program.getInstructionsCount()):       
+        if(self.memoryFree()>=program.getInstructionsCount()):       
             for instruction in program.getInstructions():
                 index=self.memory.getNextIndex() 
                 self.memory.put(index,instruction)
@@ -16,4 +16,4 @@ class MemoryManager:
             return False
     
     def memoryFree(self):
-        return self.memory.freeSpace()
+        return self.memory.freeSpace

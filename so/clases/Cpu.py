@@ -14,20 +14,22 @@ class Cpu:
 
 
     def fetch(self):
-        instruccionActual =  self.memory.get(self.pcb.getBaseDir()+self.pcb.getPc())
-        if(instruccionActual==None):
-            return;
-        self.pcb.incrementPc()
-        instruccionActual.execute()
-        if(self.pcb.getPc()==self.pcb.getFinalPc()):
-            self.irqHandler.handle(IrqKill())#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
-            self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
+        if(self.pcb != None):
+            instruccionActual =  self.memory.get(self.pcb.getBaseDir()+self.pcb.getPc())
+            if(instruccionActual==None):
+                return;
+            self.pcb.incrementPc()
+            instruccionActual.execute()
+            if(self.pcb.getPc()==self.pcb.getFinalPc()):
+                self.irqHandler.handle(IrqKill())#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
+                self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
+                
     def notify(self):
         self.fetch()   
 
     '''def decode(self):
         print("decode",self.instruccionActual)
-
+    
     def execute(self):
         print("execute", self.operacionActual)'''
                 ###  aca deberia ver que onda con la instruccion .. si es IO tiene que lanzar irqIO    ###

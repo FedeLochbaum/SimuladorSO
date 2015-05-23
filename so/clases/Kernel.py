@@ -9,11 +9,11 @@ class Kernel :
         self.memoryManager = memoryManager
         self.queuesManager=queuesManager
         self.pidGenerator = PidGenerator()
-        self.clock=Clock()
-        self.clock.start()
+        self.clock=Clock(self.cpu)
+        self.clock.run()
     
     def loadProgram(self,programName):
-        program = self.disk.getprogram(programName)
+        program = self.disk.getProgram(programName)
         if(program==None):
             return;
         if(not self.memoryManager.addinstructionsToMemory(program)):
@@ -27,10 +27,10 @@ class Kernel :
         if(self.cpu.noRunning()):
             self.cpu.setProcess(process)
         else:
-            self.memoryManager.getReadyQueue().add(process)
+            self.queuesManager.getReadyQueue().put(process)
 
     def generateProcess(self,program):
-        return Pcb(program.getName(),self.generadorDePid.generateNewPid(),0,program.getInstructionsCount(),self.memoryManager.getMemory().getNextIndex())
+        return Pcb(program.getName(),self.pidGenerator.generateNewPid(),0,program.getInstructionsCount(),self.memoryManager.getMemory().getNextIndex())
     
     def getClock(self):
         return self.clock
