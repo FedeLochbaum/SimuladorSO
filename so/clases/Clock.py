@@ -6,7 +6,8 @@ class Clock(Thread):
     
     def __init__(self,cpu):
         Thread.__init__(self)
-        self.observers=[cpu]
+        self.observers=[]
+        self.registerObserver(cpu)
     
     def registerObserver(self,observer):
         self.observers.append(observer)
@@ -16,7 +17,7 @@ class Clock(Thread):
             elem.notify()
     
     def run(self):
-        Thread.run(self)
+        #Thread.run(self)
         self.notifyObservers()
         time.sleep(1)
        

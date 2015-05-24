@@ -38,6 +38,9 @@ class Test(unittest.TestCase):
 
     def testClockCycle(self):
         self.assertTrue(self.kernel.getClock().is_alive())
+        self.assertTrue(self.kernel.loadProgram('cacho'))
+        self.assertTrue(self.kernel.runProgram('cacho'))
+        self.cpu.fetch()
         self.assertEquals(self.window.getCantContents(),1)
        
         

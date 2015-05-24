@@ -22,5 +22,5 @@ class Memory():
     def getNextIndex(self):
         return self.instructions.__len__()+1
 
-    def freeSpace(self):
+    def getFreeSpace(self):
         return self.freeSpace

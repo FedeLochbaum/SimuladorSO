@@ -10,10 +10,11 @@ class MemoryManager:
         if(self.memoryFree()>=program.getInstructionsCount()):       
             for instruction in program.getInstructions():
                 index=self.memory.getNextIndex() 
+                print(index)
                 self.memory.put(index,instruction)
             return True;   
         else:
             return False
     
     def memoryFree(self):
-        return self.memory.freeSpace
+        return self.memory.getFreeSpace()

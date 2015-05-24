@@ -4,6 +4,8 @@ from clases.IrqTimeOut import IrqTimeOut
 from clases.QueuesManager import QueuesManager
 from clases.ReadyQueuePriority import ReadyQueuePriority
 from clases.WaitingQueue import WaitingQueue
+
+
 class Cpu:
 
     def __init__(self,memory):
@@ -15,6 +17,7 @@ class Cpu:
 
     def fetch(self):
         if(self.pcb != None):
+            print(self.pcb.getBaseDir()+self.pcb.getPc())
             instruccionActual =  self.memory.get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return;
@@ -25,7 +28,7 @@ class Cpu:
                 self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
                 
     def notify(self):
-        self.fetch()   
+        self.fetch()  
 
     '''def decode(self):
         print("decode",self.instruccionActual)
