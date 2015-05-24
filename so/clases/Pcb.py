@@ -7,6 +7,11 @@ class Pcb:
         self.finalPc = finalPc
         self.baseDirection = baseDirection
         self.priority=priority*-1
+        
+    def __lt__(self, other):   
+        selfPriority = (self.priority, self.pid)
+        otherPriority = (other.priority, other.pid) 
+        return selfPriority < otherPriority
 
     def incrementPc(self):
         self.pc=self.pc+1
