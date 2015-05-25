@@ -6,7 +6,7 @@ class IrqHandler:
         
     def handle(self,irq):
         self.put(irq)
-        irq.execute()
+        #irq.execute()
     
     def put(self,irq):
         self.irqs.append(irq)

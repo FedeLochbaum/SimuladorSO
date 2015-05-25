@@ -16,18 +16,22 @@ class Cpu:
 
 
     def fetch(self):
+        print(self.pcb)
         if(self.pcb != None):
-            print(self.pcb.getBaseDir()+self.pcb.getPc())
+            print("BASE DIR+PC"+str(self.pcb.getBaseDir()+self.pcb.getPc()))
+            print("BASE DIR"+str(self.pcb.getBaseDir()))
             instruccionActual =  self.memory.get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return;
             self.pcb.incrementPc()
             instruccionActual.execute()
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
-                self.irqHandler.handle(IrqKill(self.irqHandler,self.pcb))
-                self.cleanRegisters()
+                self.irqHandler.handle(IrqKill())#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
+                #self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
+              
                 
     def notify(self):
+        #print("NOTIFICADO CPU")
         self.fetch()  
 
     '''def decode(self):

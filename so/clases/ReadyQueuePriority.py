@@ -1,8 +1,4 @@
-from heapq import heappush, heappop, heapify
-from queue import Queue
-
-from clases.Pcb import Pcb
-
+from heapq import heappop, heapify
 
 class ReadyQueuePriority:
     def __init__(self):

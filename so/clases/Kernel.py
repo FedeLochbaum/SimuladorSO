@@ -29,7 +29,7 @@ class Kernel :
         process= self.generateProcess(program)
         if(self.cpu.noRunning()):
             self.cpu.setProcess(process)
-            return True;
+            return not(self.cpu.noRunning());
         else:
             self.queuesManager.getReadyQueue().put(process)
             return False
