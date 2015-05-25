@@ -1,16 +1,12 @@
-from clases.IrqHandler import IrqHandler
-
 
 class IrqKill:
 
-    def __init__(self,IrqHandler,pcb):
-        pass
-        self.handler = IrqHandler
-        self.pcb = pcb
-        self.execute()
-    
+    def __init__(self,cpu):
+        self.cpu=cpu
+        
     def execute(self):
-        pass 
-        #TODO : aca decirle de alguna forma que la memoryManager borre todas las intrucciones de pcb
-        self.handler.next() #TODO : handler lo que hace aca es pedir el sig y asignarlo al cpu pero para eso.. deberia conocer al scheduller
+        memoryManager=self.cpu.getMemoryManager()
+        pcb=self.cpu.getPcb()
+        memoryManager.borrarRegistrosDe(pcb)
+        self.cpu.callNext() #TODO : handler lo que hace aca es pedir el sig y asignarlo al cpu pero para eso.. deberia conocer al scheduller
         

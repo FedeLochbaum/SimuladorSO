@@ -1,12 +1,13 @@
 class IrqHandler:
     
-    def __init__(self,queueManager):
+    def __init__(self,queueManager,schedullinPolitic):
         self.irqs=[]
         self.queueManager = queueManager
+        self.schedullingPolitic=schedullinPolitic
         
     def handle(self,irq):
         self.put(irq)
-        #irq.execute()
+        irq.execute()
     
     def put(self,irq):
         self.irqs.append(irq)
@@ -18,4 +19,7 @@ class IrqHandler:
         return self.irqs.__len__()
     
     def addToReady(self,process):
-        self.queueManager.getReadyQueue().put(process)#a observar.. puede ser mas simple
+        self.queueManager.putInReady(process)
+        
+    def getNext(self):
+        self.schedullingPolitic.next()

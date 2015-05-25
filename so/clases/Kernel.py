@@ -1,7 +1,6 @@
 from clases.PidGenerator import PidGenerator
 from clases.Pcb import Pcb
 from clases.Clock import Clock
-from _ast import Return
 
 class Kernel :
     def __init__(self,cpu,disk,memoryManager,queuesManager):

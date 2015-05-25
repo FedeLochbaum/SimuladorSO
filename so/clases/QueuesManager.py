@@ -12,4 +12,5 @@ class QueuesManager :
     def getWaitingQueue(self):
         return self.waitingQueue
     
-    
+    def putInReady(self,process):
+        self.readyQueue.put(process)

@@ -24,3 +24,9 @@ class Memory():
 
     def getFreeSpace(self):
         return self.freeSpace
+    
+    def borrarInstruccionesDe(self,pcb):
+        
+        for i in range(0,pcb.getPcFinal()):
+            print(i)
+            self.intructions[pcb.getBaseDir()+i]=None

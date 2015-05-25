@@ -1,17 +1,13 @@
 from clases.IrqHandler import IrqHandler
 from clases.IrqKill import IrqKill
 from clases.IrqTimeOut import IrqTimeOut
-from clases.QueuesManager import QueuesManager
-from clases.ReadyQueuePriority import ReadyQueuePriority
-from clases.WaitingQueue import WaitingQueue
-
 
 class Cpu:
 
-    def __init__(self,memory):
+    def __init__(self,memory, queuesManager):
         self.memory=memory
         self.pcb=None
-        self.irqHandler=IrqHandler(QueuesManager(ReadyQueuePriority(),WaitingQueue()))# esto es cualquiera  si ya hay una queueManager vos creas otra ?
+        self.irqHandler=IrqHandler(queuesManager)
        
 
 
@@ -26,8 +22,8 @@ class Cpu:
             self.pcb.incrementPc()
             instruccionActual.execute()
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
-                self.irqHandler.handle(IrqKill())#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
-                #self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
+                self.irqHandler.handle(IrqKill(self))#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
+                self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
               
                 
     def notify(self):
@@ -59,8 +55,8 @@ class Cpu:
     def noRunning(self):
         return self.pcb==None
 
-    def getMemory(self):
-        return self.memory
+    def getMemoryManager(self):
+        return self.memoryManager
     
     def getIrqHandler(self):
         return self.irqHandler
@@ -71,3 +67,8 @@ class Cpu:
         
     def cleanRegisters(self):
         self.pcb = None   
+    def getPcb(self):
+        return self.pcb
+    
+    def callNext(self):
+        self.pcb=self.irqHandler.getNext()

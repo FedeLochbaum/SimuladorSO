@@ -15,6 +15,10 @@ class MemoryManager:
             return True;   
         else:
             return False #TODO : aca deberia agergarlo a la cola WAITING
+                        # Fijate que son solo las instrucciones del pcb, y previamente en kenrel se agrego a ready, waiting o running
     
     def memoryFree(self):
         return self.memory.getFreeSpace()
+    
+    def borrarRegistrosDe(self,pcb):
+        self.memory.borrarInstruccionesDe(pcb)
