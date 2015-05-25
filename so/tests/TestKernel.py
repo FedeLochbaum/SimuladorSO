@@ -46,7 +46,7 @@ class Test(unittest.TestCase):
     def runTest(self):
         self.kernel.runProgram(self.program.getName())
         self.assertEqual(self.cpu.pcb,self.kernel.generateProcess(self.program))
-        #Resvisa el assert, estas comparando dos instancias distintas y ademas accedes sin getter.
+        
         
     def generateProcessTest(self):
         pcb=self.kernel.generateProcess(self.program)
@@ -68,7 +68,7 @@ class Test(unittest.TestCase):
 
 
     def funcionamientoTotalTest(self):
-        
+        pass
         
         
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ class Cpu:
     def __init__(self,memory):
         self.memory=memory
         self.pcb=None
-        self.irqHandler=IrqHandler(QueuesManager(ReadyQueuePriority(),WaitingQueue()))
+        self.irqHandler=IrqHandler(QueuesManager(ReadyQueuePriority(),WaitingQueue()))# esto es cualquiera  si ya hay una queueManager vos creas otra ?
        
 
 
@@ -24,8 +24,8 @@ class Cpu:
             self.pcb.incrementPc()
             instruccionActual.execute()
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
-                self.irqHandler.handle(IrqKill())#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
-                self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
+                self.irqHandler.handle(IrqKill(self.irqHandler,self.pcb))
+                self.cleanRegisters()
                 
     def notify(self):
         self.fetch()  
@@ -64,3 +64,6 @@ class Cpu:
     def timeOut(self):
         self.irqHandler.handle(IrqTimeOut(self.pcb,self.irqHandler))#TODO : creo que deberiamos pasarle el irqHandler a los irq para que desp les diga que hacer con el process
         self.cleanRegisters()
+        
+    def cleanRegisters(self):
+        self.pcb = None   

@@ -14,7 +14,7 @@ class MemoryManager:
                 self.memory.put(index,instruction)
             return True;   
         else:
-            return False
+            return False #TODO : aca deberia agergarlo a la cola WAITING
     
     def memoryFree(self):
         return self.memory.getFreeSpace()

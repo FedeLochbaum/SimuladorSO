@@ -83,9 +83,9 @@ class Test(unittest.TestCase):
         
         #con politicaFifo con prioridad
         self.assertEqual(self.politicaFifoPrioridad.next().getPriorityReal(),22)
+        self.assertEqual(self.politicaFifoPrioridad.next().getPriorityReal(),5)
         self.assertEqual(self.politicaFifoPrioridad.next().getPriorityReal(),4)
-        self.assertEqual(self.politicaFifoPrioridad.next().getPriorityReal(),3)
-        self.assertEqual(self.politicaFifoPrioridad.next().getPriorityReal(),1)
+        self.assertEqual(self.politicaFifoPrioridad.next().getPriorityReal(),2)
     
     def testNextPoliticaConReadyPrioridadRoundRobin(self):    
         self.colaReadyPrioridad.put(Pcb('proceso',1,0,1,0,22))
@@ -95,9 +95,9 @@ class Test(unittest.TestCase):
         
         #con politicaRoundRobin con prioridad
         self.assertEqual(self.politicaRRPrioridad.next().getPriorityReal(),22)
+        self.assertEqual(self.politicaRRPrioridad.next().getPriorityReal(),5)
         self.assertEqual(self.politicaRRPrioridad.next().getPriorityReal(),4)
-        self.assertEqual(self.politicaRRPrioridad.next().getPriorityReal(),3)
-        self.assertEqual(self.politicaRRPrioridad.next().getPriorityReal(),1)
+        self.assertEqual(self.politicaRRPrioridad.next().getPriorityReal(),2)
         
         
         
