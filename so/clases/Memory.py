@@ -27,6 +27,6 @@ class Memory():
     
     def borrarInstruccionesDe(self,pcb):
         
-        for i in range(0,pcb.getPcFinal()):
+        for i in range(0,pcb.getFinalPc()):
             print(i)
-            self.intructions[pcb.getBaseDir()+i]=None
+            self.instructions[pcb.getBaseDir()+i]=None

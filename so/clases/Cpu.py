@@ -16,7 +16,7 @@ class Cpu:
         if(self.pcb != None):
             print("BASE DIR+PC"+str(self.pcb.getBaseDir()+self.pcb.getPc()))
             print("BASE DIR"+str(self.pcb.getBaseDir()))
-            instruccionActual =  self.memoryManager.getMemory.get(self.pcb.getBaseDir()+self.pcb.getPc())
+            instruccionActual =  self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return;
             self.pcb.incrementPc()
