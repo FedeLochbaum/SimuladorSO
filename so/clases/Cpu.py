@@ -4,10 +4,10 @@ from clases.IrqTimeOut import IrqTimeOut
 
 class Cpu:
 
-    def __init__(self,memory, queuesManager):
+    def __init__(self,memory,irqHandler):
         self.memory=memory
         self.pcb=None
-        self.irqHandler=IrqHandler(queuesManager)
+        self.irqHandler=irqHandler
        
 
 

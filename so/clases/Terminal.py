@@ -1,16 +1,19 @@
 import os
 import re
-from clases.Window import Window
-from clases.Program import Program
-from clases.Disk import Disk
-from clases.Memory import Memory
+
+from clases.FIFO import FIFO
+from clases.IrqHandler import IrqHandler
 from clases.Cpu import Cpu
-from clases.MemoryManager import MemoryManager
+from clases.Disk import Disk
 from clases.Instruction import Instruction
-from clases.WaitingQueue import WaitingQueue
-from clases.QueuesManager import QueuesManager
 from clases.Kernel import Kernel
+from clases.Memory import Memory
+from clases.MemoryManager import MemoryManager
+from clases.Program import Program
+from clases.QueuesManager import QueuesManager
 from clases.ReadyQueuePriority import ReadyQueuePriority
+from clases.WaitingQueue import WaitingQueue
+from clases.Window import Window
 
 
 class Terminal :
@@ -99,9 +102,11 @@ disk.addProgram(program3)
 disk.addProgram(program4)
 memory = Memory(200)
 memoryManager = MemoryManager(memory)
-cpu = Cpu(memory)
 readyQueue = ReadyQueuePriority()
 waitingQueue = WaitingQueue()
 queuesManager = QueuesManager(readyQueue,waitingQueue)
+politicaFIFO = FIFO(queuesManager)
+irqHandler = IrqHandler(politicaFIFO)
+cpu = Cpu(memory,irqHandler)
 kernel=Kernel(cpu,disk,memoryManager,queuesManager)
 terminal = Terminal(kernel)

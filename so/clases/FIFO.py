@@ -9,4 +9,5 @@ class FIFO(SchedullingPolitic):
     def next(self):
         return self.queuesManager.getReadyQueue().next()
 
-        
+    def getqueuesManager(self):
+        return self.queuesManager    

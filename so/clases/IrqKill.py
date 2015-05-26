@@ -3,10 +3,11 @@ class IrqKill:
 
     def __init__(self,cpu):
         self.cpu=cpu
+        self.execute()
         
     def execute(self):
-        memoryManager=self.cpu.getMemoryManager()
+        memoryManager=self.cpu.getMemoryManager()#BARDEASTE EL CPU CONOCE  ALA MEMORY N A LA MANAGER
         pcb=self.cpu.getPcb()
         memoryManager.borrarRegistrosDe(pcb)
-        self.cpu.callNext() #TODO : handler lo que hace aca es pedir el sig y asignarlo al cpu pero para eso.. deberia conocer al scheduller
+        self.cpu.callNext()
         
