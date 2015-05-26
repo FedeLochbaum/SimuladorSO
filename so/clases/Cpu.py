@@ -4,8 +4,8 @@ from clases.IrqTimeOut import IrqTimeOut
 
 class Cpu:
 
-    def __init__(self,memory,irqHandler):
-        self.memory=memory
+    def __init__(self,memoryManager,irqHandler):
+        self.memory=memoryManager
         self.pcb=None
         self.irqHandler=irqHandler
        
@@ -16,7 +16,7 @@ class Cpu:
         if(self.pcb != None):
             print("BASE DIR+PC"+str(self.pcb.getBaseDir()+self.pcb.getPc()))
             print("BASE DIR"+str(self.pcb.getBaseDir()))
-            instruccionActual =  self.memory.get(self.pcb.getBaseDir()+self.pcb.getPc())
+            instruccionActual =  self.memoryManager.getMemory.get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return;
             self.pcb.incrementPc()
