@@ -4,15 +4,14 @@ import unittest
 from clases.ReadyQueuePriority import ReadyQueuePriority
 from clases.WaitingQueue import WaitingQueue 
 from clases.QueuesManager import QueuesManager
+from clases.MemoryManager import MemoryManager
 from clases.Cpu import Cpu
 from clases.Disk import Disk
-from clases.FIFO import FIFO
 from clases.FIFO import FIFO
 from clases.Instruction import Instruction
 from clases.IrqHandler import IrqHandler
 from clases.Kernel import Kernel
 from clases.Memory import Memory
-from clases.MemoryManager import MemoryManager
 from clases.Program import Program
 from clases.Window import Window
 

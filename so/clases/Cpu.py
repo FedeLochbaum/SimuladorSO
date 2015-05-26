@@ -5,7 +5,7 @@ from clases.IrqTimeOut import IrqTimeOut
 class Cpu:
 
     def __init__(self,memoryManager,irqHandler):
-        self.memory=memoryManager
+        self.memoryManager=memoryManager
         self.pcb=None
         self.irqHandler=irqHandler
        

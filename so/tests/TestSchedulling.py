@@ -12,7 +12,6 @@ from clases.WaitingQueue import WaitingQueue
 
 
 class Test(unittest.TestCase):
-    cpu=Cpu(Memory(10))
     adminDeColasConcolaReadyFifo = None
     adminDecolaReadyPrioridad = None
     

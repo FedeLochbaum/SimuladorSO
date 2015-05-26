@@ -6,7 +6,12 @@ from clases.Instruction import Instruction
 from clases.Memory import Memory
 from clases.Window import Window
 from clases.IrqKill import IrqKill
-
+from clases.ReadyQueuePriority import ReadyQueuePriority
+from clases.WaitingQueue import WaitingQueue 
+from clases.QueuesManager import QueuesManager
+from clases.MemoryManager import MemoryManager
+from clases.FIFO import FIFO
+from clases.IrqHandler import IrqHandler
 
 class TestCpu(unittest.TestCase):
     cpu=None
@@ -21,7 +26,13 @@ class TestCpu(unittest.TestCase):
         self.inst=Instruction('hola',self.window)
         self.mem=Memory(20)
         self.mem.put(0, self.inst)
-        self.cpu=Cpu(self.mem)
+        self.readyQueue = ReadyQueuePriority()
+        self.waitingQueue = WaitingQueue()
+        self.queuesManager = QueuesManager(self.readyQueue,self.waitingQueue)
+        self.politicaFIFO = FIFO(self.queuesManager)
+        self.irqHandler = IrqHandler(self.politicaFIFO)
+        self.memoryManager = MemoryManager(self.mem)
+        self.cpu=Cpu(self.memoryManager,self.irqHandler)
         
         
 
