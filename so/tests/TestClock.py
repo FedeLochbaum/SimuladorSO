@@ -1,9 +1,15 @@
 
 import unittest
 
+from clases.ReadyQueuePriority import ReadyQueuePriority
+from clases.WaitingQueue import WaitingQueue 
+from clases.QueuesManager import QueuesManager
 from clases.Cpu import Cpu
 from clases.Disk import Disk
+from clases.FIFO import FIFO
+from clases.FIFO import FIFO
 from clases.Instruction import Instruction
+from clases.IrqHandler import IrqHandler
 from clases.Kernel import Kernel
 from clases.Memory import Memory
 from clases.MemoryManager import MemoryManager
@@ -31,8 +37,13 @@ class Test(unittest.TestCase):
         self.disk=Disk()
         self.disk.addProgram(self.program)
         self.memory = Memory(20)
+        self.readyQueue = ReadyQueuePriority()
+        self.waitingQueue = WaitingQueue()
+        self.queuesManager = QueuesManager(self.readyQueue,self.waitingQueue)
+        self.politicaFIFO = FIFO(self.queuesManager)
+        self.irqHandler = IrqHandler(self.politicaFIFO)
         self.memoryManager = MemoryManager(self.memory)
-        self.cpu = Cpu(self.memory)
+        self.cpu = Cpu(self.memoryManager,self.irqHandler)
         self.kernel=Kernel(self.cpu,self.disk,self.memoryManager,self.queuesManager)
 
 
