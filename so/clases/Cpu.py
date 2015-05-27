@@ -1,4 +1,3 @@
-from clases.IrqHandler import IrqHandler
 from clases.IrqKill import IrqKill
 from clases.IrqTimeOut import IrqTimeOut
 

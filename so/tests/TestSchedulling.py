@@ -9,6 +9,9 @@ from clases.QueuesManager import QueuesManager
 from clases.ReadyQueuePriority import ReadyQueuePriority
 from clases.RoundRobin import RoundRobin
 from clases.WaitingQueue import WaitingQueue
+from clases.Timer import Timer
+from clases.MemoryManager import MemoryManager
+from clases.IrqHandler import IrqHandler
 
 
 class Test(unittest.TestCase):
@@ -26,9 +29,22 @@ class Test(unittest.TestCase):
     politicaFifoPrioridad = None
     politicaRRPrioridad = None
     
-     
+    temp=None
+    temp2=None
+    cpu=None
+    memory=None
+    memoryManager=None
+    irqHandler=None
+    irqHandler2=None
      
     def setUp(self):
+        self.memory=Memory(20)
+        self.memoryManager=MemoryManager(self.memory)
+        self.cpu=Cpu(self.memoryManager,self.irqHandler)
+        self.irqHandler=IrqHandler(self.politicaRoundRobin)
+        self.irqHandler2=IrqHandler(self.politicaRRPrioridad)
+        self.temp=Timer(self.irqHandler)
+        self.temp2=Timer(self.irqHandler2)
         self.colaReadyFifo = FIFOReadyQueue()
         self.colaReadyPrioridad = ReadyQueuePriority()
          
@@ -39,10 +55,10 @@ class Test(unittest.TestCase):
         
  
         self.politicaFifo = FIFO(self.adminDeColasConcolaReadyFifo)
-        self.politicaRoundRobin = RoundRobin(3,self.adminDeColasConcolaReadyFifo,self.cpu)
+        self.politicaRoundRobin = RoundRobin(3,self.adminDeColasConcolaReadyFifo,self.cpu,self.temp)
          
         self.politicaFifoPrioridad =FIFO(self.adminDecolaReadyPrioridad)
-        self.politicaRRPrioridad = RoundRobin(3,self.adminDecolaReadyPrioridad,self.cpu)
+        self.politicaRRPrioridad = RoundRobin(3,self.adminDecolaReadyPrioridad,self.cpu,self.temp2)
         
         
         
