@@ -54,7 +54,7 @@ class Test(unittest.TestCase):
 
     def runTest(self):
         self.kernel.runProgram(self.program.getName())
-        self.assertEqual(self.cpu.pcb,self.kernel.generateProcess(self.program))
+        self.assertEqual(self.cpu.pcb.getName(),self.kernel.generateProcess(self.program).getName())
         
         
     def generateProcessTest(self):
