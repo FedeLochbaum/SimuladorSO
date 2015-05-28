@@ -1,11 +1,12 @@
 
 class IrqTimeOut:
     
-    def __init__(self,process,irqHandler):
-        self.process = process
-        self.irqHandler = irqHandler
+    def __init__(self,cpu):
+        self.cpu = cpu
         self.processToReady()
 
 
     def processToReady(self):
-        self.irqHandler.addToReady(self.process)
+        process = self.cpu.getPcb()
+        self.cpu.getIrqHandler().addToReady(process)
+        self.cpu.callNext()

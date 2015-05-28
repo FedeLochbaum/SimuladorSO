@@ -1,3 +1,4 @@
+from clases.IrqHandler import IrqHandler
 from clases.IrqKill import IrqKill
 from clases.IrqTimeOut import IrqTimeOut
 
@@ -17,12 +18,12 @@ class Cpu:
             print("BASE DIR"+str(self.pcb.getBaseDir()))
             instruccionActual =  self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
-                return;
+                return; #falta revisar si la instruccion es IO 
             self.pcb.incrementPc()
             instruccionActual.execute()
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
-                self.irqHandler.handle(IrqKill(self))#el irqKill tiene que borrar las instrucciones de memoria del proceso actual
-                self.cleanRegisters()#falta hacerla .. deberia organizar tood para un nuevo proceso
+                self.irqHandler.handle(IrqKill(self))
+                self.cleanRegisters()
               
                 
     def notify(self):
@@ -61,11 +62,12 @@ class Cpu:
         return self.irqHandler
 
     def timeOut(self):
-        self.irqHandler.handle(IrqTimeOut(self.pcb,self.irqHandler))#TODO : creo que deberiamos pasarle el irqHandler a los irq para que desp les diga que hacer con el process
+        self.irqHandler.handle(IrqTimeOut(self))
         self.cleanRegisters()
         
     def cleanRegisters(self):
         self.pcb = None   
+        
     def getPcb(self):
         return self.pcb
     
