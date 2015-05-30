@@ -26,5 +26,7 @@ class Clock(Thread):
         time.sleep(1)
         
     def start(self):
-        while(self.RUNNING):
+        #while(self.RUNNING):
             self.run()
+            
+            

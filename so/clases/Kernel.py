@@ -28,11 +28,9 @@ class Kernel :
         process= self.getProcess(programName)
         if(self.cpu.noRunning()):
             self.cpu.setProcess(process)
-            print("agrego a cpu")
-            return not(self.cpu.noRunning());#que carajo?
+            return True;
         else:
             self.queuesManager.getReadyQueue().put(process)
-            print("agrego en ready")
             return False
 
     def generateProcess(self,program):
