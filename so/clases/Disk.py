@@ -1,23 +1,23 @@
-from clases.Program import Program
-from _overlapped import NULL
+
 class Disk:
 
     def __init__(self):
-        self.programas = {}
+        self.programs = {}
 
     def getProgram(self,programName):
-        if(self.programas[programName] == NULL):
+        if(self.programs[programName] == None):
             print('no existe ese programa en el Disco')
-        return self.programas[programName]  
+            return;
+        return self.programs[programName]  
     
     def indexProgram(self, nameProgram):
         return self.programs.index(self.returnProgram(nameProgram))#nose que carajo es esto 
 
     def addProgram(self,program):
-            self.programas[program.getName()] = program
+            self.programs[program.getName()] = program
 
     def removeProgram(self, nameProgram):
-            self.programas[nameProgram] = None
+            self.programs[nameProgram] = None
             
     def getProgramas(self):
         return self.programs

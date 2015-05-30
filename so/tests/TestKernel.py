@@ -49,12 +49,14 @@ class Test(unittest.TestCase):
 
     def loadTest(self):
         self.disk.addProgram(self.program)
-        self.kernel.loadProgram(self.program)
+        self.kernel.loadProgram(self.program.getName())
         self.assertEqual(self.memory.freeSpace,19)
 
 
 
     def runTest(self):
+        self.disk.addProgram(self.program)
+        self.kernel.loadProgram(self.program.getName())
         self.kernel.runProgram(self.program.getName())
         self.assertEqual(self.cpu.pcb.getName(),self.kernel.generateProcess(self.program).getName())
         

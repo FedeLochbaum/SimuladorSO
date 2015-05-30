@@ -18,7 +18,7 @@ class Clock(Thread):
     def notifyObservers(self):
         for elem in self.observers:
             elem.notify()
-            #print("NOTIFICADO")
+            print("NOTIFICADO")
     
     def run(self):
         #Thread.run(self)
@@ -26,7 +26,6 @@ class Clock(Thread):
         time.sleep(1)
         
     def start(self):
-        #while(self.RUNNING):
-            self.run()
+        Thread.start(self)
             
             
