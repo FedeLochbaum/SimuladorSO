@@ -1,6 +1,8 @@
 from clases.IrqHandler import IrqHandler
 from clases.IrqKill import IrqKill
 from clases.IrqTimeOut import IrqTimeOut
+from clases.IrqIO import IrqIO
+
 
 class Cpu:
 
@@ -14,14 +16,17 @@ class Cpu:
     def fetch(self):
         print(self.pcb)
         if(self.pcb != None):
-            print("BASE DIR+PC"+str(self.pcb.getBaseDir()+self.pcb.getPc()))
-            print("BASE DIR"+str(self.pcb.getBaseDir()))
+            #print("BASE DIR+PC"+str(self.pcb.getBaseDir()+self.pcb.getPc()))
+            #print("BASE DIR"+str(self.pcb.getBaseDir()))
             instruccionActual =  self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
-                return; #falta revisar si la instruccion es IO 
+                return; 
             self.pcb.incrementPc()
             instruccionActual.execute()
-            if(self.pcb.getPc()==self.pcb.getFinalPc()):
+            if(instruccionActual.isIO()):
+                self.irqHandler.handle(IrqIO(self))
+                self.cleanRegisters()
+            elif(self.pcb.getPc()==self.pcb.getFinalPc()):
                 self.irqHandler.handle(IrqKill(self))
                 self.cleanRegisters()
               

@@ -21,5 +21,8 @@ class IrqHandler:
     def addToReady(self,process):
         self.queueManager.putInReady(process)
         
+    def addtoIOQueue(self,process):
+        self.queueManager.getIOQueue().add(process)
+        
     def getNext(self):
         self.schedullingPolitic.next()

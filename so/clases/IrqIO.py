@@ -3,6 +3,12 @@ from clases import Irq
 
 class IrqIO(Irq):
     
-    def __init__(self):
-        pass
+    def __init__(self,cpu):
+        self.cpu =cpu
+        
+        
+    def execute(self):
+        pcb = self.cpu.getPcb()
+        self.cpu.getIrqHandler().addtoIOQueue(pcb)
+        self.cpu.callNext()    
 

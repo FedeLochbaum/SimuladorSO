@@ -1,4 +1,4 @@
-class ColaWaitingIO:
+class IoWaitingQueue:
 
     def __init__(self):
         self.waiting = []

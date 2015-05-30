@@ -12,7 +12,7 @@ from clases.WaitingQueue import WaitingQueue
 from clases.Timer import Timer
 from clases.MemoryManager import MemoryManager
 from clases.IrqHandler import IrqHandler
-
+from clases.IoWaitingQueue import IoWaitingQueue
 
 class Test(unittest.TestCase):
     adminDeColasConcolaReadyFifo = None
@@ -49,9 +49,10 @@ class Test(unittest.TestCase):
         self.colaReadyPrioridad = ReadyQueuePriority()
          
         self.colaWaiting = WaitingQueue()
+        self.ioWaitingQueue =IoWaitingQueue() 
          
-        self.adminDecolaReadyPrioridad = QueuesManager(self.colaReadyPrioridad,self.colaWaiting)
-        self.adminDeColasConcolaReadyFifo = QueuesManager(self.colaReadyFifo,self.colaWaiting)
+        self.adminDecolaReadyPrioridad = QueuesManager(self.colaReadyPrioridad,self.colaWaiting,self.ioWaitingQueue)
+        self.adminDeColasConcolaReadyFifo = QueuesManager(self.colaReadyFifo,self.colaWaiting,self.ioWaitingQueue)
         
  
         self.politicaFifo = FIFO(self.adminDeColasConcolaReadyFifo)

@@ -13,4 +13,6 @@ class InstructionIO(Instruction):
         self.answer = answer    
         
         
+    def isIO(self):
+        return True
     

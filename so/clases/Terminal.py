@@ -14,6 +14,7 @@ from clases.QueuesManager import QueuesManager
 from clases.ReadyQueuePriority import ReadyQueuePriority
 from clases.WaitingQueue import WaitingQueue
 from clases.Window import Window
+from clases.IoWaitingQueue import IoWaitingQueue
 
 
 class Terminal :
@@ -102,9 +103,10 @@ disk.addProgram(program3)
 disk.addProgram(program4)
 memory = Memory(200)
 memoryManager = MemoryManager(memory)
+ioWaitingQueue = IoWaitingQueue()
 readyQueue = ReadyQueuePriority()
 waitingQueue = WaitingQueue()
-queuesManager = QueuesManager(readyQueue,waitingQueue)
+queuesManager = QueuesManager(readyQueue,waitingQueue,ioWaitingQueue)
 politicaFIFO = FIFO(queuesManager)
 irqHandler = IrqHandler(politicaFIFO)
 cpu = Cpu(memoryManager,irqHandler)

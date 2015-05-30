@@ -12,6 +12,7 @@ from clases.IrqHandler import IrqHandler
 from clases.QueuesManager import QueuesManager
 from clases.ReadyQueuePriority import ReadyQueuePriority
 from clases.WaitingQueue import WaitingQueue 
+from clases.IoWaitingQueue import IoWaitingQueue
 
 
 
@@ -36,9 +37,10 @@ class Test(unittest.TestCase):
         self.disk.addProgram(self.program)
         self.memory = Memory(20)
         self.readyQueue = ReadyQueuePriority()
+        self.ioWaitingQueue =IoWaitingQueue()
         self.waitingQueue = WaitingQueue()
         self.memoryManager = MemoryManager(self.memory)
-        self.queuesManager = QueuesManager(self.readyQueue,self.waitingQueue)
+        self.queuesManager = QueuesManager(self.readyQueue,self.waitingQueue,self.ioWaitingQueue)
         self.politicaFIFO = FIFO(self.queuesManager)
         self.irqHandler = IrqHandler(self.politicaFIFO)
         self.cpu=Cpu(self.memoryManager,self.irqHandler)

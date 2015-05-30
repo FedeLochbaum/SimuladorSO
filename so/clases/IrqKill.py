@@ -2,8 +2,8 @@
 class IrqKill:
 
     def __init__(self,cpu):
-        self.cpu=cpu
-        
+        self.cpu=cpu       
+
         
     def execute(self):
         memoryManager=self.cpu.getMemoryManager()

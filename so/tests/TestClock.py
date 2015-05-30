@@ -14,7 +14,7 @@ from clases.Kernel import Kernel
 from clases.Memory import Memory
 from clases.Program import Program
 from clases.Window import Window
-
+from clases.IoWaitingQueue import IoWaitingQueue
 
 class Test(unittest.TestCase):
     
@@ -37,8 +37,9 @@ class Test(unittest.TestCase):
         self.disk.addProgram(self.program)
         self.memory = Memory(20)
         self.readyQueue = ReadyQueuePriority()
+        self.ioWaitingQueue = IoWaitingQueue()
         self.waitingQueue = WaitingQueue()
-        self.queuesManager = QueuesManager(self.readyQueue,self.waitingQueue)
+        self.queuesManager = QueuesManager(self.readyQueue,self.waitingQueue,self.ioWaitingQueue)
         self.politicaFIFO = FIFO(self.queuesManager)
         self.irqHandler = IrqHandler(self.politicaFIFO)
         self.memoryManager = MemoryManager(self.memory)

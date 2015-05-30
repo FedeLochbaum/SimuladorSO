@@ -12,6 +12,7 @@ from clases.QueuesManager import QueuesManager
 from clases.MemoryManager import MemoryManager
 from clases.FIFO import FIFO
 from clases.IrqHandler import IrqHandler
+from clases.IoWaitingQueue import IoWaitingQueue
 
 class TestCpu(unittest.TestCase):
     cpu=None
@@ -29,10 +30,11 @@ class TestCpu(unittest.TestCase):
         self.mem=Memory(20)
         self.mem.put(0, self.inst)
         self.readyQueue = ReadyQueuePriority()
+        self.ioWaitingQueue =IoWaitingQueue()
         self.readyQueue.put(self.pcb2)
         self.readyQueue.put(self.pcb3)
         self.waitingQueue = WaitingQueue()
-        self.queuesManager = QueuesManager(self.readyQueue,self.waitingQueue)
+        self.queuesManager = QueuesManager(self.readyQueue,self.waitingQueue,self.ioWaitingQueue)
         self.politicaFIFO = FIFO(self.queuesManager)
         self.irqHandler = IrqHandler(self.politicaFIFO)
         self.memoryManager = MemoryManager(self.mem)
