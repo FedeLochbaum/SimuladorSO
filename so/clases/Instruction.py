@@ -9,3 +9,6 @@ class Instruction:
         
     def getMessage(self):
         return self.message
+    
+    def isIO(self):
+        return False

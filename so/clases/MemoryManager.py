@@ -10,7 +10,6 @@ class MemoryManager:
         if(self.memoryFree()>=program.getInstructionsCount()):       
             for instruction in program.getInstructions():
                 index=self.memory.getNextIndex() 
-                print(index)
                 self.memory.put(index,instruction)
             return True;   
         else:

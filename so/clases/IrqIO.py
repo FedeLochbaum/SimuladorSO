@@ -1,8 +1,7 @@
 from clases import Irq
 
 
-class IrqIO(Irq):
-    
+class IrqIO:
     def __init__(self,cpu):
         self.cpu =cpu
         

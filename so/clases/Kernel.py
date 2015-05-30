@@ -11,26 +11,28 @@ class Kernel :
         self.pidGenerator = PidGenerator()
         self.clock=Clock(self.cpu)
         self.clock.start()
+        self.process = {}
     
     def loadProgram(self,programName):
         program = self.disk.getProgram(programName)
+        process = self.generateProcess(program)
         if(program==None):
             return;
         if(not self.memoryManager.addinstructionsToMemory(program)):
-            self.queuesManager.getWaitingQueue().add(self.generateProcess(program))
+            self.queuesManager.getWaitingQueue().add(process)
             return False
+        self.addProcess(process)
         return True
 
     def runProgram(self,programName):
-        program = self.disk.getProgram(programName)
-        if(program==None):
-            return;
-        process= self.generateProcess(program)
+        process= self.getProcess(programName)
         if(self.cpu.noRunning()):
             self.cpu.setProcess(process)
+            print("agrego a cpu")
             return not(self.cpu.noRunning());#que carajo?
         else:
             self.queuesManager.getReadyQueue().put(process)
+            print("agrego en ready")
             return False
 
     def generateProcess(self,program):
@@ -43,3 +45,9 @@ class Kernel :
     
     def getClock(self):
         return self.clock
+    
+    def addProcess(self,process):
+        self.process[process.getName()] = process
+        
+    def getProcess(self,nameProcess):
+        return self.process[nameProcess]

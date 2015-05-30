@@ -14,7 +14,6 @@ class Cpu:
 
 
     def fetch(self):
-        print(self.pcb)
         if(self.pcb != None):
             #print("BASE DIR+PC"+str(self.pcb.getBaseDir()+self.pcb.getPc()))
             #print("BASE DIR"+str(self.pcb.getBaseDir()))

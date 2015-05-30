@@ -25,6 +25,6 @@ class Clock(Thread):
         self.notifyObservers()
         time.sleep(1)
         
-    #def start(self):
-        #while(self.RUNNING):
-            #self.run()
+    def start(self):
+        while(self.RUNNING):
+            self.run()
