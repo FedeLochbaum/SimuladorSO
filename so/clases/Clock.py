@@ -25,7 +25,9 @@ class Clock(Thread):
         self.notifyObservers()
         time.sleep(1)
         
+        
     def start(self):
         Thread.start(self)
+        
             
             

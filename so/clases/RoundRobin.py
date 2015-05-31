@@ -14,5 +14,7 @@ class RoundRobin(SchedullingPolitic):
         self.temp.restart()
         return nextP
 
-
+    def getqueuesManager(self):
+        return self.queuesManager
         
+    

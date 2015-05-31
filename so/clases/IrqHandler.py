@@ -2,7 +2,7 @@ class IrqHandler:
     
     def __init__(self,schedullinPolitic):
         self.irqs=[]
-        self.queueManager = schedullinPolitic.getqueuesManager
+        self.queueManager = schedullinPolitic.getqueuesManager()
         self.schedullingPolitic=schedullinPolitic
         
     def handle(self,irq):
