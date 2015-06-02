@@ -9,7 +9,8 @@ class FIFOReadyQueue:
 
         
     def next(self): 
-        return self.readyQueue.popleft()
+        if(self.readyQueue.__len__()>0):
+            return self.readyQueue.popleft()
         
     
     

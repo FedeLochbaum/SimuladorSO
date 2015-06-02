@@ -9,9 +9,10 @@ class ReadyQueuePriority:
         heapify (self.ready)
 
     def next(self):
-        resultado = heappop(self.ready)[1]
-        self.envejecerHeap()
-        return resultado
+        if(self.ready.__len__()>0):
+            resultado = heappop(self.ready)[1]
+            self.envejecerHeap()
+            return resultado
     
     def envejecerHeap(self):
         for  i,(priority,item)  in  enumerate(self.ready):

@@ -18,15 +18,16 @@ class Cpu:
             instruccionActual =  self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return; 
-            self.pcb.incrementPc()
             instruccionActual.execute()
             if(instruccionActual.isIO()):
                 self.irqHandler.handle(IrqIO(self))
                 self.cleanRegisters()
-            elif(self.pcb.getPc()==self.pcb.getFinalPc()):
+                return;
+            if(self.pcb.getPc()==self.pcb.getFinalPc()):
                 self.irqHandler.handle(IrqKill(self))
                 self.cleanRegisters()
-              
+                return;
+            self.pcb.incrementPc()
                 
     def notify(self):
         self.fetch()  
@@ -67,7 +68,7 @@ class Cpu:
         self.cleanRegisters()
         
     def cleanRegisters(self):
-        self.pcb = None   
+        self.pcb = None 
         
     def getPcb(self):
         return self.pcb
