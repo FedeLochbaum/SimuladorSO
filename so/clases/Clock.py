@@ -1,14 +1,15 @@
-from threading import Thread
+import threading  
 import time
+import sys
 
 
 
-
-class Clock(Thread):
+class Clock(threading.Thread):
     
     def __init__(self,cpu):
-        Thread.__init__(self)
+        threading.Thread.__init__(self)
         self.observers=[]
+        self.stoprequest = threading.Event()
         self.registerObserver(cpu)
         self.RUNNING=True
     
@@ -18,16 +19,15 @@ class Clock(Thread):
     def notifyObservers(self):
         for elem in self.observers:
             elem.notify()
-            print("NOTIFICADO")
+            
     
     def run(self):
-        #Thread.run(self)
-        self.notifyObservers()
-        time.sleep(1)
-        
-        
-    def start(self):
-        Thread.start(self)
-        
+        while self.RUNNING:
             
+            self.notifyObservers()
+            sys.stdout.flush()
+            time.sleep(1)
+        
+        
+        
             

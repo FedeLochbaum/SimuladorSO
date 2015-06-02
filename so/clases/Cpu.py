@@ -15,8 +15,6 @@ class Cpu:
 
     def fetch(self):
         if(self.pcb != None):
-            #print("BASE DIR+PC"+str(self.pcb.getBaseDir()+self.pcb.getPc()))
-            #print("BASE DIR"+str(self.pcb.getBaseDir()))
             instruccionActual =  self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return; 
@@ -31,7 +29,6 @@ class Cpu:
               
                 
     def notify(self):
-        #print("NOTIFICADO CPU")
         self.fetch()  
 
     '''def decode(self):
