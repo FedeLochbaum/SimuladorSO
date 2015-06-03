@@ -31,6 +31,9 @@ class Pcb:
     def getBaseDir(self):
         return self.baseDirection
     
+    def getInstructionsCount(self):
+        return self.finalPc+1
+    
     def getPriority(self):
         return self.priority
     
