@@ -1,8 +1,4 @@
-'''
-Created on 3/6/2015
 
-@author: game
-'''
 import unittest
 
 from clases.Cpu import Cpu
