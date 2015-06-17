@@ -15,6 +15,8 @@ from clases.ReadyQueuePriority import ReadyQueuePriority
 from clases.WaitingQueue import WaitingQueue
 from clases.Window import Window
 from clases.IoWaitingQueue import IoWaitingQueue
+from logging import NullHandler
+import logging
 
 
 class Terminal :
@@ -22,21 +24,54 @@ class Terminal :
             os.chdir("C:/")
             self.ubicacion = os.getcwd()
             self.kernel = kernel
+            self.usser = NullHandler
+            self.usuarios = {}
+            self.usuarios["fede"] = "fede"
             self.main()
+            
             
 
         def main(self):
             self.ubicacion = os.getcwd()
-            prompt = '> '
-            promp = input (self.ubicacion + prompt)
-            if (promp == "fin"):
-                    self.finalizarTerminal()
+            if(self.estaLogeado()):
+                self.arrancarSo()
             else:
-                    self.ejecutarComand(promp)
+                self.loggin()
+                self.main()
 
+        
+        def arrancarSo(self):
+            prompt = '>'
+            promp = input (self.ubicacion + prompt)
+            
+            if (promp == "fin"):
+                self.finalizarTerminal()
+            else:
+                self.ejecutarComand(promp)
+            
+        def estaLogeado(self):
+            return self.usser != NullHandler
+        
+        def loggin(self):
+            prompt = 'usuario:'
+            prompt = input(prompt)
+            nombreUsuario = self.logginDe(prompt)
+            prompt = 'password:'
+            prompt = input(prompt)
+            passDeUsuario = self.logginDe(prompt)
+            self.verificarUsuarioYPassword(nombreUsuario,passDeUsuario)
 
         def finalizarTerminal(self):
             print ("se finalizo la terminal")
+            
+        def verificarUsuarioYPassword(self,usuario,password):
+            if(self.usuarios.get(usuario) == password):
+                print ("bienvenido")
+                self.usser = usuario
+                self.arrancarSo()
+            else:
+                print("Usuario o Contrasenia incorrecta")
+                self.main()
 
         def ejecutarComand(self,promp):
             if(self.esCD(promp) and os.path.exists(self.contenidoDeCd(promp))):
@@ -56,7 +91,7 @@ class Terminal :
             self.main()
 
         def  esCD(self,promp):
-            esCD = re.compile("cd")
+            esCD = re.compile("cd  ")
             return esCD.match(promp)
 
         def  esLoad(self,promp):
@@ -64,7 +99,7 @@ class Terminal :
             return esCD.match(promp)
 
         def  esRun(self,promp):
-            esCD = re.compile("run")
+            esCD = re.compile("run ")
             return esCD.match(promp)
 
         def esLs(self,promp):
@@ -76,7 +111,7 @@ class Terminal :
             return esShow.match(promp)
 
         def contenidoDeCd(self,promp):
-            return promp[3:100]
+            return promp[5:100]
 
         def contenidoDeLoad(self,promp):
             return promp[5:100]
@@ -86,6 +121,9 @@ class Terminal :
 
         def contenidoDeShow(self,promp):
             return promp[5:100]
+        
+        def logginDe(self,promp):
+            return promp[0:100]
 
 
 window=Window()
