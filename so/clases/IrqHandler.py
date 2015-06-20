@@ -1,13 +1,22 @@
+from clases.RoutineKill import RoutineKill
+from clases.RoutineIO import RoutineIO
+from clases.RoutineIOFinish import RoutineIOFinish
+from clases.RoutineNewprocess import RoutineNewprocess
+from clases.RoutineTimeout import RoutineTimeout
+
+
 class IrqHandler:
     
-    def __init__(self,schedullinPolitic):
+    def __init__(self,schedullingPolitic):
         self.irqs=[]
-        self.queueManager = schedullinPolitic.getqueuesManager()
-        self.schedullingPolitic=schedullinPolitic
+        self.routines=[RoutineKill(),RoutineTimeout(),RoutineNewprocess(),RoutineIO(),RoutineIOFinish()]#falta la de page
+        #No se si va a estar el schedulling aca o solo la queueManager
+        self.queueManager = schedullingPolitic.getqueuesManager()
+        self.schedullingPolitic=schedullingPolitic
         
-    def handle(self,irq):
+    def handle(self,irq): #falta la memoria
         self.put(irq)
-        irq.execute()
+        self.anyRoutineHandle(irq)
     
     def put(self,irq):
         self.irqs.append(irq)
@@ -26,3 +35,9 @@ class IrqHandler:
         
     def getNext(self):
         self.schedullingPolitic.next()
+        
+    def anyRoutineHandle(self,irq):
+        for routine in self.routines:
+            if(routine.canHandle(irq)):
+                routine.handle(irq)
+                return;

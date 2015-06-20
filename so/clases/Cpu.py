@@ -1,7 +1,8 @@
+from clases.Irq import Irq
 from clases.IrqHandler import IrqHandler
+from clases.IrqIO import IrqIO
 from clases.IrqKill import IrqKill
 from clases.IrqTimeOut import IrqTimeOut
-from clases.IrqIO import IrqIO
 
 
 class Cpu:
@@ -24,7 +25,7 @@ class Cpu:
                 self.cleanRegisters()
                 return;
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
-                self.irqHandler.handle(IrqKill(self))
+                self.irqHandler.handle(Irq.kill)
                 self.cleanRegisters()
                 return;
             self.pcb.incrementPc()

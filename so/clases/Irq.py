@@ -6,5 +6,6 @@ class Irq(Enum):
     timeOut='TimeOut'
     newProcess='New Process'
     io='IO'
+    ioFinish='IO Finish'
     
   
