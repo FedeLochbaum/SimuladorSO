@@ -14,22 +14,26 @@ class MMUContinuedAllocation(MemoryManager):
                 bloque = self.traerBloquePara(pcb.getFinalPc())
                 self.agregarAmemoria(pcb,bloque)
             else:
-                self.compactarMemory()
+                self.compactMemory()
                 self.loadProgram(pcb)
         
-    def agregarAmemoria(self,pcb,bloque):
+    def agregarAmemoria(self,pcb,block):
         for instruction in pcb.getInstructions():
-            bloque.addInstruction(instruction)
+            block.addInstruction(instruction)
             
-    
     def hayBloqueDisponible(self,pcb):
-        for each in self.bloquesDisponibles: 
-            if(each.size > pcb.getFinalPc()):
+        for block in self.bloquesDisponibles: 
+            if(block.size > pcb.getFinalPc()):
                 return True
         return False
     
     def traerBloqueSegunRutina(self,cantidad):
-        bloque =  self.routine.dameBloquePara(cantidad,self.bloquesDisponibles)
-        self.reordenarBloque(bloque)
-        return bloque        
+        block =  self.routine.blockFor(cantidad,self.bloquesDisponibles)
+        self.reordenarBloque(block)
+        return block        
+       
+    def reordenarBloque(self,block): 
         
+    def compactMemory(self):
+            
+        ***falta la posibilidad de borrar y liberar un  bloque

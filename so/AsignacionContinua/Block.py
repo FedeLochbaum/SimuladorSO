@@ -4,4 +4,8 @@ class Block:
         self.inicio = inicio
         self.fin = fin
         self.estaLibre = True
+        self.instructions = {}
+        self.proximaPos = 1
         
+        
+    def addInstruction(self,instruction):
