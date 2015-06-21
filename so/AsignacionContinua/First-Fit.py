@@ -6,4 +6,4 @@ class First-Fit(RoutineBlock):
     
     def blockFor(self,cantidad,listaDeBloques):
         list = filter(item.size > cantidad,listaDeBloques)***hay que ver que onda
-            return list.first()  ***nose si es asi
+            return list[1]

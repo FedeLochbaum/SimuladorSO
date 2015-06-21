@@ -9,3 +9,8 @@ class Block:
         
         
     def addInstruction(self,instruction):
+        self.instructions[self.proximaPos] = instruction
+        self.proximaPos = self.proximaPos + 1
+        
+    def size(self):
+        return self.fin - self.inicio
