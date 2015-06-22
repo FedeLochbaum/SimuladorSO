@@ -1,11 +1,11 @@
 from AsignacionContinua.RoutineBlock import RoutineBlock
-class Best-Fit(RoutineBlock):
+class BestFit(RoutineBlock):
     
     def __init__(self):
         self.super.__init__()
     
     def blockFor(self,cantidad,listaDeBloques):
-        list = filter(item.size > cantidad,listaDeBloques)***hay que ver que onda
+        list = filter(item.size > cantidad,listaDeBloques)#hay que ver que onda
         blockR = Block(1,100000000000000000000)
         for block in list:
             if(block.size < blockR.size):
@@ -13,6 +13,6 @@ class Best-Fit(RoutineBlock):
         
         return blockR
     
-        ***HORRIBLE... LO SE.. A VER DESP    
+        #HORRIBLE... LO SE.. A VER DESP    
             
             

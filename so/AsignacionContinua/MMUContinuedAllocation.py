@@ -33,7 +33,7 @@ class MMUContinuedAllocation(MemoryManager):
         return block        
        
     def reordenarBloque(self,block): 
-        
+        pass
     def compactMemory(self):
             
-        ***falta la posibilidad de borrar y liberar un  bloque
+        #falta la posibilidad de borrar y liberar un  bloque
