@@ -11,6 +11,7 @@ class RoutineKill(Routine):
         Routine.canHandle(self, irq)
         return irq==Irq.kill
     
-    def handle(self, irq):
+    def handle(self, irq,cpu):
         Routine.handle(self, irq)
-        #hacer
+        cpu.cleanRegisters()
+        cpu.callNext()

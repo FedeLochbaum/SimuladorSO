@@ -19,5 +19,5 @@ class MemoryManager:
     def memoryFree(self):
         return self.memory.getFreeSpace()
     
-    def borrarRegistrosDe(self,pcb):
-        self.memory.borrarInstruccionesDe(pcb)
+    def cleanMemory(self,pcb):
+        self.memory.cleanMemory(pcb)

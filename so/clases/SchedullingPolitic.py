@@ -5,6 +5,3 @@ class SchedullingPolitic:
     
     def next(self):
         return self.queuesManager.getReady().firstQ()
-
-
-     

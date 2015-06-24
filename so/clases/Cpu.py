@@ -1,8 +1,5 @@
 from clases.Irq import Irq
-from clases.IrqHandler import IrqHandler
-from clases.IrqIO import IrqIO
-from clases.IrqKill import IrqKill
-from clases.IrqTimeOut import IrqTimeOut
+
 
 
 class Cpu:
@@ -21,36 +18,17 @@ class Cpu:
                 return; 
             instruccionActual.execute()
             if(instruccionActual.isIO()):
-                self.irqHandler.handle(IrqIO(self))
+                self.irqHandler.handle(Irq.io)
                 self.cleanRegisters()
                 return;
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
-                self.irqHandler.handle(Irq.kill)
+                self.irqHandler.handle(Irq.kill,self)
                 self.cleanRegisters()
                 return;
             self.pcb.incrementPc()
                 
     def notify(self):
         self.fetch()  
-
-    '''def decode(self):
-        print("decode",self.instruccionActual)
-    
-    def execute(self):
-        print("execute", self.operacionActual)'''
-                ###  aca deberia ver que onda con la instruccion .. si es IO tiene que lanzar irqIO    ###
-    ''' def avanzarClock(self):
-        self.fetch()
-
-        if (self.instruccionActual== self.pcFinal):
-            print("Senal de fin")
-        elif (self.instruccionActual=='IO'):
-            print("Senal de interrupcion")
-        else:
-            self.decode()
-            self.execute()'''
-
-
 
     def setProcess(self, process):
         self.pcb = process
@@ -65,11 +43,15 @@ class Cpu:
         return self.irqHandler
 
     def timeOut(self):
-        self.irqHandler.handle(IrqTimeOut(self))
+        self.irqHandler.handle(Irq.timeOut)
         self.cleanRegisters()
         
     def cleanRegisters(self):
-        self.pcb = None 
+        self.memoryManager.cleanMemory(self.pcb)
+        self.cleanPcb()
+        
+    def cleanPcb(self):
+        self.pcb = None
         
     def getPcb(self):
         return self.pcb

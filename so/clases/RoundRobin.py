@@ -13,6 +13,9 @@ class RoundRobin(SchedullingPolitic):
         nextP = self.queuesManager.getReadyQueue().next()
         self.temp.restart()
         return nextP
+    
+    def setPcbInReady(self,pcb):
+        self.queuesManager.putInReady(pcb)
 
     def getqueuesManager(self):
         return self.queuesManager

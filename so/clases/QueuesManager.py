@@ -14,7 +14,7 @@ class QueuesManager :
         return self.waitingQueue
     
     def putInReady(self,process):
-        self.readyQueue.put(process)#pipi bldo.. es preferible que solo devuelva las colas.. no que agregue en ellas.. ademas las colas ya saben agregar -.-
+        self.readyQueue.put(process)
         
     def getIOQueue(self):
         return self.waitingIO    
