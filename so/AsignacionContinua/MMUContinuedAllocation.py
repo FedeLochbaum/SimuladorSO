@@ -6,7 +6,6 @@ class MMUContinuedAllocation(MemoryManager):
     def __init__(self,memory,routineBlock):
         self.super.__init__(memory)
         self.bloquesDisponibles = [Block(1,memory.space)]
-        self.bloquesNoDisponibles = []
         self.routine = routineBlock
         
     def loadProgram(self,pcb):
@@ -38,11 +37,17 @@ class MMUContinuedAllocation(MemoryManager):
         self.reordenarBloques()
         
     def sacarBloque(self,block):
-        pass
+        self.bloquesDisponibles.remove(block)
     def reordenarBloques(self):
         pass
     def compactMemory(self):
         pass
     def agregarABloquesLibres(self,block):
-        pass
+        self.bloquesDisponibles.append(block)
     def addinstructionsToMemory(self,inicio,final,pcb):
+        i = inicio 
+        for instruction in pcb.getInstructions():
+            if(i <= final):
+                self.memory.put(i,instruction)
+                i = i+1
+            #hay que ver.. creoque esta bien
