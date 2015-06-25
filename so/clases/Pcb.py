@@ -1,3 +1,4 @@
+from _overlapped import NULL
 class Pcb:
 
     def __init__(self,name,pid,pc,finalPc,baseDirection,priority=0):
@@ -7,6 +8,7 @@ class Pcb:
         self.finalPc = finalPc
         self.baseDirection = baseDirection
         self.priority=priority*-1
+        self.block = NULL
         
     def __lt__(self, other):   
         selfPriority = (self.priority, self.pid)
@@ -39,3 +41,10 @@ class Pcb:
     
     def getPriorityReal(self):
         return self.priority*-1
+    
+    def getBlock(self):
+        self.block
+    
+    def setBlock(self,block):
+        self.block = block
+        

@@ -1,5 +1,6 @@
 from clases.MemoryManager import MemoryManager
 from AsignacionContinua.Block import Block
+from _overlapped import NULL
 class MMUContinuedAllocation(MemoryManager):
         
     def __init__(self,memory,routineBlock):
@@ -18,8 +19,8 @@ class MMUContinuedAllocation(MemoryManager):
                 self.loadProgram(pcb)
         
     def agregarAmemoria(self,pcb,block):
-        for instruction in pcb.getInstructions():
-            block.addInstruction(instruction)
+        pcb.setBlock(block)
+        self.addinstructionsToMemory(block.getInicio(),block.getFin(),pcb)
             
     def hayBloqueDisponible(self,pcb):
         for block in self.bloquesDisponibles: 
@@ -28,12 +29,20 @@ class MMUContinuedAllocation(MemoryManager):
         return False
     
     def traerBloqueSegunRutina(self,cantidad):
-        block =  self.routine.blockFor(cantidad,self.bloquesDisponibles)
-        self.reordenarBloque(block)
-        return block        
+        return self.routine.blockFor(cantidad,self.bloquesDisponibles,self)        
        
-    def reordenarBloque(self,block): 
+    def cleanMemory(self,pcb):
+        bloque = pcb.getBlock()
+        self.agregarABloquesLibres(bloque)
+        pcb.setBlock(NULL)
+        self.reordenarBloques()
+        
+    def sacarBloque(self,block):
+        pass
+    def reordenarBloques(self):
         pass
     def compactMemory(self):
-            
-        #falta la posibilidad de borrar y liberar un  bloque
+        pass
+    def agregarABloquesLibres(self,block):
+        pass
+    def addinstructionsToMemory(self,inicio,final,pcb):
