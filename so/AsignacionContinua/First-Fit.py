@@ -8,7 +8,9 @@ class FirstFit(RoutineBlock):
         list = filter(item.size > cantidad,listaDeBloques)#hay que ver que onda
         bloque = list[1]
         mmu.sacarBloque(bloque)
-        bloque  = super.recortarBLoque(bloque)
-        mmu.agregarABloquesLibres(bloque)
-        return bloque
+        bloqueG  = super.recortarBLoque(bloque,pcb)
+        bloqueP = super.bloquePequenioDe(bloqueG,bloque)
+        mmu.agregarABloquesLibres(bloqueP)
+        return bloqueG
+        
     

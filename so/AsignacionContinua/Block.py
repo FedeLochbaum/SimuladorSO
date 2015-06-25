@@ -7,3 +7,9 @@ class Block:
     
     def size(self):
         return self.fin - self.inicio
+    
+    def getInicio(self):
+        return self.inicio
+    
+    def getFin(self):
+        return self.fin

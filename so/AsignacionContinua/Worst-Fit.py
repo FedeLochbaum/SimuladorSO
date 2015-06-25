@@ -12,7 +12,8 @@ class WorstFit(RoutineBlock):
                 blockR = block
         
         
-        mmu.sacarBloqueDeLista(bloque)
-        bloque  = super.recortarBLoque(bloque)
-        mmu.agregarBloqueALista(bloque)
-        return blockR
+        mmu.sacarBloque(blockR)
+        bloqueG  = super.recortarBLoque(blockR,pcb)
+        bloqueP = super.bloquePequenioDe(bloqueG,blockR)
+        mmu.agregarABloquesLibres(bloqueP)
+        return blockG  
