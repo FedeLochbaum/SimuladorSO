@@ -28,4 +28,8 @@ class Memory():
     def cleanMemory(self,pcb):
         for i in range(0,pcb.getFinalPc()):
             print(i)
-            self.instructions[pcb.getBaseDir()+i]=None
+            #self.instructions[pcb.getBaseDir()+i]=None
+            self.instructions.__delitem__(pcb.getBaseDir()+i)
+            
+    def getInstructionsCount(self):
+        return self.instructions.__len__()

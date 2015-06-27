@@ -4,4 +4,11 @@ class SchedullingPolitic:
         self.queuesManager = queuesManager
     
     def next(self):
-        return self.queuesManager.getReady().firstQ()
+        return self.queuesManager.getReadyQueue().next()
+    
+    
+    def getqueuesManager(self):
+        return self.queuesManager  
+    
+    def setPcbInReady(self,pcb):
+        self.queuesManager.getReadyQueue().put(pcb)

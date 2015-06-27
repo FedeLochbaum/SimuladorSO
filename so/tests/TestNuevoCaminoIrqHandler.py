@@ -6,6 +6,7 @@ from clases.FIFO import FIFO
 from clases.FIFOReadyQueue import FIFOReadyQueue
 from clases.InstructionCpu import InstructionCpu
 from clases.IoWaitingQueue import IoWaitingQueue
+from clases.Irq import Irq
 from clases.IrqHandler import IrqHandler
 from clases.Memory import Memory
 from clases.MemoryManager import MemoryManager
@@ -27,6 +28,7 @@ class Test(unittest.TestCase):
     window=None
     
     def setUp(self):
+        unittest.TestCase.setUp(self)
         self.window=Window()
         self.instruction=InstructionCpu('holaaaa',self.window)
         self.memory=Memory(10)
@@ -38,7 +40,7 @@ class Test(unittest.TestCase):
         self.adminDeColasConcolaReadyFifo = QueuesManager(self.colaReadyFifo,self.colaWaiting,self.ioWaitingQueue)
         self.politicaFifo = FIFO(self.adminDeColasConcolaReadyFifo)
         self.irqHandler=IrqHandler(self.politicaFifo)
-        self.pcb=Pcb('asd',1,0,0,0)
+        self.pcb=Pcb('asd',1,0,1,0)
         self.cpu=Cpu(self.memoryManager,self.irqHandler)
         self.cpu.setProcess(self.pcb)
         
@@ -47,6 +49,7 @@ class Test(unittest.TestCase):
 
 
     def tearDown(self):
+        unittest.TestCase.tearDown(self)
         self.cpu=None
         self.pcb=None
         self.irqHandler=None
@@ -56,9 +59,16 @@ class Test(unittest.TestCase):
 
 
     def testHandleIrqKill(self):
-        self.cpu.fetch()
-        #falta funcionalidad de ahndle real de todas als irqs
-
+        self.irqHandler.handle(Irq.kill, self.cpu)
+        self.assertEqual(self.cpu.pcb,None)
+        self.assertEqual(self.cpu.instructionsInMemoryCount(),0)
+    
+    def testHandleIrqTimeout(self):
+        self.irqHandler.handle(Irq.timeOut, self.cpu)
+        self.assertEqual(self.colaReadyFifo.next(), None)
+        self.assertEqual(self.cpu.pcb,self.pcb)
+        self.assertEqual(self.cpu.instructionsInMemoryCount(),1)
+        
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHandle']

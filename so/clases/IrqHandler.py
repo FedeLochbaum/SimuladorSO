@@ -34,7 +34,7 @@ class IrqHandler:
         self.queueManager.getIOQueue().add(process)
         
     def getNext(self):
-        self.schedullingPolitic.next()
+        return self.schedullingPolitic.next()
         
     def anyRoutineHandle(self,irq,cpu):
         for routine in self.routines:

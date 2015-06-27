@@ -23,7 +23,6 @@ class Cpu:
                 return;
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
                 self.irqHandler.handle(Irq.kill,self)
-                self.cleanRegisters()
                 return;
             self.pcb.incrementPc()
                 
@@ -55,6 +54,8 @@ class Cpu:
         
     def getPcb(self):
         return self.pcb
+    def instructionsInMemoryCount(self):
+        return self.memoryManager.getInstructionsCount()
     
     def callNext(self):
         self.pcb=self.irqHandler.getNext()

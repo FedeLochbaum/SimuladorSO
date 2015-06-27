@@ -21,3 +21,6 @@ class MemoryManager:
     
     def cleanMemory(self,pcb):
         self.memory.cleanMemory(pcb)
+        
+    def getInstructionsCount(self):
+        return self.memory.getInstructionsCount()
