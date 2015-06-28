@@ -80,10 +80,10 @@ class Test(unittest.TestCase):
         self.assertEqual(self.cpu.instructionsInMemoryCount(),1)
         
     def testHandleIrqnewProcess(self):
-        self.irqHandler.handle(Irq.newProcess, self.cpu, self.disk)
+        self.irqHandler.handle(Irq.newProcess, self.cpu, self.program2)
         self.assertEqual(self.cpu.instructionsInMemoryCount(),2)
         self.assertEqual(self.cpu.pcb,self.pcb)
-        self.assertEqual(self.colaReadyFifo.next(), self.pcb2)
+        self.assertEqual(self.colaReadyFifo.pcbCount(), 1)
         
     def testHandleIrqIO(self):
         self.irqHandler.handle(Irq.io, self.cpu)

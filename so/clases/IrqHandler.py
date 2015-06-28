@@ -41,3 +41,6 @@ class IrqHandler:
             if(routine.canHandle(irq)):
                 routine.handle(irq,cpu,disk)
                 return;
+            
+    def getQueuesManager(self):
+        return self.queueManager

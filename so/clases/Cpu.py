@@ -60,3 +60,6 @@ class Cpu:
     
     def callNext(self):
         self.pcb=self.irqHandler.getNext()
+        
+    def getQueuesManager(self):
+        return self.irqHandler.getQueuesManager()

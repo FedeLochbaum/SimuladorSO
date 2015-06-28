@@ -12,7 +12,5 @@ class FIFOReadyQueue:
         if(self.readyQueue.__len__()>0):
             return self.readyQueue.popleft()
         
-    
-    
-
-   
+    def pcbCount(self):
+        return self.readyQueue.__len__()
