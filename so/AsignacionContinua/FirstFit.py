@@ -3,13 +3,13 @@ class FirstFit(RoutineBlock):
     
 
     
-    def blockFor(self,cantidad,listaDeBloques,mmu):
-        list = filter(item.size > cantidad,listaDeBloques)#hay que ver que onda
-        bloque = list[1]
-        mmu.sacarBloque(bloque)
-        bloqueG  = super.recortarBLoque(bloque,pcb)
-        bloqueP = super.bloquePequenioDe(bloqueG,bloque)
-        mmu.agregarABloquesLibres(bloqueP)
-        return bloqueG
+    def getBlockFor(self,cantidad,mapDeBloques,mmu):
+        list = RoutineBlock.bloquesMasGrandes(self,cantidad,mapDeBloques)
+        block = list[1]
+        mmu.sacarBloque(block)
+        blockG  = RoutineBlock.recortarBLoque(self,block,cantidad)
+        blockP = RoutineBlock.bloquePequenioDe(self,blockG,block)
+        mmu.agregarABloquesLibres(blockP)
+        return blockG
         
     
