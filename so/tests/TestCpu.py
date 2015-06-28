@@ -1,18 +1,20 @@
 
 import unittest
+
 from clases.Cpu import Cpu
-from clases.Pcb import Pcb
+from clases.FIFO import FIFO
 from clases.Instruction import Instruction
+from clases.IoWaitingQueue import IoWaitingQueue
+from clases.Irq import Irq
+from clases.IrqHandler import IrqHandler
 from clases.Memory import Memory
-from clases.Window import Window
-from clases.IrqKill import IrqKill
+from clases.MemoryManager import MemoryManager
+from clases.Pcb import Pcb
+from clases.QueuesManager import QueuesManager
 from clases.ReadyQueuePriority import ReadyQueuePriority
 from clases.WaitingQueue import WaitingQueue 
-from clases.QueuesManager import QueuesManager
-from clases.MemoryManager import MemoryManager
-from clases.FIFO import FIFO
-from clases.IrqHandler import IrqHandler
-from clases.IoWaitingQueue import IoWaitingQueue
+from clases.Window import Window
+
 
 class TestCpu(unittest.TestCase):
     cpu=None
@@ -24,8 +26,8 @@ class TestCpu(unittest.TestCase):
     def setUp(self):
         self.window=Window()
         self.pcb=Pcb('proceso',1,0,1,0)
-        self.pcb2=Pcb('proceso2',1,0,1,0)
-        self.pcb3=Pcb('proceso3',1,0,1,0)
+        self.pcb2=Pcb('proceso2',2,0,1,0)
+        self.pcb3=Pcb('proceso3',3,0,1,0)
         self.inst=Instruction('hola',self.window)
         self.mem=Memory(20)
         self.mem.put(0, self.inst)
@@ -57,8 +59,9 @@ class TestCpu(unittest.TestCase):
         self.assertEqual(self.pcb.getPc(),1)
         self.assertEqual(self.window.getCantContents(),1)
         self.assertEqual(self.window.get(0), 'hola')
+        
         self.assertEqual(self.cpu.getIrqHandler().cantIrqs(),1)
-        self.assertTrue(isinstance(self.cpu.getIrqHandler().get(0), IrqKill))
+        self.assertEqual(self.cpu.getIrqHandler().get(0), Irq.kill)
 
 
 if __name__ == "__main__":

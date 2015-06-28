@@ -21,10 +21,11 @@ class Cpu:
                 self.irqHandler.handle(Irq.io)
                 self.cleanRegisters()
                 return;
+            self.pcb.incrementPc()
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
                 self.irqHandler.handle(Irq.kill,self)
                 return;
-            self.pcb.incrementPc()
+            
                 
     def notify(self):
         self.fetch()  

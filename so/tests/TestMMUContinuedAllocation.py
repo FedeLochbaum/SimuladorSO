@@ -7,6 +7,8 @@ from AsignacionContinua.WorstFit import WorstFit
 from clases.Instruction import Instruction
 from clases.Memory import Memory
 from clases.Program import Program
+from clases.Window import Window
+
 
 class TestMMUContinuedAllocation(unittest.TestCase):
     
@@ -17,13 +19,12 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         self.bestFit = BestFit()
         self.worstFit = WorstFit()
         self.firstFit = FirstFit()
+        self.window = Window()
     
         self.mmubestFit = MMUContinuedAllocation(self.memory,self.bestFit)
         self.mmuworstFit = MMUContinuedAllocation(self.memory,self.worstFit)
         self.mmufirstFit = MMUContinuedAllocation(self.memory,self.firstFit)
-    
-    
-    def testLoadProgram(self):
+        
         instruction1=Instruction('hello',self.window)
         instruction2=Instruction('hello',self.window)
         instruction3=Instruction('hello',self.window)
@@ -37,21 +38,31 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         
         list3 = [instruction1,instruction2,instruction3,instruction4,instruction5,instruction6]
         
-        program1=Program('program1',list1)
+        self.program1 = Program('program1',list1)
         
-        program2 = Program('program2',list2)
+        self.program2 = Program('program2',list2)
         
-        program3 = Program('program3',list3)
+        self.program3 = Program('program3',list3)
+    
+    
+    def testLoadProgram(self):
+        
         
         #load de mmuBestFit
-        self.mmubestFit.loadProgram(program1)
-        self.mmubestFit.loadProgram(program2)
-        self.mmubestFit.loadProgram(program3)
+        self.assertEquals(self.memory.getFreeSpace(),10)
+        self.mmubestFit.loadProgram(self.program1)
+        self.assertEquals(self.memory.getFreeSpace(),7)
+        self.mmubestFit.loadProgram(self.program3)
+        self.assertEquals(self.memory.getFreeSpace(),1)
         
         
-        self.assertTrue(True)
+    def testcleanMemory(self):
+        self.mmubestFit.loadProgram(self.program1)
+        self.mmubestFit.loadProgram(self.program3)
+        self.mmubestFit.cleanMemory(self.program1)
+        self.self.assertEquals(self.memory.getFreeSpace(),4)
     
-    
+        #ESTE TEST ES UNA MIERDA HAY QUE TERMINARLO
     
     
 if __name__ == "__main__":

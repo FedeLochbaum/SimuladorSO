@@ -4,16 +4,16 @@ from _overlapped import NULL
 class MMUContinuedAllocation(MemoryManager):
         
     def __init__(self,memory,routineBlock):
-        MemoryManager.__init__(memory)
+        MemoryManager.__init__(self,memory)
         self.bloquesDisponibles = {}
-        self.bloquesDisponible[1] = Block(1,memory.space)
+        self.bloquesDisponibles[1] = Block(1,memory.getTotalSpace())
         self.bloquesUsados = {}
         self.routine = routineBlock
         
     def loadProgram(self,program):
-        if(self.memoryFree()>program.getInstructionsCount()):
-            if(self.hayBloqueDisponible()):
-                block = self.getBlockFor(program.getInstructionsCount())
+        if(self.memoryFree() > program.getInstructionsCount()):
+            if(self.hayBloqueDisponible(program)):
+                block = self.routine.getBlockFor(program.getInstructionsCount(),self.bloquesDisponibles,self)
                 block.setProgram(program)
                 self.bloquesUsados.__setitem__(program.getName(), block)
                 self.addToMemory(program,block)
@@ -25,7 +25,7 @@ class MMUContinuedAllocation(MemoryManager):
         self.addinstructionsToMemory(block.getInicio(),block.getFin(),program)
             
     def hayBloqueDisponible(self,program):
-        for dirBase,block in self.bloquesDisponibles: 
+        for (dirBase,block) in self.bloquesDisponibles.items(): 
             if(block.size() > program.getInstructionsCount()):
                 return True
         return False
@@ -41,7 +41,7 @@ class MMUContinuedAllocation(MemoryManager):
     def sacarBloque(self,block):
         self.bloquesDisponibles.__delitem__(block.getInicio())
     def reordenarBloques(self):
-        for k,block in self.bloquesDisponibles:
+        for (k,block) in self.bloquesDisponibles.items():
             sigBLock = self.bloquesDisponibles.get(block.getFin()+1)
             if(sigBLock != NULL):
                 inicio = block.getInicio()
@@ -54,7 +54,7 @@ class MMUContinuedAllocation(MemoryManager):
     def compactMemory(self):
         proxIns = 0
         #recorre el map de bloquesUsados reasignandolos A memory 
-        for k,block in self.bloquesUsados:
+        for (k,block) in self.bloquesUsados.items():
             tam = block.size()
             tamF = proxIns + tam
             self.addinstructionsToMemory(proxIns, tamF, block.getProgram())

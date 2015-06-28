@@ -40,8 +40,9 @@ class Test(unittest.TestCase):
     def setUp(self):
         self.memory=Memory(20)
         self.memoryManager=MemoryManager(self.memory)
-        self.cpu=Cpu(self.memoryManager,self.irqHandler)
         self.irqHandler=IrqHandler(self.politicaRoundRobin)
+        self.cpu=Cpu(self.memoryManager,self.irqHandler)
+
         self.irqHandler2=IrqHandler(self.politicaRRPrioridad)
         self.temp=Timer(self.irqHandler)
         self.temp2=Timer(self.irqHandler2)
