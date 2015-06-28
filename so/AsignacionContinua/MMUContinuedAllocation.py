@@ -1,6 +1,5 @@
 from clases.MemoryManager import MemoryManager
 from AsignacionContinua.Block import Block
-from _overlapped import NULL
 class MMUContinuedAllocation(MemoryManager):
         
     def __init__(self,memory,routineBlock):
@@ -41,15 +40,15 @@ class MMUContinuedAllocation(MemoryManager):
     def sacarBloque(self,block):
         self.bloquesDisponibles.__delitem__(block.getInicio())
     def reordenarBloques(self):
-        for (k,block) in self.bloquesDisponibles.items():
+        for (dirBase,block) in self.bloquesDisponibles.items():
             sigBLock = self.bloquesDisponibles.get(block.getFin()+1)
-            if(sigBLock != NULL):
+            if(sigBLock != None):
                 inicio = block.getInicio()
                 fin = sigBLock.getFin()
                 newBlock = Block(inicio,fin)
                 self.sacarBloque(block)
                 self.sacarBloque(sigBLock)
-                self.bloquesDisponibles__setitem__(inicio,newBlock)
+                self.bloquesDisponibles[inicio]= newBlock
                     
     def compactMemory(self):
         proxIns = 0
