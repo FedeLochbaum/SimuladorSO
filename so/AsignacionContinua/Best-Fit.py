@@ -7,7 +7,7 @@ class BestFit(RoutineBlock):
     def blockFor(self,cantidad,listaDeBloques,mmu):
         list = filter(item.size > cantidad,listaDeBloques)#hay que ver que onda
         blockR = Block(1,100000000000000000000)
-        for block in list:
+        for k,block in list:
             if(block.size < blockR.size):
                 blockR = block
         
