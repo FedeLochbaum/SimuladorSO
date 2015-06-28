@@ -54,6 +54,7 @@ class Cpu:
         
     def getPcb(self):
         return self.pcb
+    
     def instructionsInMemoryCount(self):
         return self.memoryManager.getInstructionsCount()
     

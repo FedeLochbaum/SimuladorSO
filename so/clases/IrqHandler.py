@@ -14,9 +14,9 @@ class IrqHandler:
         self.queueManager = schedullingPolitic.getqueuesManager()
         self.schedullingPolitic=schedullingPolitic
         
-    def handle(self,irq,cpu): #falta la memoria falta saber que le pasamos en routineIOfinish
+    def handle(self,irq,cpu,disk=None): #falta la memoria falta saber que le pasamos en routineIOfinish
         self.put(irq)
-        self.anyRoutineHandle(irq,cpu)
+        self.anyRoutineHandle(irq,cpu,disk)
     
     def put(self,irq):
         self.irqs.append(irq)
@@ -36,8 +36,8 @@ class IrqHandler:
     def getNext(self):
         return self.schedullingPolitic.next()
         
-    def anyRoutineHandle(self,irq,cpu):
+    def anyRoutineHandle(self,irq,cpu,disk=None):
         for routine in self.routines:
             if(routine.canHandle(irq)):
-                routine.handle(irq,cpu)
+                routine.handle(irq,cpu,disk)
                 return;
