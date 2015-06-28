@@ -4,6 +4,7 @@ class Memory():
     def __init__(self,space):
         self.instructions = {}
         self.freeSpace=space
+        self.totalSpace = space
     
     def put(self,celda,instruction):
         self.instructions[celda] = instruction
@@ -33,3 +34,6 @@ class Memory():
             
     def getInstructionsCount(self):
         return self.instructions.__len__()
+    
+    def getTotalSpace(self):
+        return self.totalSpace
