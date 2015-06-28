@@ -11,6 +11,6 @@ class RoutineIO(Routine):
         Routine.canHandle(self, irq)
         return irq==Irq.io
     
-    def handle(self, irq):
-        Routine.handle(self, irq)
+    def handle(self, irq,cpu,program=None):
+        Routine.handle(self, irq,cpu,program)
         #hacer

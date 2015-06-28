@@ -2,6 +2,7 @@
 import unittest
 
 from clases.Cpu import Cpu
+from clases.Disk import Disk
 from clases.FIFO import FIFO
 from clases.FIFOReadyQueue import FIFOReadyQueue
 from clases.InstructionCpu import InstructionCpu
@@ -14,6 +15,7 @@ from clases.Pcb import Pcb
 from clases.QueuesManager import QueuesManager
 from clases.WaitingQueue import WaitingQueue
 from clases.Window import Window
+from clases.Program import Program
 
 
 class Test(unittest.TestCase):
@@ -26,9 +28,17 @@ class Test(unittest.TestCase):
     memoryManager=None
     instruction=None
     window=None
+    disk=None
+    program1=None
+    program2=None
     
     def setUp(self):
         unittest.TestCase.setUp(self)
+        self.program1=Program('asd','1')
+        self.program2=Program('asd2','2')
+        self.disk=Disk()
+        self.disk.addProgram(self.program1)
+        self.disk.addProgram(self.program2)
         self.window=Window()
         self.instruction=InstructionCpu('holaaaa',self.window)
         self.memory=Memory(10)
@@ -68,6 +78,19 @@ class Test(unittest.TestCase):
         self.assertEqual(self.colaReadyFifo.next(), None)
         self.assertEqual(self.cpu.pcb,self.pcb)
         self.assertEqual(self.cpu.instructionsInMemoryCount(),1)
+        
+    def testHandleIrqnewProcess(self):
+        self.irqHandler.handle(Irq.newProcess, self.cpu, self.disk)
+        self.assertEqual(self.cpu.instructionsInMemoryCount(),2)
+        self.assertEqual(self.cpu.pcb,self.pcb)
+        self.assertEqual(self.colaReadyFifo.next(), self.pcb2)
+        
+    def testHandleIrqIO(self):
+        self.irqHandler.handle(Irq.io, self.cpu)
+        
+        
+        
+    
         
 
 if __name__ == "__main__":

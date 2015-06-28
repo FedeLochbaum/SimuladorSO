@@ -6,5 +6,5 @@ class Routine:
     def canHandle(self,irq):
         pass
     
-    def handle(self,irq):
+    def handle(self,irq,cpu,program=None):
         pass

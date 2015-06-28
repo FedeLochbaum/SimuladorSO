@@ -33,13 +33,13 @@ class Kernel :
             self.queuesManager.getReadyQueue().put(process)
             return False
 
-    def generateProcess(self,program):
+    '''def generateProcess(self,program):
         name=program.getName()
         pid=self.pidGenerator.generateNewPid()
         pc=0
         finalPc=program.getInstructionsCount()-1
         baseDir=self.memoryManager.getMemory().getNextIndex()
-        return Pcb(name,pid,pc,finalPc,baseDir)
+        return Pcb(name,pid,pc,finalPc,baseDir)'''
     
     def getClock(self):
         return self.clock
