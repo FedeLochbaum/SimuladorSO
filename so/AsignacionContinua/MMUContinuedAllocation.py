@@ -33,8 +33,10 @@ class MMUContinuedAllocation(MemoryManager):
         return self.routine.blockFor(cantidad,self.bloquesDisponibles,self)        
        
     def cleanMemory(self,program):
-        bloque = self.bloquesUsados.get(program.getName())
-        self.agregarABloquesLibres(bloque)
+        block1 = self.bloquesUsados.get(program.getName())
+        self.bloquesUsados.__delitem__(program.getName())
+        block = Block(block1.getInicio(),block1.getFinal())
+        self.agregarABloquesLibres(block)
         self.reordenarBloques()
         
     def sacarBloque(self,block):
@@ -68,7 +70,7 @@ class MMUContinuedAllocation(MemoryManager):
         self.bloquesDisponibles.__setitem__(block.getInicio(), block)
         
     def addinstructionsToMemory(self,inicio,final,program):
-        i = inicio 
+        i = inicio
         for instruction in program.getInstructions():
             if(i <= final):
                 self.memory.put(i,instruction)

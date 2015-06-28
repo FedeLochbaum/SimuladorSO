@@ -8,7 +8,7 @@ class WorstFit(RoutineBlock):
     
     def getBlockFor(self,cantidad,mapDeBloques,mmu):
         list = RoutineBlock.bloquesMasGrandes(self,cantidad,mapDeBloques)
-        blockR = Block(1,100000000000000000000)
+        blockR = Block(1,1)
         for block in list:
             if(block.size() > blockR.size()):
                 blockR = block

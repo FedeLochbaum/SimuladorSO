@@ -15,15 +15,18 @@ class TestMMUContinuedAllocation(unittest.TestCase):
 
 
     def setUp(self):
-        self.memory = Memory(10)
+        self.memory1 = Memory(10)
+        self.memory2 = Memory(10)
+        self.memory3 = Memory(10)
+        
         self.bestFit = BestFit()
         self.worstFit = WorstFit()
         self.firstFit = FirstFit()
         self.window = Window()
     
-        self.mmubestFit = MMUContinuedAllocation(self.memory,self.bestFit)
-        self.mmuworstFit = MMUContinuedAllocation(self.memory,self.worstFit)
-        self.mmufirstFit = MMUContinuedAllocation(self.memory,self.firstFit)
+        self.mmubestFit = MMUContinuedAllocation(self.memory1,self.bestFit)
+        self.mmuworstFit = MMUContinuedAllocation(self.memory2,self.worstFit)
+        self.mmufirstFit = MMUContinuedAllocation(self.memory3,self.firstFit)
         
         instruction1=Instruction('hello',self.window)
         instruction2=Instruction('hello',self.window)
@@ -44,26 +47,47 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         
         self.program3 = Program('program3',list3)
     
-    
+   
     def testLoadProgram(self):
         
+        print(self.program1.getInstructionsCount())
+        print(self.program2.getInstructionsCount())
+        print(self.program3.getInstructionsCount())
         
         #load de mmuBestFit
-        self.assertEquals(self.memory.getFreeSpace(),10)
+        
+        self.assertEquals(self.memory1.getFreeSpace(),10)
         self.mmubestFit.loadProgram(self.program1)
-        self.assertEquals(self.memory.getFreeSpace(),7)
+        self.assertEquals(self.memory1.getFreeSpace(),7)
         self.mmubestFit.loadProgram(self.program3)
-        self.assertEquals(self.memory.getFreeSpace(),1)
+        self.assertEquals(self.memory1.getFreeSpace(),1)
         
+        #load de mmuWorstFit
         
+        self.assertEquals(self.memory2.getFreeSpace(),10)
+        self.mmuworstFit.loadProgram(self.program2)
+        self.assertEquals(self.memory2.getFreeSpace(),6)
+        self.mmuworstFit.loadProgram(self.program3)
+        self.assertEquals(self.memory2.getFreeSpace(),0)
+        
+        #load de mmuFirstFit
+        self.assertEquals(self.memory3.getFreeSpace(),10)
+        self.mmufirstFit.loadProgram(self.program1)
+        self.assertEquals(self.memory3.getFreeSpace(),7)
+        self.mmufirstFit.loadProgram(self.program3)
+        self.assertEquals(self.memory3.getFreeSpace(),1)
+        self.mmufirstFit.loadProgram(self.program3)
+        self.assertEquals(self.memory3.getFreeSpace(),1)
+        
+    '''   
     def testcleanMemory(self):
         self.mmubestFit.loadProgram(self.program1)
         self.mmubestFit.loadProgram(self.program3)
         self.mmubestFit.cleanMemory(self.program1)
-        self.self.assertEquals(self.memory.getFreeSpace(),4)
+        self.self.assertEquals(self.memory1.getFreeSpace(),4)
     
         #ESTE TEST ES UNA MIERDA HAY QUE TERMINARLO
-    
+    '''
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
