@@ -10,30 +10,31 @@ class MMUContinuedAllocation(MemoryManager):
         self.bloquesUsados = {}
         self.routine = routineBlock
         
-    def loadProgram(self,pcb):
-        if(self.memoryFree()>pcb.getFinalPc):
+    def loadProgram(self,program):
+        if(self.memoryFree()>program.getInstructionsCount()):
             if(self.hayBloqueDisponible()):
-                block = self.getBlockFor(pcb.getFinalPc())
-                block.setPcb(pcb)
-                self.addToMemory(pcb,block)
+                block = self.getBlockFor(program.getInstructionsCount())
+                block.setProgram(program)
+                self.bloquesUsados.__setitem__(program.getName(), block)
+                self.addToMemory(program,block)
             else:
                 self.compactMemory()
-                self.loadProgram(pcb)
+                self.loadProgram(program)
         
-    def addToMemory(self,pcb,block):
-        self.addinstructionsToMemory(block.getInicio(),block.getFin(),pcb)
+    def addToMemory(self,program,block):
+        self.addinstructionsToMemory(block.getInicio(),block.getFin(),program)
             
-    def hayBloqueDisponible(self,pcb):
+    def hayBloqueDisponible(self,program):
         for dirBase,block in self.bloquesDisponibles: 
-            if(block.size() > pcb.getFinalPc()):
+            if(block.size() > program.getInstructionsCount()):
                 return True
         return False
     
     def traerBloqueSegunRutina(self,cantidad):
         return self.routine.blockFor(cantidad,self.bloquesDisponibles,self)        
        
-    def cleanMemory(self,pcb):
-        bloque = self.bloquesUsados.get(pcb.getPid())
+    def cleanMemory(self,program):
+        bloque = self.bloquesUsados.get(program.getName())
         self.agregarABloquesLibres(bloque)
         self.reordenarBloques()
         
@@ -56,7 +57,7 @@ class MMUContinuedAllocation(MemoryManager):
         for k,block in self.bloquesUsados:
             tam = block.size()
             tamF = proxIns + tam
-            self.addinstructionsToMemory(proxIns, tamF, block.getPcb())
+            self.addinstructionsToMemory(proxIns, tamF, block.getProgram())
             block.setInicio(proxIns)
             block.setFin(tamF)
             proxIns = proxIns + tam + 1
@@ -67,9 +68,9 @@ class MMUContinuedAllocation(MemoryManager):
     def agregarABloquesLibres(self,block):
         self.bloquesDisponibles.__setitem__(block.getInicio(), block)
         
-    def addinstructionsToMemory(self,inicio,final,pcb):
+    def addinstructionsToMemory(self,inicio,final,program):
         i = inicio 
-        for instruction in pcb.getInstructions():
+        for instruction in program.getInstructions():
             if(i <= final):
                 self.memory.put(i,instruction)
                 i = i+1

@@ -24,10 +24,10 @@ class Block:
     def getIsFree(self):
         return self.isFree
     
-    def setPcb(self,pcb):
-        self.pcb = pcb
+    def setProgram(self,program):
+        self.pcb = program
         
-    def getPcb(self):
-        return self.pcb
+    def getProgram(self):
+        return self.program
     
     
