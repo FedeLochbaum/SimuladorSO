@@ -4,7 +4,7 @@ from _overlapped import NULL
 class MMUContinuedAllocation(MemoryManager):
         
     def __init__(self,memory,routineBlock):
-        self.super.__init__(memory)
+        MemoryManager.__init__(memory)
         self.bloquesDisponibles = {}
         self.bloquesDisponible[1] = Block(1,memory.space)
         self.bloquesUsados = {}

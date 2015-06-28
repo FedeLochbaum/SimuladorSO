@@ -1,8 +1,7 @@
 from AsignacionContinua.RoutineBlock import RoutineBlock
 class WorstFit(RoutineBlock):
     
-    def __init__(self):
-        self.super.__init__()
+
     
     def blockFor(self,cantidad,listaDeBloques,mmu):
         list = filter(item.size > cantidad,listaDeBloques)#hay que ver que onda
