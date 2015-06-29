@@ -8,6 +8,12 @@ class Block:
     def size(self):
         return self.fin - self.inicio
     
+    def getProgram(self):
+        return self.program
+    
+    def setProgram(self,program):
+        self.program = program
+    
     def getInicio(self):
         return self.inicio
     
@@ -23,10 +29,7 @@ class Block:
     def getIsFree(self):
         return self.isFree
     
-    def setProgram(self,program):
-        self.pcb = program
+    
         
-    def getProgram(self):
-        return self.program
     
     

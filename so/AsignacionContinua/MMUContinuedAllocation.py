@@ -16,6 +16,7 @@ class MMUContinuedAllocation(MemoryManager):
                 block.setProgram(program)
                 self.bloquesUsados[program.getName()] =  block
                 self.addToMemory(program,block)
+                
             else:
                 self.compactMemory()
                 self.loadProgram(program)
@@ -94,4 +95,3 @@ class MMUContinuedAllocation(MemoryManager):
             if(i <= final):
                 self.memory.put(i,instruction)
                 i = i+1
-            #hay que ver.. creoque esta bien
