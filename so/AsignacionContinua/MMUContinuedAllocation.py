@@ -14,7 +14,7 @@ class MMUContinuedAllocation(MemoryManager):
             if(self.hayBloqueDisponible(program)):
                 block = self.routine.getBlockFor(program.getInstructionsCount(),self.bloquesDisponibles,self)
                 block.setProgram(program)
-                self.bloquesUsados.__setitem__(program.getName(), block)
+                self.bloquesUsados[program.getName()] =  block
                 self.addToMemory(program,block)
             else:
                 self.compactMemory()
@@ -43,7 +43,7 @@ class MMUContinuedAllocation(MemoryManager):
         
     def sacarBloque(self,block):
         self.bloquesDisponibles.__delitem__(block.getInicio())
-    def reordenarBloques(self):
+    '''def reordenarBloques(self):
         for (dirBase,block) in self.bloquesDisponibles.items():
             sigBLock = self.bloquesDisponibles.get(block.getFin()+1)
             if(sigBLock != None):
@@ -53,6 +53,23 @@ class MMUContinuedAllocation(MemoryManager):
                 self.sacarBloque(block)
                 self.sacarBloque(sigBLock)
                 self.bloquesDisponibles[inicio]= newBlock
+    '''
+    def reordenarBloques(self):
+        if(self.bloquesDisponibles.__len__() > 0):
+            newMap = {}
+            iniNewBlock = (list( self.bloquesDisponibles.keys() )) [0]        # dir donde empieza el primer bloque
+            finNewBlock = self.bloquesDisponibles[iniNewBlock].getFin()     # dir donde termina 
+
+            for (dirBase,block) in self.bloquesDisponibles.items():
+                if (finNewBlock+1 < dirBase):
+                    newBlock = Block(iniNewBlock, finNewBlock) 
+                    newMap[iniNewBlock] = newBlock 
+                    iniNewBlock = block.getInicio()
+                    finNewBlock = block.getFin()
+                else: 
+                    finNewBlock = block.getFin()
+
+            self.bloquesDisponibles = newMap
                     
     def compactMemory(self):
         proxIns = 0
@@ -66,7 +83,7 @@ class MMUContinuedAllocation(MemoryManager):
             proxIns = proxIns + tam + 1
         
         #aca reasigno el nuevo gran Bloque disponible
-        self.bloquesDisponibles__setitem__(proxIns,Block(proxIns,self.memory.space()))
+        self.bloquesDisponibles[proxIns] = Block(proxIns,self.memory.getTotalSpace())
             
     def agregarABloquesLibres(self,block):
         self.bloquesDisponibles[block.getInicio()] =  block
