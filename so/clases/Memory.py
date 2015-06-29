@@ -26,6 +26,9 @@ class Memory():
     def getFreeSpace(self):
         return self.freeSpace
     
+    def setFreeSpace(self,space):
+        self.freeSpace = space
+    
     def cleanMemory(self,pcb):
         for i in range(0,pcb.getFinalPc()):
             print(i)

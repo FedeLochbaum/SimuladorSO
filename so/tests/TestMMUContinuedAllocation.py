@@ -74,16 +74,27 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         self.mmufirstFit.loadProgram(self.program3)
         self.assertEquals(self.memory3.getFreeSpace(),1)
         
-    '''  
+      
     def testcleanMemory(self):
+        #cleanMemory de mmuBestFit
         self.mmubestFit.loadProgram(self.program1)
         self.mmubestFit.loadProgram(self.program3)
+        self.assertEquals(self.memory1.getFreeSpace(),1)
         self.mmubestFit.cleanMemory(self.program1)
-        self.self.assertEquals(self.memory1.getFreeSpace(),4)
-    
-        #ESTE TEST ES UNA MIERDA HAY QUE TERMINARLO
-    '''
-    
+        self.assertEquals(self.memory1.getFreeSpace(),4)
+        
+        self.mmubestFit.cleanMemory(self.program3)
+        self.assertEquals(self.memory1.getFreeSpace(),10)
+        
+        #caso en que debe reordenarBloques
+        self.mmubestFit.loadProgram(self.program1)
+        self.mmubestFit.loadProgram(self.program2)
+        self.mmubestFit.cleanMemory(self.program1)
+        self.mmubestFit.loadProgram(self.program3)
+        self.assertEquals(self.memory1.getFreeSpace(),0)
+        
+        
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

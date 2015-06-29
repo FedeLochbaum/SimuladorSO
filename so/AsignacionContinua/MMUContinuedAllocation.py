@@ -35,8 +35,10 @@ class MMUContinuedAllocation(MemoryManager):
     def cleanMemory(self,program):
         block1 = self.bloquesUsados.get(program.getName())
         self.bloquesUsados.__delitem__(program.getName())
-        block = Block(block1.getInicio(),block1.getFinal())
+        block = Block(block1.getInicio(),block1.getFin())
         self.agregarABloquesLibres(block)
+        #para que sea mas eficiente.. no ahce falta borrarlas de verdad .. sino que sepa que se puede volver a escribir
+        self.memory.setFreeSpace(self.memory.getFreeSpace()+block1.size())
         self.reordenarBloques()
         
     def sacarBloque(self,block):
@@ -67,7 +69,7 @@ class MMUContinuedAllocation(MemoryManager):
         self.bloquesDisponibles__setitem__(proxIns,Block(proxIns,self.memory.space()))
             
     def agregarABloquesLibres(self,block):
-        self.bloquesDisponibles.__setitem__(block.getInicio(), block)
+        self.bloquesDisponibles[block.getInicio()] =  block
         
     def addinstructionsToMemory(self,inicio,final,program):
         i = inicio
