@@ -1,14 +1,17 @@
 class Instruction:
     
-    def __init__(self,message,window):
+    def __init__(self,message,resource):
         self.message=message
-        self.window=window
+        self.resourse=resource
 
     def execute(self):
-        self.window.show(self.getMessage())
+        self.resourse.show(self.getMessage())
         
     def getMessage(self):
         return self.message
     
     def isIO(self):
-        return False
+        pass
+    
+    def getResource(self):
+        return self.resourse
