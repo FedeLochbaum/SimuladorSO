@@ -1,41 +1,41 @@
 
 import unittest
 
-from clases.ReadyQueuePriority import ReadyQueuePriority
-from clases.WaitingQueue import WaitingQueue 
-from clases.QueuesManager import QueuesManager
-from clases.MemoryManager import MemoryManager
+from clases.Clock import Clock
 from clases.Cpu import Cpu
-from clases.Disk import Disk
 from clases.FIFO import FIFO
 from clases.Instruction import Instruction
-from clases.IrqHandler import IrqHandler
-from clases.Kernel import Kernel
-from clases.Memory import Memory
-from clases.Program import Program
-from clases.Window import Window
 from clases.IoWaitingQueue import IoWaitingQueue
+from clases.Irq import Irq
+from clases.IrqHandler import IrqHandler
+from clases.Memory import Memory
+from clases.MemoryManager import MemoryManager
+from clases.Pcb import Pcb
+from clases.QueuesManager import QueuesManager
+from clases.ReadyQueuePriority import ReadyQueuePriority
+from clases.WaitingQueue import WaitingQueue 
+from clases.Window import Window
+
 
 class Test(unittest.TestCase):
     
-    kernel=None
+   
     cpu=None
-    disk=None
     memory=None
     memoryManager=None
     queuesManager=None
     instruction=None
     window=None
-    program=None
+    pcb=None
+    clock=None
 
 
     def setUp(self):
         self.window=Window()
+        self.pcb=Pcb('proceso',1,0,1,0)
         self.instruction=Instruction('hola',self.window)
-        self.program=Program('cacho',self.instruction)
-        self.disk=Disk()
-        self.disk.addProgram(self.program)
         self.memory = Memory(20)
+        self.memory.put(0, self.instruction)
         self.readyQueue = ReadyQueuePriority()
         self.ioWaitingQueue = IoWaitingQueue()
         self.waitingQueue = WaitingQueue()
@@ -44,15 +44,18 @@ class Test(unittest.TestCase):
         self.irqHandler = IrqHandler(self.politicaFIFO)
         self.memoryManager = MemoryManager(self.memory)
         self.cpu = Cpu(self.memoryManager,self.irqHandler)
-        self.kernel=Kernel(self.cpu,self.disk,self.memoryManager,self.queuesManager)
+        self.cpu.setProcess(self.pcb)
+        self.clock=Clock(self.cpu)
+        
 
 
     def testClockCycle(self):
-        self.assertTrue(self.kernel.getClock().is_alive())
-        self.assertTrue(self.kernel.loadProgram('cacho'))
-        self.assertTrue(self.kernel.runProgram('cacho'))
-        self.cpu.fetch()
-        self.assertEquals(self.window.getCantContents(),1)
+        self.clock.notifyObservers()
+        self.assertEqual(self.pcb.getPc(),1)
+        self.assertEqual(self.window.getCantContents(),1)
+        self.assertEqual(self.window.get(0), 'hola')
+        self.assertEqual(self.cpu.getIrqHandler().cantIrqs(),1)
+        self.assertEqual(self.cpu.getIrqHandler().get(0), Irq.kill)
        
         
 

@@ -1,12 +1,11 @@
-'''
-Created on 13/05/2015
+from clases.IoResource import IoResource
+from clases.Resource import Resource
 
-@author: apiorno
-'''
-class Window:
+
+class Window(IoResource):
     
     def __init__(self):
-        self.content=[]
+        IoResource.__init__(self)
         
     def show(self,item):
         self.put(item)
@@ -20,3 +19,10 @@ class Window:
     
     def get(self,index):
         return self.content[index]
+    
+    def canHandle(self, resource):
+        IoResource.canHandle(self, resource)
+        return resource==Resource.window
+    def handle(self, resource):
+        IoResource.handle(self, resource)
+        

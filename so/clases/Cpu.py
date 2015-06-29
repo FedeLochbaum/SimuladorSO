@@ -1,5 +1,5 @@
 from clases.Irq import Irq
-
+from clases.Timer import Timer
 
 
 class Cpu:
@@ -8,6 +8,9 @@ class Cpu:
         self.memoryManager=memoryManager
         self.pcb=None
         self.irqHandler=irqHandler
+        self.timer=Timer()
+        self.setCpuToTimer()
+        self.setQuantum()
        
 
 
@@ -61,6 +64,13 @@ class Cpu:
     
     def callNext(self):
         self.pcb=self.irqHandler.getNext()
+        self.timer.restart()
         
     def getQueuesManager(self):
         return self.irqHandler.getQueuesManager()
+    
+    def setCpuToTimer(self):
+        self.timer.setCpu(self)
+        
+    def setQuantum(self):
+        self.timer.setQuantum(self.irqHandler.getQuantum())

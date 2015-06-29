@@ -44,3 +44,6 @@ class IrqHandler:
             
     def getQueuesManager(self):
         return self.queueManager
+    
+    def getQuantum(self):
+        return self.schedullingPolitic.getQuantum()

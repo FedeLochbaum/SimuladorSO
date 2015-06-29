@@ -1,14 +1,15 @@
 class Timer:
 
 
-    def __init__(self,cpu):
+    def __init__(self):
         self.quantum = None
         self.count = None
-        self.cpu = cpu
+        self.cpu=None
 
     def setQuantum(self,quantum):
         self.quantum = quantum
         self.count = quantum
+        
 
     def notifyCycle(self):
         self.count-=1
@@ -17,5 +18,8 @@ class Timer:
 
     def restart(self):
         self.count = self.quantum
+        
+    def setCpu(self,cpu):
+        self.cpu=cpu
 
 

@@ -40,12 +40,7 @@ class Test(unittest.TestCase):
     def setUp(self):
         self.memory=Memory(20)
         self.memoryManager=MemoryManager(self.memory)
-        self.irqHandler=IrqHandler(self.politicaRoundRobin)
-        self.cpu=Cpu(self.memoryManager,self.irqHandler)
-
-        self.irqHandler2=IrqHandler(self.politicaRRPrioridad)
-        self.temp=Timer(self.irqHandler)
-        self.temp2=Timer(self.irqHandler2)
+        
         self.colaReadyFifo = FIFOReadyQueue()
         self.colaReadyPrioridad = ReadyQueuePriority()
          
@@ -55,12 +50,21 @@ class Test(unittest.TestCase):
         self.adminDecolaReadyPrioridad = QueuesManager(self.colaReadyPrioridad,self.colaWaiting,self.ioWaitingQueue)
         self.adminDeColasConcolaReadyFifo = QueuesManager(self.colaReadyFifo,self.colaWaiting,self.ioWaitingQueue)
         
- 
         self.politicaFifo = FIFO(self.adminDeColasConcolaReadyFifo)
-        self.politicaRoundRobin = RoundRobin(3,self.adminDeColasConcolaReadyFifo,self.cpu,self.temp)
-         
         self.politicaFifoPrioridad =FIFO(self.adminDecolaReadyPrioridad)
-        self.politicaRRPrioridad = RoundRobin(3,self.adminDecolaReadyPrioridad,self.cpu,self.temp2)
+        self.politicaRRPrioridad = RoundRobin(3,self.adminDecolaReadyPrioridad)
+        self.politicaRoundRobin = RoundRobin(3,self.adminDeColasConcolaReadyFifo)
+        
+        self.irqHandler=IrqHandler(self.politicaRoundRobin)
+        self.irqHandler2=IrqHandler(self.politicaRRPrioridad)
+        self.cpu=Cpu(self.memoryManager,self.irqHandler)
+
+        
+        
+      
+        
+ 
+        
         
         
         
