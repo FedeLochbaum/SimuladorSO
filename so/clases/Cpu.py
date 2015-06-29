@@ -11,6 +11,7 @@ class Cpu:
         self.timer=Timer()
         self.setCpuToTimer()
         self.setQuantum()
+        self.actualInstruction=None
        
 
 
@@ -18,12 +19,13 @@ class Cpu:
         if(self.pcb != None):
             instruccionActual =  self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
-                return; 
-            instruccionActual.execute()
+                return;
+            
             if(instruccionActual.isIO()):
                 self.irqHandler.handle(Irq.io)
                 self.cleanRegisters()
                 return;
+            instruccionActual.execute()
             self.pcb.incrementPc()
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
                 self.irqHandler.handle(Irq.kill,self)
@@ -32,7 +34,10 @@ class Cpu:
                 
     def notify(self):
         self.fetch()  
-
+    
+    
+    def show(self,item):
+        print (item)
     def setProcess(self, process):
         self.pcb = process
 
@@ -74,3 +79,5 @@ class Cpu:
         
     def setQuantum(self):
         self.timer.setQuantum(self.irqHandler.getQuantum())
+    def getActualInstruction(self):
+        return self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())

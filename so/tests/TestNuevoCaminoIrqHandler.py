@@ -37,7 +37,7 @@ class Test(unittest.TestCase):
     
     def setUp(self):
         unittest.TestCase.setUp(self)
-        self.ioInstruction=InstructionIO(Resource.scanner)
+        self.ioInstruction=InstructionIO('hola io',Resource.scanner)
         self.program1=Program('asd','1')
         self.program2=Program('asd2','2')
         self.disk=Disk()
@@ -90,8 +90,11 @@ class Test(unittest.TestCase):
         self.assertEqual(self.colaReadyFifo.pcbCount(), 1)
         
     def testHandleIrqIO(self):
+        self.memory.put(0, self.ioInstruction)
         self.irqHandler.handle(Irq.io, self.cpu)
         self.assertEqual(self.cpu.getActualInstruction().getResource(),Resource.scanner)
+        self.assertEqual(self.cpu.getPcb(),None)
+        
         
         
         

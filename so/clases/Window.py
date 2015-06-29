@@ -8,14 +8,13 @@ class Window(IoResource):
         IoResource.__init__(self)
         
     def show(self,item):
-        self.put(item)
         print (item)
     
     def put(self,item):
         self.content.append(item)
         
     def getCantContents(self):
-        return self.content.__len__()
+        return self.ioWaitingQueue._qsize()
     
     def get(self,index):
         return self.content[index]
