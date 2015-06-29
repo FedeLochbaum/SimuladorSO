@@ -42,7 +42,7 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         
         self.program3 = Program('program3',instruction1,instruction2,instruction3,instruction4,instruction5,instruction6)
     
-   
+    
     def testLoadProgram(self):
         
         #load de mmuBestFit
@@ -72,6 +72,7 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         
     
     def testcleanMemory(self):
+            
         #cleanMemory de mmuBestFit
         self.mmubestFit.loadProgram(self.program1)
         self.mmubestFit.loadProgram(self.program3)
@@ -81,14 +82,14 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         
         self.mmubestFit.cleanMemory(self.program3)
         self.assertEquals(self.memory1.getFreeSpace(),10)
-        
+        '''       
         #caso en que debe reordenarBloques
         self.mmubestFit.loadProgram(self.program1)
         self.mmubestFit.loadProgram(self.program2)
         self.mmubestFit.cleanMemory(self.program1)
         self.mmubestFit.loadProgram(self.program3)
         self.assertEquals(self.memory1.getFreeSpace(),0)
-        
+        '''
         
 
 if __name__ == "__main__":

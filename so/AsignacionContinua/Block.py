@@ -6,7 +6,7 @@ class Block:
         self.program = None
     
     def size(self):
-        return self.fin - self.inicio
+        return self.fin - self.inicio +1
     
     def getProgram(self):
         return self.program
