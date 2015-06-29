@@ -6,16 +6,18 @@ from clases.Disk import Disk
 from clases.FIFO import FIFO
 from clases.FIFOReadyQueue import FIFOReadyQueue
 from clases.InstructionCpu import InstructionCpu
+from clases.InstructionIO import InstructionIO
 from clases.IoWaitingQueue import IoWaitingQueue
 from clases.Irq import Irq
 from clases.IrqHandler import IrqHandler
 from clases.Memory import Memory
 from clases.MemoryManager import MemoryManager
 from clases.Pcb import Pcb
+from clases.Program import Program
 from clases.QueuesManager import QueuesManager
+from clases.Resource import Resource
 from clases.WaitingQueue import WaitingQueue
 from clases.Window import Window
-from clases.Program import Program
 
 
 class Test(unittest.TestCase):
@@ -31,9 +33,11 @@ class Test(unittest.TestCase):
     disk=None
     program1=None
     program2=None
+    ioInstruction=None
     
     def setUp(self):
         unittest.TestCase.setUp(self)
+        self.ioInstruction=InstructionIO(Resource.scanner)
         self.program1=Program('asd','1')
         self.program2=Program('asd2','2')
         self.disk=Disk()
@@ -87,6 +91,8 @@ class Test(unittest.TestCase):
         
     def testHandleIrqIO(self):
         self.irqHandler.handle(Irq.io, self.cpu)
+        self.assertEqual(self.cpu.getActualInstruction().getResource(),Resource.scanner)
+        
         
         
         

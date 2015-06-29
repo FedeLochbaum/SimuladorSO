@@ -12,3 +12,6 @@ class SchedullingPolitic:
     
     def setPcbInReady(self,pcb):
         self.queuesManager.getReadyQueue().put(pcb)
+        
+    def getQuantum(self):
+        pass
