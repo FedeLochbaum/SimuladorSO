@@ -5,7 +5,7 @@ class FirstFit(RoutineBlock):
     
     def getBlockFor(self,cantidad,mapDeBloques,mmu):
         list = RoutineBlock.bloquesMasGrandes(self,cantidad,mapDeBloques)
-        block = list[1]
+        block = list[0]
         mmu.sacarBloque(block)
         blockG  = RoutineBlock.recortarBLoque(self,block,cantidad)
         blockP = RoutineBlock.bloquePequenioDe(self,blockG,block)

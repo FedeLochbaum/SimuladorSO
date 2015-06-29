@@ -10,7 +10,7 @@ class MMUContinuedAllocation(MemoryManager):
         self.routine = routineBlock
         
     def loadProgram(self,program):
-        if(self.memoryFree() > program.getInstructionsCount()):
+        if(self.memoryFree() >= program.getInstructionsCount()):
             if(self.hayBloqueDisponible(program)):
                 block = self.routine.getBlockFor(program.getInstructionsCount(),self.bloquesDisponibles,self)
                 block.setProgram(program)

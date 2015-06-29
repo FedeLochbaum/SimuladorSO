@@ -45,9 +45,9 @@ class TestMMUContinuedAllocation(unittest.TestCase):
    
     def testLoadProgram(self):
         
-        print(self.program1.getInstructionsCount())
-        print(self.program2.getInstructionsCount())
-        print(self.program3.getInstructionsCount())
+        #print(self.program1.getInstructionsCount())
+        #print(self.program2.getInstructionsCount())
+        #print(self.program3.getInstructionsCount())
         
         #load de mmuBestFit
         
@@ -58,7 +58,7 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         self.assertEquals(self.memory1.getFreeSpace(),1)
         
         #load de mmuWorstFit
-        '''
+    
         self.assertEquals(self.memory2.getFreeSpace(),10)
         self.mmuworstFit.loadProgram(self.program2)
         self.assertEquals(self.memory2.getFreeSpace(),6)
@@ -73,7 +73,7 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         self.assertEquals(self.memory3.getFreeSpace(),1)
         self.mmufirstFit.loadProgram(self.program3)
         self.assertEquals(self.memory3.getFreeSpace(),1)
-       ''' 
+        
     '''  
     def testcleanMemory(self):
         self.mmubestFit.loadProgram(self.program1)

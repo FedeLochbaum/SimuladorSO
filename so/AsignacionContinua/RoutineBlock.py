@@ -6,8 +6,8 @@ class RoutineBlock:
         pass    
     
     def recortarBLoque(self,block,cantidad):
-        block2 = Block(block.getInicio(),cantidad)
-        return block2
+        block1 = Block(block.getInicio(),block.getInicio()+cantidad)
+        return block1
         
     def bloquePequenioDe(self,blockG,block):
         return Block(blockG.getFin()+1,block.getFin()+(block.size()-blockG.size()))
