@@ -15,6 +15,6 @@ class RoutineBlock:
     def bloquesMasGrandes(self,cantidad,mapDeBloques):
         list = []
         for (k,block) in mapDeBloques.items():
-            if(block.size() > cantidad):
+            if(block.size() >= cantidad):
                 list.append(block)
         return list

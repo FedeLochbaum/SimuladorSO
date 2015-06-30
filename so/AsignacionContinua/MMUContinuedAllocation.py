@@ -82,9 +82,9 @@ class MMUContinuedAllocation(MemoryManager):
             self.addinstructionsToMemory(proxIns, tamF, block.getProgram())
             block.setInicio(proxIns)
             block.setFin(tamF)
-            proxIns = proxIns + tam 
-            
+            proxIns = proxIns + tam     
         #aca reasigno el nuevo gran Bloque disponible
+        self.bloquesDisponibles = {}
         self.bloquesDisponibles[proxIns] = Block(proxIns,self.memory.getTotalSpace())  
         
     def agregarABloquesLibres(self,block):

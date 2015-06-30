@@ -82,14 +82,14 @@ class TestMMUContinuedAllocation(unittest.TestCase):
         
         self.mmubestFit.cleanMemory(self.program3)
         self.assertEquals(self.memory1.getFreeSpace(),10)
-        '''       
-        #caso en que debe reordenarBloques
+               
+        #caso en que debe compactar
         self.mmubestFit.loadProgram(self.program1)
         self.mmubestFit.loadProgram(self.program2)
         self.mmubestFit.cleanMemory(self.program1)
         self.mmubestFit.loadProgram(self.program3)
         self.assertEquals(self.memory1.getFreeSpace(),0)
-        '''
+        
         
 
 if __name__ == "__main__":

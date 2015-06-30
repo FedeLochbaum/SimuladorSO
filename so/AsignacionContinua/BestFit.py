@@ -12,7 +12,8 @@ class BestFit(RoutineBlock):
         for block in list:
             if(block.size() < blockR.size()):
                 blockR = block
-        
+                
+                
         mmu.sacarBloque(blockR)
         blockG  = RoutineBlock.recortarBLoque(self,blockR,cantidad)
         blockP = RoutineBlock.bloquePequenioDe(self,blockG,blockR)
