@@ -91,9 +91,20 @@ class Test(unittest.TestCase):
         
     def testHandleIrqIO(self):
         self.memory.put(0, self.ioInstruction)
-        self.irqHandler.handle(Irq.io, self.cpu)
-        self.assertEqual(self.cpu.getActualInstruction().getResource(),Resource.scanner)
-        self.assertEqual(self.cpu.getPcb(),None)
+        self.irqHandler.handle(Irq.io, self.cpu,self.ioInstruction.getResource())
+        self.cpu.actualInstruction=self.ioInstruction
+        expected=self.cpu.getActualInstruction().getResource()
+        actual=Resource.scanner
+        self.assertEqual(expected,actual)
+        expected=self.cpu.getPcb()
+        actual=None
+        self.assertEqual(expected,actual)
+        
+    def testHandleIrqIoFinish(self):
+        self.memory.put(0, self.ioInstruction)
+        self.irqHandler.handle(Irq.ioFinish, self.cpu)
+        self.assertEqual(self.colaReadyFifo.pcbCount(), 1)
+        self.assertEqual(self.colaReadyFifo.first(), self.pcb)
         
         
         

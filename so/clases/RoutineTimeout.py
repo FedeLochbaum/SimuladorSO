@@ -11,8 +11,8 @@ class RoutineTimeout(Routine):
         Routine.canHandle(self, irq)
         return irq==Irq.timeOut
     
-    def handle(self, irq,cpu,disk=None):
-        Routine.handle(self, irq,cpu,disk)
+    def handle(self,irq,cpu,program=None,resource=None):
+        Routine.handle(self, irq,cpu,program,resource)
         self.schedullingPolitic.setPcbInReady(cpu.getPcb())
         cpu.cleanPcb()
         cpu.callNext()

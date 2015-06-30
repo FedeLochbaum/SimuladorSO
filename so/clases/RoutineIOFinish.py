@@ -11,7 +11,7 @@ class RoutineIOFinish(Routine):
         Routine.canHandle(self, irq)
         return irq==Irq.ioFinish
     
-    def handle(self, irq,cpu,program=None):
-        Routine.handle(self, irq,cpu,program)
+    def handle(self,irq,cpu,program=None,resource=None):
+        Routine.handle(self, irq,cpu,program,resource)
         self.schedullingPolitic.setPcbInReady(cpu.getPcb())
         #aca esta mal por cpu

@@ -20,7 +20,7 @@ class Cpu:
             instruccionActual =  self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return;
-            
+            self.actualInstruction=instruccionActual
             if(instruccionActual.isIO()):
                 self.irqHandler.handle(Irq.io)
                 self.cleanRegisters()
@@ -80,4 +80,4 @@ class Cpu:
     def setQuantum(self):
         self.timer.setQuantum(self.irqHandler.getQuantum())
     def getActualInstruction(self):
-        return self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
+        return self.actualInstruction

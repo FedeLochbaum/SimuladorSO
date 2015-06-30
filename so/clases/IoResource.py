@@ -9,5 +9,5 @@ class IoResource(Thread):
     def canHandle(self,resource):
         pass
     
-    def handle(self,resource):
-        self.ioWaitingQueue.put(resource)
+    def handle(self,pcb):
+        self.ioWaitingQueue.put(pcb)

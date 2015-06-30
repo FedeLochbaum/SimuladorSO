@@ -14,3 +14,6 @@ class FIFOReadyQueue:
         
     def pcbCount(self):
         return self.readyQueue.__len__()
+    
+    def first(self):
+        return self.readyQueue.__getitem__(0)
