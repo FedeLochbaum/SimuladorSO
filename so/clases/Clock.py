@@ -6,11 +6,11 @@ import sys
 
 class Clock(threading.Thread):
     
-    def __init__(self,cpu):
+    def __init__(self,cpu,irq):
         threading.Thread.__init__(self)
-        self.observers=[]
+        self.observers=[cpu,irq]
         self.stoprequest = threading.Event()
-        self.registerObserver(cpu)
+        #self.registerObserver(cpu)
         self.RUNNING=True
     
     def registerObserver(self,observer):
