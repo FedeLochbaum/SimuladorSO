@@ -25,6 +25,7 @@ class IrqHandler:
         for (k,irq) in self.irqs:
             self.anyRoutineHandle(k,irq[0],irq[1],irq[2])
         self.irqs = {}
+        
     def get(self,index):
         return self.irqs[index]
     
