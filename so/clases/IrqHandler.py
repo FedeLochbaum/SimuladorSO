@@ -16,6 +16,7 @@ class IrqHandler:
         
     def handle(self,irq,cpu,program=None,resource=None): #falta la memoria falta saber que le pasamos en routineIOfinish
         self.put[irq] = (cpu,program,resource)
+        #lo asigno asi.. porque nunca se va apisar no pueden venir mas de una misma interrupcion por fetch :D
         #self.anyRoutineHandle(irq,cpu,program,resource)
     
     def put(self,irq):
