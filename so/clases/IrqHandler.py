@@ -15,16 +15,16 @@ class IrqHandler:
         self.schedullingPolitic=schedullingPolitic
         
     def handle(self,irq,cpu,program=None,resource=None): #falta la memoria falta saber que le pasamos en routineIOfinish
-        self.put[irq] = (cpu,program,resource)
+        self.irqs[irq] = (cpu,program,resource)
         #lo asigno asi.. porque nunca se va apisar no pueden venir mas de una misma interrupcion por fetch :D
         #self.anyRoutineHandle(irq,cpu,program,resource)
     
     def put(self,irq):
         self.irqs.append(irq)
         
-    def notify(self):
-        for (k,irq) in self.irqs:
-            self.anyRoutineHandle(k,irq[0],irq[1],irq[2])
+    def runIrqs(self):
+        for (irq,params) in self.irqs.items():
+            self.anyRoutineHandle(irq,params[0],params[1],params[2])
         self.irqs = {}
         
     def get(self,index):

@@ -74,17 +74,23 @@ class Test(unittest.TestCase):
 
     def testHandleIrqKill(self):
         self.irqHandler.handle(Irq.kill, self.cpu)
+        self.assertEqual( self.irqHandler.cantIrqs(),1)
+        self.irqHandler.runIrqs();
         self.assertEqual(self.cpu.pcb,None)
         self.assertEqual(self.cpu.instructionsInMemoryCount(),0)
     
     def testHandleIrqTimeout(self):
         self.irqHandler.handle(Irq.timeOut, self.cpu)
+        self.assertEqual( self.irqHandler.cantIrqs(),1)
+        self.irqHandler.runIrqs();
         self.assertEqual(self.colaReadyFifo.next(), None)
         self.assertEqual(self.cpu.pcb,self.pcb)
         self.assertEqual(self.cpu.instructionsInMemoryCount(),1)
         
     def testHandleIrqnewProcess(self):
         self.irqHandler.handle(Irq.newProcess, self.cpu, self.program2)
+        self.assertEqual( self.irqHandler.cantIrqs(),1)
+        self.irqHandler.runIrqs();
         self.assertEqual(self.cpu.instructionsInMemoryCount(),2)
         self.assertEqual(self.cpu.pcb,self.pcb)
         self.assertEqual(self.colaReadyFifo.pcbCount(), 1)
@@ -92,6 +98,8 @@ class Test(unittest.TestCase):
     def testHandleIrqIO(self):
         self.memory.put(0, self.ioInstruction)
         self.irqHandler.handle(Irq.io, self.cpu,self.ioInstruction.getResource())
+        self.assertEqual( self.irqHandler.cantIrqs(),1)
+        self.irqHandler.runIrqs();
         self.cpu.actualInstruction=self.ioInstruction
         expected=self.cpu.getActualInstruction().getResource()
         actual=Resource.scanner
@@ -103,6 +111,8 @@ class Test(unittest.TestCase):
     def testHandleIrqIoFinish(self):
         self.memory.put(0, self.ioInstruction)
         self.irqHandler.handle(Irq.ioFinish, self.cpu)
+        self.assertEqual( self.irqHandler.cantIrqs(),1)
+        self.irqHandler.runIrqs();
         self.assertEqual(self.colaReadyFifo.pcbCount(), 1)
         self.assertEqual(self.colaReadyFifo.first(), self.pcb)
         

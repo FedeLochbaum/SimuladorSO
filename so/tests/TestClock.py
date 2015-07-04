@@ -51,12 +51,14 @@ class Test(unittest.TestCase):
 
 
     def testClockCycle(self):
-        self.clock.notifyObservers()
+        self.clock.notifyUserMode()
         self.assertEqual(self.pcb.getPc(),1)
         self.assertEqual(self.cpu.getIrqHandler().cantIrqs(),1)
-        self.assertEqual(self.cpu.getIrqHandler().get(0), Irq.kill)
-       
+        self.assertTrue(self.irqHandler.get(Irq.kill)!=None)
         
+        self.clock.notifyKernelMode()
+        self.assertEqual(self.pcb.getPc(),1)
+        self.assertEqual(self.cpu.getIrqHandler().cantIrqs(),0)
 
     def tearDown(self):
         self.kernel=None

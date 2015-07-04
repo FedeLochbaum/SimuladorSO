@@ -32,12 +32,18 @@ class Cpu:
                 return;
             
                 
-    def notify(self):
-        self.fetch()  
+    def notifyUserMode(self):
+        self.fetch() 
     
+    def notifyKernelMode(self):
+        self.runIrqs() 
     
+    def runIrqs(self):
+        self.irqHandler.runIrqs()
+        
     def show(self,item):
         print (item)
+        
     def setProcess(self, process):
         self.pcb = process
 

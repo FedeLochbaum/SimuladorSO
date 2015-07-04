@@ -58,7 +58,7 @@ class TestCpu(unittest.TestCase):
         
         self.assertEqual(self.pcb.getPc(),1)
         self.assertEqual(self.cpu.getIrqHandler().cantIrqs(),1)
-        self.assertEqual(self.cpu.getIrqHandler().get(0), Irq.kill)
+        self.assertTrue(self.cpu.getIrqHandler().get(Irq.kill)!=None)
 
 
 if __name__ == "__main__":

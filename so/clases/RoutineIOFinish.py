@@ -5,7 +5,7 @@ from clases.Routine import Routine
 class RoutineIOFinish(Routine):
     
     def __init__(self,schedullingPolitic):
-        schedullingPolitic = schedullingPolitic
+        self.schedullingPolitic = schedullingPolitic
     
     def canHandle(self, irq):
         Routine.canHandle(self, irq)
