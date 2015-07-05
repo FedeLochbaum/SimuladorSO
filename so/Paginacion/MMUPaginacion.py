@@ -1,10 +1,14 @@
+from Paginacion.LogicMemory import LogicMemory
 from clases.MemoryManager import MemoryManager
+
+
 class MMUPaginacion(MemoryManager):
     
     def __init__(self,memory):
         MemoryManager.__init__(self,memory)
         #asumiendo que creo la memoria logica aca pasandole el tamaño de sus bloques o paginas(igual al de los marcos de la memoria)
-        self.memoryLogic = MemoryLogic(memory.sizeFrame())
+        self.logicMemory = LogicMemory(memory.sizeFrame())
+        self.physicalMemory=memory
         self.pageTable = {}
         #esta emptysFrame nose si va. pero seria los marcos libres
         self.EmptysFrame = {}
