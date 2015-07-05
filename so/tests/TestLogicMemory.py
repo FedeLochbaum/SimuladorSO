@@ -17,7 +17,7 @@ class Test(unittest.TestCase):
 
     def testPut(self):
         self.logicMemory.put(1001,self.page1)
-        self.assertEqual(self.get(1001), self.page1)
+        self.assertEqual(self.logicMemory.get(1001), self.page1)
 
 
 if __name__ == "__main__":
