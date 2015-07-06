@@ -6,7 +6,7 @@ class MMUPaginacion(MemoryManager):
     
     def __init__(self,memory):
         MemoryManager.__init__(self,memory)
-        #asumiendo que creo la memoria logica aca pasandole el tamaño de sus bloques o paginas(igual al de los marcos de la memoria)
+        #asumiendo que creo la memoria logica aca pasandole el tamaÅ„o de sus bloques o paginas(igual al de los marcos de la memoria)
         self.logicMemory = LogicMemory(memory.sizeFrame())
         self.physicalMemory=memory
         self.pageTable = {}
@@ -14,6 +14,13 @@ class MMUPaginacion(MemoryManager):
         self.EmptysFrame = {}
         
     def loadProgram(self,program):
+        if(self.hayMemoriaSuficiente(program)):
+            self.logicMemory.setandLoadPages(program)
+            for page in program.pages():
+                frame = self.EmptysFrame.pop()
+                #creo que pop podria sacar el elemento tambien
+                self.pageTable[page.number()] = frame
+                self.loadInMemory(page)
         '''
         #lo deje aca porque no sabia que debia verificar aca te dejo una serie de cosas que creo que deberian pasar:
         #preguntar si hay memoria..(ya sea para todo el program o una instrucicon))
@@ -25,3 +32,11 @@ class MMUPaginacion(MemoryManager):
         #pdd: no parece ser tanto como asignacion continua pero hay que contemplar mas cosas 
         #pddd : PUTO ;)  asi no te olvidas de lo que sos 
         '''
+        
+    def loadInMemory(self,page):
+        frame = self.pageTable(page.number())
+        inicial = frame.baseDir()
+        for instruction in page.instructions():
+            if(inicial <= frame.finalDir()):
+                self.physicalMemory.put(inicial,instruction)
+                inicial = inicial+1
