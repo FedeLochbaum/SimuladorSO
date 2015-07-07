@@ -10,7 +10,7 @@ class Test(unittest.TestCase):
 
 
     def setUp(self):
-        self.logicMemory=LogicMemory(5)
+        self.logicMemory=LogicMemory(5,2)
         self.page1=Page(2)
         self.instruction1=InstructionIO('hola',Resource.printer)
         self.instruction2=InstructionIO('hola',Resource.scanner)
@@ -38,14 +38,6 @@ class Test(unittest.TestCase):
         actual=self.logicMemory.remove(self.page1)
         self.assertEqual(expected,actual)
         self.assertEqual(self.logicMemory.freeSpace, 5)
-        
-    def testNextIndex(self):
-        self.assertEqual(self.logicMemory.getNextIndex(), 0)
-        self.logicMemory.put(0,self.page1)
-        self.assertEqual(self.logicMemory.getNextIndex(), 1)
-        
-        
-        
         
 
 

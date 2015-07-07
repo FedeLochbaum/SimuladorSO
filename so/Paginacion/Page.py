@@ -18,5 +18,13 @@ class Page():
         self.instructions.remove(instruction)
         self.maxInstructionsCount+=1
         
+    def isFree(self):
+        return self.instructions==[]
+    
+    def setInstructions(self,program):
+        for instruction in program.getInstructions():
+            if(self.maxInstructionsCount>0):
+                self.addInstruction(instruction)
+        
 
         

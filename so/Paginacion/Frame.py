@@ -30,6 +30,9 @@ class Frame:
     def isFree(self):
         return self.page==None
     
+    def removePage(self):
+        self.page=None
+    
     
         
     

@@ -7,16 +7,13 @@ class PhysicalMemory():
         self.freeSpace=space
         self.sizeFrame = sizeFrame
         self.totalSpace = space
-        self.dividirMemoryIn(sizeFrame)
+        self.divideMemoryIn(sizeFrame)
     
-    def put(self,physicalDir,frame):
-        self.instructions[physicalDir] = frame
-        self.freeSpace-=1
 
     def removeFromFrame(self,physicalDir):
         return self.dirFrameTable[physicalDir].removePage()
     
-    def dividirMemoryIn(self,sizeFrame):
+    def divideMemoryIn(self,sizeFrame):
         cant = self.totalSpace / sizeFrame
         sigDir = 1
         while(cant > 0):

@@ -1,22 +1,20 @@
 
 import unittest
 
+from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
 from clases.Clock import Clock
 from clases.Cpu import Cpu
 from clases.FIFO import FIFO
-from clases.Instruction import Instruction
 from clases.InstructionCpu import InstructionCpu
 from clases.IoWaitingQueue import IoWaitingQueue
 from clases.Irq import Irq
 from clases.IrqHandler import IrqHandler
-from clases.PhysicalMemory import PhysicalMemory
 from clases.MemoryManager import MemoryManager
 from clases.Pcb import Pcb
 from clases.QueuesManager import QueuesManager
 from clases.ReadyQueuePriority import ReadyQueuePriority
-from clases.Resource import Resource
 from clases.WaitingQueue import WaitingQueue 
-from clases.Window import Window
+
 
 
 class Test(unittest.TestCase):
@@ -34,7 +32,7 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         self.pcb=Pcb('proceso',1,0,1,0)
-        self.memory = PhysicalMemory(20)
+        self.memory = PhysicalMemoryContinuedAllocation(20)
         self.readyQueue = ReadyQueuePriority()
         self.ioWaitingQueue = IoWaitingQueue()
         self.waitingQueue = WaitingQueue()
