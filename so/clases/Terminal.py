@@ -7,7 +7,7 @@ from clases.Cpu import Cpu
 from clases.Disk import Disk
 from clases.Instruction import Instruction
 from clases.Kernel import Kernel
-from clases.Memory import Memory
+from clases.PhysicalMemory import PhysicalMemory
 from clases.MemoryManager import MemoryManager
 from clases.Program import Program
 from clases.QueuesManager import QueuesManager
@@ -139,7 +139,7 @@ disk.addProgram(program1)
 disk.addProgram(program2)
 disk.addProgram(program3)
 disk.addProgram(program4)
-memory = Memory(200)
+memory = PhysicalMemory(200)
 memoryManager = MemoryManager(memory)
 ioWaitingQueue = IoWaitingQueue()
 readyQueue = ReadyQueuePriority()

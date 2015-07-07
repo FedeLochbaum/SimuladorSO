@@ -1,7 +1,7 @@
 import unittest
 
 from clases.Cpu import Cpu
-from clases.Memory import Memory
+from clases.PhysicalMemory import PhysicalMemory
 from clases.FIFO import FIFO
 from clases.FIFOReadyQueue import FIFOReadyQueue
 from clases.Pcb import Pcb
@@ -38,7 +38,7 @@ class Test(unittest.TestCase):
     irqHandler2=None
      
     def setUp(self):
-        self.memory=Memory(20)
+        self.memory=PhysicalMemory(20)
         self.memoryManager=MemoryManager(self.memory)
         
         self.colaReadyFifo = FIFOReadyQueue()

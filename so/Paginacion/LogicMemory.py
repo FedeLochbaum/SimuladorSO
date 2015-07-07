@@ -20,4 +20,10 @@ class LogicMemory():
         return self.dirPageTable.pop(page)
      
     def getNextIndex(self):
-        return self.dirPageTable.__len__()   
+        return self.dirPageTable.__len__()  
+    
+    def getFreeSpace(self):
+        return self.freeSpace 
+    
+    def getTotalSpace(self):
+        return self.totalSpace

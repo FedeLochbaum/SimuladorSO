@@ -1,27 +1,24 @@
-class Memory():
+class PhysicalMemory():
     
     
     def __init__(self,space):
-        self.instructions = {}
+        self.dirFrameTable = {}
         self.freeSpace=space
         self.totalSpace = space
     
-    def put(self,celda,instruction):
-        self.instructions[celda] = instruction
+    def put(self,physicalDir,frame):
+        self.instructions[physicalDir] = frame
         self.freeSpace-=1
 
-    def remove(self,cell):
-        self.instructions.__delitem__(cell)
-        self.freeSpace+=1
+    def removeFromFrame(self,physicalDir):
+        return self.dirFrameTable[physicalDir].removePage()
 
-    def getInstructions(self):
-        return self.instructions
 
-    def get(self,cell):
-        return self.instructions[cell]
+    def get(self,physicalDir):
+        return self.dirFrameTable[physicalDir]
         
     def getNextIndex(self):
-        return self.instructions.__len__()+1
+        return self.dirFrameTable.__len__()
 
     def getFreeSpace(self):
         return self.freeSpace

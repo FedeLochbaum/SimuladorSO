@@ -14,5 +14,9 @@ class Page():
         else:
             return False
         
+    def removeInstruction(self,instruction):
+        self.instructions.remove(instruction)
+        self.maxInstructionsCount+=1
+        
 
         

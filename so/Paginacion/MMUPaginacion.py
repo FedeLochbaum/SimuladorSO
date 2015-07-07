@@ -11,16 +11,18 @@ class MMUPaginacion(MemoryManager):
         self.physicalMemory=memory
         self.pageTable = {}
         #esta emptysFrame nose si va. pero seria los marcos libres
-        self.EmptysFrame = {}
+        #self.EmptysFrame = {} Esto va en la memoria fisica
         
     def loadProgram(self,program):
         if(self.hayMemoriaSuficiente(program)):
             self.logicMemory.setandLoadPages(program)
             for page in program.pages():
-                frame = self.EmptysFrame.pop()
+                #frame = self.physicalMemory.get   los frames ya estarain cargados, lo que hay que ahces es setearle la page
                 #creo que pop podria sacar el elemento tambien
-                self.pageTable[page.number()] = frame
-                self.loadInMemory(page)
+                logicDir=self.logicMemory.get(page)
+                frame=self.pageTable[logicDir]
+                frame.setPage(page)
+                #self.loadInMemory(page)  El setPage haria lo de loadInMemory
         '''
         #lo deje aca porque no sabia que debia verificar aca te dejo una serie de cosas que creo que deberian pasar:
         #preguntar si hay memoria..(ya sea para todo el program o una instrucicon))

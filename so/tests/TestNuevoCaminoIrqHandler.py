@@ -10,7 +10,7 @@ from clases.InstructionIO import InstructionIO
 from clases.IoWaitingQueue import IoWaitingQueue
 from clases.Irq import Irq
 from clases.IrqHandler import IrqHandler
-from clases.Memory import Memory
+from clases.PhysicalMemory import PhysicalMemory
 from clases.MemoryManager import MemoryManager
 from clases.Pcb import Pcb
 from clases.Program import Program
@@ -45,7 +45,7 @@ class Test(unittest.TestCase):
         self.disk.addProgram(self.program2)
         self.window=Window()
         self.instruction=InstructionCpu('holaaaa',self.window)
-        self.memory=Memory(10)
+        self.memory=PhysicalMemory(10)
         self.memory.put(0, self.instruction)
         self.memoryManager=MemoryManager(self.memory)
         self.colaReadyFifo = FIFOReadyQueue()

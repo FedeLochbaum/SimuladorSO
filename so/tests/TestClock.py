@@ -9,7 +9,7 @@ from clases.InstructionCpu import InstructionCpu
 from clases.IoWaitingQueue import IoWaitingQueue
 from clases.Irq import Irq
 from clases.IrqHandler import IrqHandler
-from clases.Memory import Memory
+from clases.PhysicalMemory import PhysicalMemory
 from clases.MemoryManager import MemoryManager
 from clases.Pcb import Pcb
 from clases.QueuesManager import QueuesManager
@@ -34,7 +34,7 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         self.pcb=Pcb('proceso',1,0,1,0)
-        self.memory = Memory(20)
+        self.memory = PhysicalMemory(20)
         self.readyQueue = ReadyQueuePriority()
         self.ioWaitingQueue = IoWaitingQueue()
         self.waitingQueue = WaitingQueue()
