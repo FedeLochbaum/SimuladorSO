@@ -3,10 +3,16 @@ class LogicMemory():
 
 
 
-    def __init__(self,space):
+    def __init__(self,space,sizeFrame):
         self.dirPageTable={}
         self.totalSpace=space
         self.freeSpace=space
+        self.sizePage = sizeFrame
+        #aca te falta inicializar las pages como hice yo en la fisica con los marcos
+        
+    def setandLoadPages(self,program):
+        #tenes que ahcer este metodo
+        pass
         
     def put(self,logicDir,page):
         self.dirPageTable[page]=logicDir

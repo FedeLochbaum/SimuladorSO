@@ -4,15 +4,18 @@ from Paginacion.MMUPaginacion import MMUPaginacion
 from clases.Instruction import Instruction
 from clases.PhysicalMemory import PhysicalMemory
 from clases.Program import Program
+from clases.Window import Window
 
 
 class TestMMUPaginacion(unittest.TestCase):
     
     def setUp(self):
-        self.memory = PhysicalMemory(10)
+        self.memory = PhysicalMemory(10,2)
         
         
         self.mmuPaginacion = MMUPaginacion(self.memory)
+        
+        self.window = Window()
         
         instruction1=Instruction('hello',self.window)
         instruction2=Instruction('hello',self.window)
@@ -29,11 +32,11 @@ class TestMMUPaginacion(unittest.TestCase):
         
     def testLoadProgram(self):
         
-        self.assertEquals(self.memory1.getFreeSpace(),10)
+        self.assertEquals(self.memory.getFreeSpace(),10)
         self.mmuPaginacion.loadProgram(self.program1)
-        self.assertEquals(self.memory1.getFreeSpace(),7)
+        self.assertEquals(self.memory.getFreeSpace(),7)
         self.mmuPaginacion.loadProgram(self.program3)
-        self.assertEquals(self.memory1.getFreeSpace(),1)
+        self.assertEquals(self.memory.getFreeSpace(),1)
         
         
     

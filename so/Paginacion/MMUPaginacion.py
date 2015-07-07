@@ -7,7 +7,7 @@ class MMUPaginacion(MemoryManager):
     def __init__(self,memory):
         MemoryManager.__init__(self,memory)
         #asumiendo que creo la memoria logica aca pasandole el tamańo de sus bloques o paginas(igual al de los marcos de la memoria)
-        self.logicMemory = LogicMemory(memory.sizeFrame())
+        self.logicMemory = LogicMemory(memory.getTotalSpace(),memory.sizeFrame)
         self.physicalMemory=memory
         self.pageTable = {}
         #esta emptysFrame nose si va. pero seria los marcos libres
@@ -23,7 +23,9 @@ class MMUPaginacion(MemoryManager):
                 frame=self.pageTable[logicDir]
                 frame.setPage(page)
                 #self.loadInMemory(page)  El setPage haria lo de loadInMemory
-     
+                
+    def hayMemoriaSuficiente(self,program):
+        return self.memoryFree() >= program.getInstructionsCount()
         
     def loadInMemory(self,page):
         frame = self.pageTable(page.number())
