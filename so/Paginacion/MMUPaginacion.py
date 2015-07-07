@@ -23,17 +23,7 @@ class MMUPaginacion(MemoryManager):
                 frame=self.pageTable[logicDir]
                 frame.setPage(page)
                 #self.loadInMemory(page)  El setPage haria lo de loadInMemory
-        '''
-        #lo deje aca porque no sabia que debia verificar aca te dejo una serie de cosas que creo que deberian pasar:
-        #preguntar si hay memoria..(ya sea para todo el program o una instrucicon))
-        #pedir la direccion fisica y asignar la memoria
-        # guardar la/las paginas usadas en el programa
-        #para hacer lo de saber la direccion fisica.. habria que ver que ahcemos o como asignamos a la tabla de paginas
-        
-        #pd : hoy domingo no ovya  poder codear hasta la noche si podes avanzar avanza TODO lo posible... 
-        #pdd: no parece ser tanto como asignacion continua pero hay que contemplar mas cosas 
-        #pddd : PUTO ;)  asi no te olvidas de lo que sos 
-        '''
+     
         
     def loadInMemory(self,page):
         frame = self.pageTable(page.number())

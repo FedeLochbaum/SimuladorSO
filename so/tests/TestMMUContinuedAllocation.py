@@ -5,9 +5,9 @@ from AsignacionContinua.FirstFit import FirstFit
 from AsignacionContinua.MMUContinuedAllocation import MMUContinuedAllocation
 from AsignacionContinua.WorstFit import WorstFit
 from clases.Instruction import Instruction
-from clases.PhysicalMemory import PhysicalMemory
 from clases.Program import Program
 from clases.Window import Window
+from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
 
 
 class TestMMUContinuedAllocation(unittest.TestCase):
@@ -15,9 +15,9 @@ class TestMMUContinuedAllocation(unittest.TestCase):
 
 
     def setUp(self):
-        self.memory1 = PhysicalMemory(10)
-        self.memory2 = PhysicalMemory(10)
-        self.memory3 = PhysicalMemory(10)
+        self.memory1 = PhysicalMemoryContinuedAllocation(10)
+        self.memory2 = PhysicalMemoryContinuedAllocation(10)
+        self.memory3 = PhysicalMemoryContinuedAllocation(10)
         
         self.bestFit = BestFit()
         self.worstFit = WorstFit()
