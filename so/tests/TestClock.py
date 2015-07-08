@@ -42,7 +42,7 @@ class Test(unittest.TestCase):
         self.memoryManager = MemoryManager(self.memory)
         self.cpu = Cpu(self.memoryManager,self.irqHandler)
         self.cpu.setProcess(self.pcb)
-        self.instruction=InstructionCpu('hola',self.cpu)
+        self.instruction=InstructionCpu('hola')
         self.memory.put(0, self.instruction)
         self.clock=Clock(self.cpu)
         

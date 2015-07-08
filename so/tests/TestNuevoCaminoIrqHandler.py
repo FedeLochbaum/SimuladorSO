@@ -10,7 +10,6 @@ from clases.InstructionIO import InstructionIO
 from clases.IoWaitingQueue import IoWaitingQueue
 from clases.Irq import Irq
 from clases.IrqHandler import IrqHandler
-from clases.PhysicalMemory import PhysicalMemory
 from clases.MemoryManager import MemoryManager
 from clases.Pcb import Pcb
 from clases.Program import Program
@@ -18,6 +17,7 @@ from clases.QueuesManager import QueuesManager
 from clases.Resource import Resource
 from clases.WaitingQueue import WaitingQueue
 from clases.Window import Window
+from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
 
 
 class Test(unittest.TestCase):
@@ -44,8 +44,8 @@ class Test(unittest.TestCase):
         self.disk.addProgram(self.program1)
         self.disk.addProgram(self.program2)
         self.window=Window()
-        self.instruction=InstructionCpu('holaaaa',self.window)
-        self.memory=PhysicalMemory(10)
+        self.instruction=InstructionCpu('holaaaa')
+        self.memory=PhysicalMemoryContinuedAllocation(10)
         self.memory.put(0, self.instruction)
         self.memoryManager=MemoryManager(self.memory)
         self.colaReadyFifo = FIFOReadyQueue()

@@ -13,6 +13,7 @@ from clases.Timer import Timer
 from clases.MemoryManager import MemoryManager
 from clases.IrqHandler import IrqHandler
 from clases.IoWaitingQueue import IoWaitingQueue
+from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
 
 class Test(unittest.TestCase):
     adminDeColasConcolaReadyFifo = None
@@ -38,7 +39,7 @@ class Test(unittest.TestCase):
     irqHandler2=None
      
     def setUp(self):
-        self.memory=PhysicalMemory(20)
+        self.memory=PhysicalMemoryContinuedAllocation(20)
         self.memoryManager=MemoryManager(self.memory)
         
         self.colaReadyFifo = FIFOReadyQueue()

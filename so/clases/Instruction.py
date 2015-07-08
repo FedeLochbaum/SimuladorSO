@@ -1,6 +1,6 @@
 class Instruction:
     
-    def __init__(self,message,resource):
+    def __init__(self,message,resource=None):
         self.message=message
         self.resourse=resource
 

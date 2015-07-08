@@ -3,7 +3,7 @@ from clases.Irq import Irq
 
 
 class Kernel :
-    def __init__(self,cpu,disk,memoryManager,irqHandler):
+    def __init__(self,cpu,disk,irqHandler):
         self.cpu = cpu
         self.disk = disk
         self.irqHandler=irqHandler
