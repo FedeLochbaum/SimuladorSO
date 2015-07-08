@@ -5,6 +5,7 @@ from clases.Instruction import Instruction
 from clases.PhysicalMemory import PhysicalMemory
 from clases.Program import Program
 from clases.Window import Window
+from clases.InstructionIO import InstructionIO
 
 
 class TestMMUPaginacion(unittest.TestCase):
@@ -17,12 +18,12 @@ class TestMMUPaginacion(unittest.TestCase):
         
         self.window = Window()
         
-        instruction1=Instruction('hello',self.window)
-        instruction2=Instruction('hello',self.window)
-        instruction3=Instruction('hello',self.window)
-        instruction4=Instruction('hello',self.window)
-        instruction5=Instruction('hello',self.window)
-        instruction6=Instruction('hello',self.window)
+        instruction1=InstructionIO('hello',self.window)
+        instruction2=InstructionIO('hello',self.window)
+        instruction3=InstructionIO('hello',self.window)
+        instruction4=InstructionIO('hello',self.window)
+        instruction5=InstructionIO('hello',self.window)
+        instruction6=InstructionIO('hello',self.window)
         
         self.program1 = Program('program1',instruction2,instruction1,instruction3)
         
@@ -31,6 +32,7 @@ class TestMMUPaginacion(unittest.TestCase):
         self.program3 = Program('program3',instruction1,instruction2,instruction3,instruction4,instruction5,instruction6)
         
     def testLoadProgram(self):
+        
         
         self.assertEquals(self.memory.getFreeSpace(),10)
         self.mmuPaginacion.loadProgram(self.program1)

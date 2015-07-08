@@ -10,21 +10,43 @@ class LogicMemory():
         self.totalSpace=space
         self.freeSpace=space
         self.sizePage = sizePage
+        self.emptyPages = []
         self.divideMemoryIn(sizePage)
         
     def setandLoadPages(self,program):
-        while (program.getInstructionsCount()>0):
-            for page in self.dirPageTable.values():
-                if page.isFree():
-                    page.setInstructions(program)
-        
+        pages = self.pagesFor(program.getInstructionsCount())
+        self.fillPagesWithProgram(pages,program)
+        program.setPages(pages)
+        #for instruction in program.getInstructions():
+            #page=self.emptyPages.pop()
+            #while():
+            #    page.setInstructions(program)
+            #    program.addPage(page)
+                    
+    def pagesFor(self,cant):
+        result = []
+        cantPages =round(cant / self.sizePage,1)
+        while(cantPages > 0):
+            result.append(self.emptyPages.pop())
+            cantPages-=1
+            
+        return result
+    
+    def fillPagesWithProgram(self,pages,program):
+        instructions = program.getInstructions()
+        for page in pages:
+            page.fill(instructions)
+            
     def divideMemoryIn(self,sizePage):
         cant = self.totalSpace / sizePage
         sigDir = 1
         while(cant > 0):
-            self.dirPageTable[sigDir] = Page(sizePage)
+            page = Page(sigDir,sizePage)
+            self.dirPageTable[sigDir] = page
             sigDir = sigDir + sizePage
+            self.emptyPages.append(page)
             cant = cant -1
+        
         
     def put(self,logicDir,page):
         self.dirPageTable[page]=logicDir
@@ -34,9 +56,9 @@ class LogicMemory():
         return self.dirPageTable[page]
     
     def remove(self,page):
+        elem=self.dirPageTable.pop(page)
         self.freeSpace+=1
-        return self.dirPageTable.pop(page)
-       
+        return elem
     
     def getFreeSpace(self):
         return self.freeSpace 

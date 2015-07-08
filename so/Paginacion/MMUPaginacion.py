@@ -16,21 +16,20 @@ class MMUPaginacion(MemoryManager):
     def loadProgram(self,program):
         if(self.hayMemoriaSuficiente(program)):
             self.logicMemory.setandLoadPages(program)
-            for page in program.pages():
-                #frame = self.physicalMemory.get   los frames ya estarain cargados, lo que hay que ahces es setearle la page
+            for page in program.getPages():
+                frame = self.physicalMemory.getFrame()
                 #creo que pop podria sacar el elemento tambien
-                logicDir=self.logicMemory.get(page)
-                frame=self.pageTable[logicDir]
-                frame.setPage(page)
-                #self.loadInMemory(page)  El setPage haria lo de loadInMemory
+                #logicDir=self.logicMemory.get(page)
+                self.pageTable[page.getLogicDir()] = frame.getBaseDir()
+                self.loadInMemory(page)
                 
     def hayMemoriaSuficiente(self,program):
         return self.memoryFree() >= program.getInstructionsCount()
         
     def loadInMemory(self,page):
-        frame = self.pageTable(page.number())
-        inicial = frame.baseDir()
-        for instruction in page.instructions():
-            if(inicial <= frame.finalDir()):
-                self.physicalMemory.put(inicial,instruction)
-                inicial = inicial+1
+        frameDir = self.pageTable[page.getLogicDir()]
+        frameFinalDir = (frameDir + self.physicalMemory.getSizeFrame()) -1
+        for instruction in page.getInstructions():
+            if(frameDir <= frameFinalDir):
+                self.physicalMemory.put(frameDir,instruction)
+                frameDir +=1

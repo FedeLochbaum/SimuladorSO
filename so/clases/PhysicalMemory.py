@@ -7,6 +7,7 @@ class PhysicalMemory():
         self.freeSpace=space
         self.sizeFrame = sizeFrame
         self.totalSpace = space
+        self.emptyPages = []
         self.divideMemoryIn(sizeFrame)
     
 
@@ -14,16 +15,21 @@ class PhysicalMemory():
         return self.dirFrameTable[physicalDir].removePage()
     
     def divideMemoryIn(self,sizeFrame):
-        cant = self.totalSpace / sizeFrame
+        cant = round(self.totalSpace / sizeFrame,1)
         sigDir = 1
         while(cant > 0):
-            self.dirFrameTable[sigDir] = Frame(sigDir, sigDir +sizeFrame-1)
+            frame = Frame(sigDir, sigDir +sizeFrame-1)
+            self.dirFrameTable[sigDir] = frame
             sigDir = sigDir + sizeFrame
+            self.emptyPages.append(frame)
             cant = cant -1
     
-    def sizeFrame(self):
+    def getSizeFrame(self):
         return self.sizeFrame
 
+    def getFrame(self):
+        return self.emptyPages.pop()
+    
     def get(self,physicalDir):
         return self.dirFrameTable[physicalDir]
         
@@ -32,7 +38,11 @@ class PhysicalMemory():
 
     def getFreeSpace(self):
         return self.freeSpace
-    
+    def put(self,physicDir,instruction):
+        frame=self.dirFrameTable[physicDir] 
+        frame.addInstruction(instruction)
+        self.freeSpace-=1
+        
     
     def cleanMemory(self,pcb):
         for i in range(0,pcb.getFinalPc()):
