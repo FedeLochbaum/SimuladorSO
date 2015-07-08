@@ -54,8 +54,12 @@ class Test(unittest.TestCase):
         expected='Bienvenido a la ayuda del Sistema Operativo, tiene los siguientes comando disponibles:\n-help\n-?\n-load\n'
         actual=self.shell.readCommand('?')
         self.assertEqual(expected,actual)
+        actual=self.shell.readCommand('help')
+        self.assertEqual(expected,actual)
+        actual=self.shell.readCommand('man')
+        self.assertEqual(expected,actual)
         
-        expected=1
+        expected=3
         actual=self.shell.successCommandCount()
         self.assertEqual(expected,actual)
         
@@ -64,6 +68,15 @@ class Test(unittest.TestCase):
         
         self.assertEqual(expected,actual)
         
+        expected='help'
+        actual=self.shell.getSuccessCommands()[1]
+        
+        self.assertEqual(expected,actual)
+        
+        expected='man'
+        actual=self.shell.getSuccessCommands()[2]
+        
+        self.assertEqual(expected,actual)
 
 
 if __name__ == "__main__":
