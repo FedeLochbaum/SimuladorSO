@@ -28,7 +28,10 @@ class MMUPaginacion(MemoryManager):
         
     def loadInMemory(self,page):
         frameDir = self.pageTable[page.getLogicDir()]
+        print(frameDir)
         frameFinalDir = (frameDir + self.physicalMemory.getSizeFrame()) -1
+        print(frameFinalDir)
+        print(page.getInstructions())
         for instruction in page.getInstructions():
             if(frameDir <= frameFinalDir):
                 self.physicalMemory.put(frameDir,instruction)

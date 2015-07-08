@@ -24,7 +24,7 @@ class Page():
        
     def fill(self,instructions):
         for instruction in instructions:
-            if self.addInstruction(instruction):
+            if not self.addInstruction(instruction):
                 return; 
     def isFree(self):
         return self.instructions==[]
