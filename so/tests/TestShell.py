@@ -10,7 +10,10 @@ from clases.IoWaitingQueue import IoWaitingQueue
 from clases.IrqHandler import IrqHandler
 from clases.Kernel import Kernel
 from clases.QueuesManager import QueuesManager
+from clases.Shell import Shell
 from clases.WaitingQueue import WaitingQueue
+from clases.MemoryManager import MemoryManager
+from clases.CommandHandler import CommandHandler
 
 
 class Test(unittest.TestCase):
@@ -19,7 +22,7 @@ class Test(unittest.TestCase):
     def setUp(self):
         
         self.memory=PhysicalMemoryContinuedAllocation(20)
-        self.memoryManager=MMUContinuedAllocation(self.memory)
+        self.memoryManager=MemoryManager(self.memory)
         
         self.colaReadyFifo = FIFOReadyQueue()
          
@@ -39,15 +42,28 @@ class Test(unittest.TestCase):
        
         self.disk=Disk()
         self.kernel=Kernel(self.cpu,self.disk,self.irqHandler)
-        self.shell=Shell(self.kernel)
+        self.commandHandler=CommandHandler()
+        self.shell=Shell(self.kernel,self.commandHandler)
 
 
     def tearDown(self):
         pass
 
 
-    def testName(self):
-        pass
+    def testComandHelp(self):
+        expected='Bienvenido a la ayuda del Sistema Operativo, tiene los siguientes comando disponibles:\n-help\n-?\n-load'
+        actual=self.shell.readCommand('?')
+        self.assertEqual(expected,actual)
+        
+        expected=1
+        actual=self.shell.successCommandCount()
+        self.assertEqual(expected,actual)
+        
+        expected='?'
+        actual=self.shell.getSuccessCommands()[0]
+        
+        self.assertEqual(expected,actual)
+        
 
 
 if __name__ == "__main__":
