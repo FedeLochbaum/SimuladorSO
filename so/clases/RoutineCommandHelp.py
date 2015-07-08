@@ -9,7 +9,7 @@ class RoutineCommandHelp(RoutineCommand):
     def canHandle(self, command):
         RoutineCommand.canHandle(self, command)
         command=str(command)
-        return command==(Command.help1.value) or (command==Command.help2.value)
+        return command==Command.help1.value or command==Command.help2.value
     
     def handle(self, command):
         RoutineCommand.handle(self, command)

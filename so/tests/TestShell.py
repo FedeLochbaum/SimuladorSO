@@ -51,7 +51,7 @@ class Test(unittest.TestCase):
 
 
     def testComandHelp(self):
-        expected='Bienvenido a la ayuda del Sistema Operativo, tiene los siguientes comando disponibles:\n-help\n-?\n-load'
+        expected='Bienvenido a la ayuda del Sistema Operativo, tiene los siguientes comando disponibles:\n-help\n-?\n-load\n'
         actual=self.shell.readCommand('?')
         self.assertEqual(expected,actual)
         
