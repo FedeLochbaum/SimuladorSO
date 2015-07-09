@@ -12,7 +12,7 @@ class PhysicalMemory():
     
 
     def removeFromFrame(self,physicalDir):
-        return self.dirFrameTable[physicalDir].removePage()
+        return self.dirFrameTable[physicalDir].removeFrame()
     
     def divideMemoryIn(self,sizeFrame):
         cant = round(self.totalSpace / sizeFrame,1)
@@ -44,6 +44,7 @@ class PhysicalMemory():
         return self.freeSpace
     
     def cleanMemory(self,pcb):
+        #esto esta de mas desp sacarlo
         for i in range(0,pcb.getFinalPc()):
             print(i)
             self.instructions.__delitem__(pcb.getBaseDir()+i)

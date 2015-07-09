@@ -29,3 +29,9 @@ class MMUPaginacion(MemoryManager):
             if(frameDir <= frameFinalDir):
                 self.physicalMemory.put(frame,instruction)
                 frameDir +=1
+                
+    def cleanMemory(self,procces):
+        for dirPage in procces.getDirsPage():
+            dirFrame = self.pageTable[dirPage]
+            self.physicalMemory.removeFromFrame(dirFrame)
+            

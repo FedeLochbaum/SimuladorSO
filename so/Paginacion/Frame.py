@@ -36,5 +36,7 @@ class Frame:
     
     def addInstruction(self,instruction):
         self.instructions.append(instruction)
-        
+    
+    def removeFrame(self):
+        self.instructions = []
     
