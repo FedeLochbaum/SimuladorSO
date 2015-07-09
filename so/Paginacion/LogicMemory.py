@@ -10,7 +10,7 @@ class LogicMemory():
         self.totalSpace=space
         self.freeSpace=space
         self.sizePage = sizePage
-        self.emptyPages = []
+        self.emptyFrames = []
         self.divideMemoryIn(sizePage)
         
     def setandLoadPages(self,program):
@@ -18,7 +18,7 @@ class LogicMemory():
         self.fillPagesWithProgram(pages,program)
         program.setPages(pages)
         #for instruction in program.getInstructions():
-            #page=self.emptyPages.pop()
+            #page=self.emptyFrames.pop()
             #while():
             #    page.setInstructions(program)
             #    program.addPage(page)
@@ -27,7 +27,7 @@ class LogicMemory():
         result = []
         cantPages =round(cant / self.sizePage,1)
         while(cantPages > 0):
-            result.append(self.emptyPages.pop())
+            result.append(self.emptyFrames.pop())
             cantPages-=1
             
         return result
@@ -36,15 +36,16 @@ class LogicMemory():
         instructions = program.getInstructions()
         for page in pages:
             page.fill(instructions)
+            program.removeInstructionsFrom(page)
             
     def divideMemoryIn(self,sizePage):
-        cant = self.totalSpace / sizePage
+        cant = round(self.totalSpace / sizePage,1)
         sigDir = 1
         while(cant > 0):
             page = Page(sigDir,sizePage)
             self.dirPageTable[sigDir] = page
             sigDir = sigDir + sizePage
-            self.emptyPages.append(page)
+            self.emptyFrames.append(page)
             cant = cant -1
         
         

@@ -24,3 +24,7 @@ class Program:
 
     def getPages(self):
         return self.pages
+    
+    def removeInstructionsFrom(self,page):
+        for inst in page.getInstructions():
+            self.instructions.remove(inst)

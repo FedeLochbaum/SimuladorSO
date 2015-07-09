@@ -1,7 +1,6 @@
 import unittest
 
 from Paginacion.MMUPaginacion import MMUPaginacion
-from clases.Instruction import Instruction
 from clases.PhysicalMemory import PhysicalMemory
 from clases.Program import Program
 from clases.Window import Window
