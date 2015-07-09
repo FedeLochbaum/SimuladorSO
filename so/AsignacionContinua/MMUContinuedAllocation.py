@@ -32,9 +32,9 @@ class MMUContinuedAllocation(MemoryManager):
     def traerBloqueSegunRutina(self,cantidad):
         return self.routine.blockFor(cantidad,self.bloquesDisponibles,self)        
        
-    def cleanMemory(self,program):
-        block1 = self.bloquesUsados.get(program.getName())
-        self.bloquesUsados.__delitem__(program.getName())
+    def cleanMemory(self,process):
+        block1 = self.bloquesUsados.get(process.getName())
+        self.bloquesUsados.__delitem__(process.getName())
         block = Block(block1.getInicio(),block1.getFin())
         self.agregarABloquesLibres(block)
         #para que sea mas eficiente.. no ahce falta borrarlas de verdad .. sino que sepa que se puede volver a escribir
