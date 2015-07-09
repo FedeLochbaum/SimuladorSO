@@ -40,3 +40,5 @@ class Frame:
     def removeFrame(self):
         self.instructions = []
     
+    def getInstructions(self):
+        return self.instructions

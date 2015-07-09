@@ -30,6 +30,12 @@ class MMUPaginacion(MemoryManager):
                 self.physicalMemory.put(frame,instruction)
                 frameDir +=1
                 
+    def getInstruction(self,dirPage,dez):
+        dirFrame = self.pageTable[dirPage]
+        frame = self.physicalMemory.get(dirFrame)
+        return frame.getInstructions()[dez]
+        
+    
     def cleanMemory(self,procces):
         for dirPage in procces.getDirsPage():
             dirFrame = self.pageTable[dirPage]
