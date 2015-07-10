@@ -17,7 +17,7 @@ class Cpu:
 
     def fetch(self):
         if(self.pcb != None):
-            instruccionActual =  self.memoryManager.getMemory().get(self.pcb.getBaseDir()+self.pcb.getPc())
+            instruccionActual =  self.memoryManager.getInstruction(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return;
             self.actualInstruction=instruccionActual

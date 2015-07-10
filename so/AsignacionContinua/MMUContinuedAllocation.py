@@ -97,6 +97,9 @@ class MMUContinuedAllocation(MemoryManager):
                 self.memory.put(i,instruction)
                 i = i+1
                 
+    def getInstruction(self,dir):
+        return self.memory.get(dir)
+                
     def cleanBLockinMem(self,block):
         i = block.getInicio()
         for instruction in block.getProgram().getInstructions():
