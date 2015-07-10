@@ -7,7 +7,7 @@ class Shell():
         self.commandHandler=commandHandler
         self.successCommands=[]
         
-    def readCommand(self,command,param):
+    def readCommand(self,command,param=None):
         success=self.commandHandler.handle(command,param,self.kernel)
         self.addOrDiscard(success,command) 
         return success

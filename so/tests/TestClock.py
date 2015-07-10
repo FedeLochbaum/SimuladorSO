@@ -41,7 +41,7 @@ class Test(unittest.TestCase):
         self.memoryManager = MemoryManager(self.memory)
         self.cpu = Cpu(self.memoryManager,self.irqHandler)
         self.cpu.setProcess(self.pcb)
-        self.instruction=InstructionCpu('hola')
+        self.instruction=InstructionCpu('hola',self.cpu)
         self.memory.put(0, self.instruction)
         self.clock=Clock(self.cpu)
         
@@ -51,6 +51,7 @@ class Test(unittest.TestCase):
         self.clock.notifyUserMode()
         self.assertEqual(self.pcb.getPc(),1)
         self.assertEqual(self.cpu.getIrqHandler().cantIrqs(),1)
+        self.assertEqual(self.cpu.getInfo(),'hola')
         self.assertTrue(self.irqHandler.get(Irq.kill)!=None)
         
         self.clock.notifyKernelMode()

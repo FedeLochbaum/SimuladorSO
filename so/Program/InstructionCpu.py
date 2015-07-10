@@ -1,6 +1,5 @@
 from Program.Instruction import Instruction
 
-
 class InstructionCpu(Instruction):
     
     def __init__(self,message,resource=None):
@@ -10,3 +9,6 @@ class InstructionCpu(Instruction):
     def isIO(self):
         return False
     
+    def execute(self):
+        Instruction.execute(self)
+        self.resource.addInfo(self.message)

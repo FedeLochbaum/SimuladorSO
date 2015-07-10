@@ -27,3 +27,6 @@ class MemoryManager:
     
     def getInstruction(self,index):
         return self.memory.get(index)
+    def esContinua(self):
+        #por defecto
+        return True

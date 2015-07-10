@@ -2,10 +2,10 @@ class Instruction:
     
     def __init__(self,message,resource=None):
         self.message=message
-        self.resourse=resource
+        self.resource=resource
 
     def execute(self):
-        self.resourse.show(self.getMessage())
+        pass
         
     def getMessage(self):
         return self.message
@@ -14,4 +14,4 @@ class Instruction:
         pass
     
     def getResource(self):
-        return self.resourse
+        return self.resource

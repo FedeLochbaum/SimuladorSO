@@ -37,7 +37,7 @@ class TestCpu(unittest.TestCase):
         self.irqHandler = IrqHandler(self.politicaFIFO)
         self.memoryManager = MemoryManager(self.mem)
         self.cpu=Cpu(self.memoryManager,self.irqHandler)
-        self.inst=InstructionCpu('hola')
+        self.inst=InstructionCpu('hola',self.cpu)
         self.mem.put(0, self.inst)
         
         

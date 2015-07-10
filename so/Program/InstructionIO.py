@@ -8,3 +8,6 @@ class InstructionIO(Instruction):
         
     def isIO(self):
         return True
+    def execute(self):
+        Instruction.execute(self)
+        self.resourse.show(self.getMessage())

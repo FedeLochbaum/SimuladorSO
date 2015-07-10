@@ -13,6 +13,5 @@ class RoutineKill(Routine):
     
     def handle(self,irq,cpu,program=None,resource=None):
         Routine.handle(self, irq,cpu,program,resource)
-        cpu.getMemoryManager().cleanMemory(cpu.getPcb())
         cpu.cleanRegisters()
         cpu.callNext()

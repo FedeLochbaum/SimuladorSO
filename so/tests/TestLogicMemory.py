@@ -11,7 +11,7 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         self.logicMemory=LogicMemory(5,2)
-        self.page1=Page(2)
+        self.page1=Page(0,2)
         self.instruction1=InstructionIO('hola',Resource.printer)
         self.instruction2=InstructionIO('hola',Resource.scanner)
         self.page1.addInstruction(self.instruction1)

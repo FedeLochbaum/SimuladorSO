@@ -48,3 +48,5 @@ class IrqHandler:
     
     def getQuantum(self):
         return self.schedullingPolitic.getQuantum()
+    def get(self,irq):
+        return self.irqs[irq]

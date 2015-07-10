@@ -12,6 +12,7 @@ class Cpu:
         self.setCpuToTimer()
         self.setQuantum()
         self.actualInstruction=None
+        self.info=''
        
 
 
@@ -85,5 +86,12 @@ class Cpu:
         
     def setQuantum(self):
         self.timer.setQuantum(self.irqHandler.getQuantum())
+        
     def getActualInstruction(self):
         return self.actualInstruction
+    
+    def addInfo(self,info):
+        self.info+=info
+        
+    def getInfo(self):
+        return self.info
