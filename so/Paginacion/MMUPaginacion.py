@@ -34,7 +34,12 @@ class MMUPaginacion(MemoryManager):
         dirFrame = self.pageTable[dirPage]
         frame = self.physicalMemory.get(dirFrame)
         return frame.getInstructions()[dez]
-        
+      
+    def isFinalInPage(self,dirPage,dez):
+        dirFrame = self.pageTable[dirPage]
+        frame = self.physicalMemory.get(dirFrame)
+        #se fija si es la ultima instruccion.. si es none es porque ya paso por todas las inst
+        return None == frame.getInstructions()[dez]  
     
     def cleanMemory(self,procces):
         for dirPage in procces.getDirsPage():
