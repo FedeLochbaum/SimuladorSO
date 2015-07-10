@@ -1,5 +1,5 @@
-from clases.Irq import Irq
-from clases.Routine import Routine
+from Irq.Irq import Irq
+from Irq.Routine import Routine
 
 
 class RoutineKill(Routine):

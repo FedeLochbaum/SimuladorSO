@@ -1,4 +1,6 @@
-from clases.Instruction import Instruction
+from Program.Instruction import Instruction
+
+
 class InstructionCpu(Instruction):
     
     def __init__(self,message,resource=None):

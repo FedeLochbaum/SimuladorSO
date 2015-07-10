@@ -1,8 +1,8 @@
-from clases.Irq import Irq
-from clases.Pcb import Pcb
-from clases.PidGenerator import PidGenerator
-from clases.Routine import Routine
-from clases.SchedulingLargePolitic import SchedullingLargePolitic
+from Irq.Irq import Irq
+from Irq.PidGenerator import PidGenerator
+from Irq.Routine import Routine
+from Program.Pcb import Pcb
+from SchedullingAndQueuesManager.SchedulingLargePolitic import SchedullingLargePolitic
 
 
 class RoutineNewprocess(Routine):

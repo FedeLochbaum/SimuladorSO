@@ -1,6 +1,8 @@
-from clases.Scanner import Scanner
-from clases.Window import Window
-from clases.Printer import Printer
+from IO.Printer import Printer
+from IO.Scanner import Scanner
+from IO.Window import Window
+
+
 class ResourceManager:
     
     

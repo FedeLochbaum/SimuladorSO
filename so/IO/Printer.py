@@ -1,5 +1,5 @@
-from clases.IoResource import IoResource
-from clases.Resource import Resource
+from IO.IoResource import IoResource
+from IO.Resource import Resource
 
 
 class Printer(IoResource):

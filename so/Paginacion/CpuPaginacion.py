@@ -1,5 +1,5 @@
+from Irq.Irq import Irq
 from clases.Cpu import Cpu
-from clases.Irq import Irq
 
 
 class CpuPaginacion(Cpu):

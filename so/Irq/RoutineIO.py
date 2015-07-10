@@ -1,6 +1,6 @@
-from clases.Irq import Irq
-from clases.Routine import Routine
-from clases.ResourceManager import ResourceManager
+from IO.ResourceManager import ResourceManager
+from Irq.Irq import Irq
+from Irq.Routine import Routine
 
 
 class RoutineIO(Routine):

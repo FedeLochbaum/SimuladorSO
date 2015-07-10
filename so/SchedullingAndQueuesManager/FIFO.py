@@ -1,4 +1,5 @@
-from clases.SchedullingPolitic import SchedullingPolitic
+from SchedullingAndQueuesManager.SchedullingPolitic import SchedullingPolitic
+
 
 class FIFO(SchedullingPolitic):
     def __init__(self,queuesManager):  

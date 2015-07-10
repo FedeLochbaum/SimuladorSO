@@ -1,4 +1,4 @@
-from clases.SchedullingPolitic import SchedullingPolitic 
+from SchedullingAndQueuesManager.SchedullingPolitic import SchedullingPolitic
 
 
 class RoundRobin(SchedullingPolitic):

@@ -1,5 +1,5 @@
-from clases.Irq import Irq
-from clases.Timer import Timer
+from Irq.Irq import Irq
+from SchedullingAndQueuesManager.Timer import Timer
 
 
 class Cpu:

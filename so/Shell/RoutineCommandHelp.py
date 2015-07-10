@@ -1,5 +1,5 @@
-from clases.RoutineCommand import RoutineCommand
-from clases.typeCommand import Command
+from Shell.RoutineCommand import RoutineCommand
+from Shell.typeCommand import Command
 
 
 class RoutineCommandHelp(RoutineCommand):

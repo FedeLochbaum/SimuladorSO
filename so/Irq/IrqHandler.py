@@ -1,8 +1,8 @@
-from clases.RoutineKill import RoutineKill
-from clases.RoutineIO import RoutineIO
-from clases.RoutineIOFinish import RoutineIOFinish
-from clases.RoutineNewprocess import RoutineNewprocess
-from clases.RoutineTimeout import RoutineTimeout
+from Irq.RoutineIO import RoutineIO
+from Irq.RoutineIOFinish import RoutineIOFinish
+from Irq.RoutineKill import RoutineKill
+from Irq.RoutineNewprocess import RoutineNewprocess
+from Irq.RoutineTimeout import RoutineTimeout
 
 
 class IrqHandler:

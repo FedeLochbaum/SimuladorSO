@@ -1,4 +1,4 @@
-from clases.Pcb import Pcb
+from Program.Pcb import Pcb
 
 
 class PcbPaginacion(Pcb):

@@ -1,5 +1,5 @@
+from Irq.Irq import Irq
 from clases.Clock import Clock
-from clases.Irq import Irq
 
 
 class Kernel :
