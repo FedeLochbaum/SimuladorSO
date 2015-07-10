@@ -13,3 +13,7 @@ class Kernel :
     def loadProgram(self,programName):
         program = self.disk.getProgram(programName)
         self.irqHandler.handle(Irq.newProcess,self.cpu,program)
+        
+    def newProcess(self,programName):
+        program=self.disk.getProgram(programName)
+        self.irqHandler.handle(Irq.newProcess,self.cpu,program)

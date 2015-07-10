@@ -28,3 +28,9 @@ class Program:
     def removeInstructionsFrom(self,page):
         for inst in page.getInstructions():
             self.instructions.remove(inst)
+            
+    def getBaseDirs(self):
+        dirs=[]
+        for page in self.pages:
+            dirs.append(page.getBaseDir())
+        return dirs

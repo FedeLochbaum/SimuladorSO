@@ -46,3 +46,6 @@ class MMUPaginacion(MemoryManager):
             dirFrame = self.pageTable[dirPage]
             self.physicalMemory.removeFromFrame(dirFrame)
             
+    def esContinua(self):
+        return False
+            

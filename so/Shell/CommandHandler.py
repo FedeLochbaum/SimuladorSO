@@ -11,12 +11,12 @@ class CommandHandler:
         
         
         
-    def handle(self,command):
-        return self.anyRoutineHandle(command)
+    def handle(self,command,param=None,kernel=None):
+        return self.anyRoutineHandle(command,param,kernel)
     
-    def anyRoutineHandle(self,command):
+    def anyRoutineHandle(self,command,param=None,kernel=None):
         for routine in self.commandRoutines:
             if routine.canHandle(command):
-                return routine.handle(command)
+                return routine.handle(command,param,kernel)
 
         return False

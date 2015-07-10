@@ -106,3 +106,6 @@ class MMUContinuedAllocation(MemoryManager):
             if(i <= block.getFin()):
                 self.memory.remove(i)
                 i = i+1
+                
+    def esContinua(self):
+        return True

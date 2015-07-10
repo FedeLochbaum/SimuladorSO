@@ -9,6 +9,7 @@ class RoutineCommandLoad(RoutineCommand):
         command=str(command)
         return command==Command.load.value 
     
-    def handle(self, command):
+    def handle(self, command,param=None,kernel=None):
         RoutineCommand.handle(self, command)
-        #decirle al irq que lance new process con el nombre del programa que deberia llegar por parametro aca
+        param=str(param)
+        return kernel.newProcess(param)

@@ -3,6 +3,7 @@ from Irq.PidGenerator import PidGenerator
 from Irq.Routine import Routine
 from Program.Pcb import Pcb
 from SchedullingAndQueuesManager.SchedulingLargePolitic import SchedullingLargePolitic
+from Paginacion.PcbPaginacion import PcbPaginacion
 
 
 class RoutineNewprocess(Routine):
@@ -26,6 +27,12 @@ class RoutineNewprocess(Routine):
         pid=self.pidGenerator.generateNewPid()
         pc=0
         finalPc=program.getInstructionsCount()-1
-        baseDir=cpu.getMemoryManager().getMemory().getNextIndex()
-        return Pcb(name,pid,pc,finalPc,baseDir)
+        if(cpu.getMemoryManager().esContinua()):
+            baseDir=cpu.getMemoryManager().getMemory().getNextIndex()
+            return Pcb(name,pid,pc,finalPc,baseDir)
+        else:
+            baseDirs=program.getBaseDirs()
+            return PcbPaginacion(name,pid,pc,finalPc,baseDirs)
+    
+   
     

@@ -24,3 +24,6 @@ class MemoryManager:
         
     def getInstructionsCount(self):
         return self.memory.getInstructionsCount()
+    
+    def getInstruction(self,index):
+        return self.memory.get(index)
