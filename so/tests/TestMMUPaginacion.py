@@ -1,10 +1,10 @@
 import unittest
 
+from IO.Window import Window
 from Paginacion.MMUPaginacion import MMUPaginacion
-from clases.PhysicalMemory import PhysicalMemory
-from clases.Program import Program
-from clases.Window import Window
-from clases.InstructionIO import InstructionIO
+from Paginacion.PhysicalMemory import PhysicalMemory
+from Program.InstructionIO import InstructionIO
+from Program.Program import Program
 
 
 class TestMMUPaginacion(unittest.TestCase):

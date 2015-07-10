@@ -3,11 +3,11 @@ import unittest
 from AsignacionContinua.BestFit import BestFit
 from AsignacionContinua.FirstFit import FirstFit
 from AsignacionContinua.MMUContinuedAllocation import MMUContinuedAllocation
-from AsignacionContinua.WorstFit import WorstFit
-from clases.Instruction import Instruction
-from clases.Program import Program
-from clases.Window import Window
 from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
+from AsignacionContinua.WorstFit import WorstFit
+from IO.Window import Window
+from Program.Instruction import Instruction
+from Program.Program import Program
 
 
 class TestMMUContinuedAllocation(unittest.TestCase):

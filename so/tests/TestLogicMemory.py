@@ -1,9 +1,9 @@
 import unittest
 
+from IO.Resource import Resource
 from Paginacion.LogicMemory import LogicMemory
 from Paginacion.Page import Page
-from clases.InstructionIO import InstructionIO
-from clases.Resource import Resource
+from Program.InstructionIO import InstructionIO
 
 
 class Test(unittest.TestCase):

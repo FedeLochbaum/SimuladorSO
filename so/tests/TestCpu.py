@@ -2,20 +2,17 @@
 import unittest
 
 from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
+from Irq.Irq import Irq
+from Irq.IrqHandler import IrqHandler
+from Program.InstructionCpu import InstructionCpu
+from Program.Pcb import Pcb
+from SchedullingAndQueuesManager.FIFO import FIFO
+from SchedullingAndQueuesManager.IoWaitingQueue import IoWaitingQueue
+from SchedullingAndQueuesManager.QueuesManager import QueuesManager
+from SchedullingAndQueuesManager.ReadyQueuePriority import ReadyQueuePriority
+from SchedullingAndQueuesManager.WaitingQueue import WaitingQueue
 from clases.Cpu import Cpu
-from clases.FIFO import FIFO
-from clases.Instruction import Instruction
-from clases.InstructionCpu import InstructionCpu
-from clases.IoWaitingQueue import IoWaitingQueue
-from clases.Irq import Irq
-from clases.IrqHandler import IrqHandler
 from clases.MemoryManager import MemoryManager
-from clases.Pcb import Pcb
-from clases.PhysicalMemory import PhysicalMemory
-from clases.QueuesManager import QueuesManager
-from clases.ReadyQueuePriority import ReadyQueuePriority
-from clases.WaitingQueue import WaitingQueue 
-from clases.Window import Window
 
 
 class TestCpu(unittest.TestCase):
