@@ -1,9 +1,13 @@
+from Shell.RoutineCommandCd import RoutineCommandCd
 from Shell.RoutineCommandHelp import RoutineCommandHelp
+from Shell.RoutineCommandLoad import RoutineCommandLoad
+from Shell.RoutineCommandLs import RoutineCommandLs
+from Shell.RoutineCommandShow import RoutineCommandShow
 
 
 class CommandHandler:
     def __init__(self):
-        self.commandRoutines =[RoutineCommandHelp()]
+        self.commandRoutines =[RoutineCommandHelp(),RoutineCommandCd(),RoutineCommandLs(),RoutineCommandShow(),RoutineCommandLoad()]
         
         
         
