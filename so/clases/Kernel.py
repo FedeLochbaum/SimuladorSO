@@ -8,7 +8,7 @@ class Kernel :
         self.disk = disk
         self.irqHandler=irqHandler
         self.clock=Clock(self.cpu)
-        #self.clock.start()
+        self.clock.start()
     
     def loadProgram(self,programName):
         program = self.disk.getProgram(programName)
