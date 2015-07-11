@@ -1,6 +1,4 @@
 import unittest
-
-from AsignacionContinua.MMUContinuedAllocation import MMUContinuedAllocation
 from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
 from Irq.IrqHandler import IrqHandler
 from SchedullingAndQueuesManager.FIFO import FIFO

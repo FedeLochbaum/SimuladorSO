@@ -23,7 +23,7 @@ class Cpu:
                 return;
             self.actualInstruction=instruccionActual
             if(instruccionActual.isIO()):
-                self.irqHandler.handle(Irq.io,self,program=None,instruccionActual)
+                self.irqHandler.handle(Irq.io,self,None,instruccionActual)
                 #self.cleanRegisters()
                 return;
             instruccionActual.execute()
@@ -31,7 +31,8 @@ class Cpu:
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
                 self.irqHandler.handle(Irq.kill,self)
                 return;
-            
+        else:
+            self.callNext()    
                 
     def notifyUserMode(self):
         self.fetch() 

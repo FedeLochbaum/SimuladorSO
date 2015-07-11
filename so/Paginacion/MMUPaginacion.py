@@ -18,6 +18,8 @@ class MMUPaginacion(MemoryManager):
                 frame = self.physicalMemory.getFrame()
                 self.pageTable[page.getLogicDir()] = frame.getBaseDir()
                 self.loadInMemory(page,frame)
+            return True
+        return False
                 
     def hayMemoriaSuficiente(self,program):
         return self.memoryFree() >= program.getInstructionsCount()

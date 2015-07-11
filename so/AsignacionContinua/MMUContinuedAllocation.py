@@ -16,9 +16,11 @@ class MMUContinuedAllocation(MemoryManager):
                 block.setProgram(program)
                 self.bloquesUsados[program.getName()] =  block
                 self.addToMemory(program,block)
+                return True
             else:
                 self.compactMemory()
                 self.loadProgram(program)
+        return False
         
     def addToMemory(self,program,block):
         self.addinstructionsToMemory(block.getInicio(),block.getFin(),program)

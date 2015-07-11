@@ -27,5 +27,11 @@ class IoResource(Thread):
         self.actualPcb=self.ioWaitingQueue.get()[0]
         message=self.ioWaitingQueue.get()[1].getMessage()
         self.info+=message
+        
+    def get(self,index):
+        return self.ioWaitingQueue.queue.__getitem__(index)
+    
+    def pcbCount(self):
+        return self.ioWaitingQueue._qsize()
             
     

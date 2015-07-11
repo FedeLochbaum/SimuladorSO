@@ -10,7 +10,7 @@ class Shell():
         os.chdir("C:/")
         self.root = os.getcwd()
         
-    def readCommand(self,param =None,command,file=None):
+    def readCommand(self,command,param= None,file=None):
         success=self.commandHandler.handle(command,param,self,self.kernel,file)
         self.addOrDiscard(success,command) 
         return success

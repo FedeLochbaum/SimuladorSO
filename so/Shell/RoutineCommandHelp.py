@@ -11,8 +11,8 @@ class RoutineCommandHelp(RoutineCommand):
         command=str(command)
         return command==Command.help1.value or command==Command.help2.value or command==Command.help3.value 
     
-    def handle(self,param =None, command,shell,kernel=None,file=None):
-        RoutineCommand.handle(self, command)
+    def handle(self,command,param=None ,shell=None,kernel=None,file=None):
+        RoutineCommand.handle(self, command,shell,kernel,file)
         return self.MESSAGE
         
 

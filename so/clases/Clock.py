@@ -17,7 +17,7 @@ class Clock(threading.Thread):
     def registerObserver(self,observer):
         self.observers.append(observer)
         
-    def notifyObservers(self):
+    def notifyCycle(self):
         self.notifyUserMode()
         self.notifyKernelMode()
         
@@ -34,7 +34,7 @@ class Clock(threading.Thread):
     def run(self):
         while self.RUNNING:
             
-            self.notifyObservers()
+            self.notifyCycle()
             sys.stdout.flush()
             time.sleep(1)
         

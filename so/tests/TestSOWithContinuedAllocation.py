@@ -1,8 +1,10 @@
 import unittest
 
+from AsignacionContinua.BestFit import BestFit
 from AsignacionContinua.MMUContinuedAllocation import MMUContinuedAllocation
 from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
 from IO.Printer import Printer
+from IO.Resource import Resource
 from IO.Scanner import Scanner
 from IO.Window import Window
 from Irq.IrqHandler import IrqHandler
@@ -16,13 +18,13 @@ from SchedullingAndQueuesManager.QueuesManager import QueuesManager
 from SchedullingAndQueuesManager.WaitingQueue import WaitingQueue
 from Shell.CommandHandler import CommandHandler
 from Shell.Shell import Shell
+from clases.Clock import Clock
 from clases.Cpu import Cpu
 from clases.Disk import Disk
 from clases.Kernel import Kernel
-from AsignacionContinua.BestFit import BestFit
 
 
-class Test(unittest.TestCase):
+class TestSOWithContinuedAllocation(unittest.TestCase):
 
 
     def setUp(self):
@@ -43,11 +45,12 @@ class Test(unittest.TestCase):
         
         self.irqHandler=IrqHandler(self.politicaFifo)
         
-        self.cpu=Cpu(self.memoryManager,self.irqHandler)
+        self.cpu=Cpu(self.mmuContinuedAllocation,self.irqHandler)
         
         
         self.disk=Disk()
-        self.kernel=Kernel(self.cpu,self.disk,self.irqHandler)
+        self.clock=Clock(self.cpu)
+        self.kernel=Kernel(self.cpu,self.disk,self.irqHandler,self.clock)
         self.commandHandler=CommandHandler()
         self.shell=Shell(self.kernel,self.commandHandler)
         
@@ -55,12 +58,12 @@ class Test(unittest.TestCase):
         self.scanner = Scanner()
         self.printer = Printer()
         
-        instruction1=InstructionIO('hello',self.window)
-        instruction2=InstructionIO('hello',self.scanner)
-        instruction3=InstructionCpu('hello',self.window)
-        instruction4=InstructionIO('hello',self.printer)
-        instruction5=InstructionCpu('hello',self.window)
-        instruction6=InstructionCpu('hello',self.window)
+        instruction1=InstructionIO('hello',Resource.window)
+        instruction2=InstructionIO('hello',Resource.scanner)
+        instruction3=InstructionCpu('hello',self.cpu)
+        instruction4=InstructionIO('hello',Resource.printer)
+        instruction5=InstructionCpu('hello',self.cpu)
+        instruction6=InstructionCpu('hello',self.cpu)
         
         self.program1 = Program('program1',instruction2,instruction1,instruction3)
         self.disk.addProgram(self.program1)
@@ -74,11 +77,40 @@ class Test(unittest.TestCase):
 
 
 
-    def TestLoadProgram(self):
+    def testLoadProgram(self):
         self.kernel.loadProgram("program1")
+        
+        self.assertEqual(self.irqHandler.cantIrqs(),1)
+        ## FIRST CYLCE
+        self.clock.notifyCycle()
+        self.assertEqual(self.irqHandler.cantIrqs(),0)
+        self.assertEqual(self.colaReadyFifo.first().getName(),self.program1.getName())
+        
         self.kernel.loadProgram("program2")
-        self.kernel.loadProgram("program3")
-        self.assertTrue(True)
+        
+        self.assertEqual(self.irqHandler.cantIrqs(),1)
+        
+        ## SECOND CYCLE
+        self.clock.notifyCycle()
+        self.assertEqual(self.irqHandler.cantIrqs(),0)
+        self.assertEqual(self.colaReadyFifo.first().getName(),self.program2.getName())
+        self.assertEquals(self.cpu.getPcb().getName(),self.program1.getName())
+        
+        ##THIRD CYLCE
+        
+        ##USER MODE
+        self.clock.notifyUserMode()
+        self.assertEqual(self.irqHandler.cantIrqs(),1)
+        self.assertEqual(self.colaReadyFifo.first().getName(),self.program2.getName())
+        self.assertEquals(self.cpu.getPcb().getName(),self.program1.getName())
+        
+        ##KERNEL MODE
+        self.clock.notifyKernelMode()
+        self.assertEqual(self.irqHandler.cantIrqs(),1)
+        self.assertEqual(self.colaReadyFifo.first(),None)
+        self.assertEquals(self.cpu.getPcb().getName(),self.program2.getName())
+        self.assertEqual(self.scanner.get(0).getName(),self.program1.getName())
+        
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

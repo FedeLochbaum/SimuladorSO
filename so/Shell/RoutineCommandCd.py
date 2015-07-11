@@ -11,8 +11,8 @@ class RoutineCommandCd(RoutineCommand):
         command=str(command)
         return command==Command.cd.value 
     
-    def handle(self,param =None, command,shell,kernel,file):
-        RoutineCommand.handle(self, command)
+    def handle(self,command,param=None ,shell=None,kernel=None,file= None):
+        RoutineCommand.handle(self, command,shell,kernel,file)
         if(os.path.exists(file)):
             os.chdir(file) 
     

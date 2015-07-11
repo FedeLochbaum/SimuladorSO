@@ -14,6 +14,6 @@ class RoutineIO(Routine):
     
     def handle(self, irq,cpu,program=None,ioInstruction=None):
         Routine.handle(self, irq,cpu,program,ioInstruction)
-        self.resourceManager.receiveResourcePcb(ioInstruction, cpu.getPcb())
+        self.resourceManager.receiveResourcePcb( cpu.getPcb(),ioInstruction)
         cpu.cleanPcb()
         

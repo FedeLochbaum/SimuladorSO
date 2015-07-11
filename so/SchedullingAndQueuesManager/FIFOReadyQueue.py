@@ -16,4 +16,6 @@ class FIFOReadyQueue:
         return self.readyQueue.__len__()
     
     def first(self):
-        return self.readyQueue.__getitem__(0)
+        if self.readyQueue.__len__()>0:
+            return self.readyQueue.__getitem__(0)
+        return None
