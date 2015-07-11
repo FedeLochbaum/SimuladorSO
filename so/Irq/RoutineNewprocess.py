@@ -16,8 +16,8 @@ class RoutineNewprocess(Routine):
         Routine.canHandle(self, irq)
         return irq==Irq.newProcess
     
-    def handle(self,irq,cpu,program=None,resource=None):
-        Routine.handle(self, irq,cpu,program,resource)
+    def handle(self,irq,cpu,program=None,ioInstruction=None):
+        Routine.handle(self, irq,cpu,program,ioInstruction)
         pcb=self.generateProcess(program,cpu)
         self.largePolitic.handleProcess(program, pcb, cpu.getQueuesManager(), cpu.getMemoryManager())
         

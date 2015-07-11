@@ -97,7 +97,7 @@ class Test(unittest.TestCase):
         
     def testHandleIrqIO(self):
         self.memory.put(0, self.ioInstruction)
-        self.irqHandler.handle(Irq.io, self.cpu,self.ioInstruction.getResource())
+        self.irqHandler.handle(Irq.io, self.cpu,self.ioInstruction)
         self.assertEqual( self.irqHandler.cantIrqs(),1)
         self.irqHandler.runIrqs();
         self.cpu.actualInstruction=self.ioInstruction

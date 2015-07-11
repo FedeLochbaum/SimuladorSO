@@ -12,11 +12,11 @@ class ResourceManager:
     def addResource(self,resourceIo):
         self.resources.append(resourceIo)
         
-    def receiveResourcePcb(self,resource,pcb):
-        self.anyHandle(resource,pcb)
+    def receiveResourcePcb(self,ioInstruction,pcb):
+        self.anyHandle(ioInstruction,pcb)
         
-    def anyHandle(self,resource,pcb):
+    def anyHandle(self,ioInstruction,pcb):
         for res in self.ioResources:
-            if(res.canHandle(resource)):
-                res.handle(pcb)
+            if(res.canHandle(ioInstruction.getResource())):
+                res.handle(pcb,ioInstruction)
                 

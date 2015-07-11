@@ -23,8 +23,8 @@ class Cpu:
                 return;
             self.actualInstruction=instruccionActual
             if(instruccionActual.isIO()):
-                self.irqHandler.handle(Irq.io)
-                self.cleanRegisters()
+                self.irqHandler.handle(Irq.io,self,program=None,instruccionActual)
+                #self.cleanRegisters()
                 return;
             instruccionActual.execute()
             self.pcb.incrementPc()
