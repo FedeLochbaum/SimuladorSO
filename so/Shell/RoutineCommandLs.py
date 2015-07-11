@@ -13,4 +13,4 @@ class RoutineCommandLs(RoutineCommand):
     
     def handle(self,param =None, command,shell,kernel,file =None):
         RoutineCommand.handle(self, command)
-        shell.showFiles(os.listdir(file))
+        shell.showData(os.listdir(file))

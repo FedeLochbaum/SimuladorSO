@@ -25,5 +25,5 @@ class Shell():
     def getSuccessCommands(self):
         return self.successCommands
     
-    def showFiles(self,list):
-        print(list)
+    def showData(self,data):
+        print(data)

@@ -12,4 +12,5 @@ class RoutineCommandShow(RoutineCommand):
     
     def handle(self,param=None, command,shell,kernel,file =None):
         RoutineCommand.handle(self, command)
+        shell.showData(open(file,"rb").read())
         
