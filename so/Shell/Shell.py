@@ -1,3 +1,4 @@
+from os.path import os
 
 
 class Shell():
@@ -6,9 +7,11 @@ class Shell():
         self.kernel=kernel
         self.commandHandler=commandHandler
         self.successCommands=[]
+        os.chdir("C:/")
+        self.root = os.getcwd()
         
-    def readCommand(self,command,param=None):
-        success=self.commandHandler.handle(command,param,self.kernel)
+    def readCommand(self,param =None,command,file=None):
+        success=self.commandHandler.handle(command,param,self,self.kernel,file)
         self.addOrDiscard(success,command) 
         return success
     
@@ -21,3 +24,6 @@ class Shell():
     
     def getSuccessCommands(self):
         return self.successCommands
+    
+    def showFiles(self,list):
+        print(list)

@@ -1,3 +1,5 @@
+from os.path import os
+
 from Shell.RoutineCommand import RoutineCommand
 from Shell.typeCommand import Command
 
@@ -9,6 +11,6 @@ class RoutineCommandLs(RoutineCommand):
         command=str(command)
         return command==Command.ls.value 
     
-    def handle(self, command):
+    def handle(self,param =None, command,shell,kernel,file =None):
         RoutineCommand.handle(self, command)
-       #mostrar lista de directorios dentro del directorio actual
+        shell.showFiles(os.listdir(file))

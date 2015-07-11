@@ -1,3 +1,5 @@
+from os.path import os
+
 from Shell.RoutineCommand import RoutineCommand
 from Shell.typeCommand import Command
 
@@ -9,7 +11,8 @@ class RoutineCommandCd(RoutineCommand):
         command=str(command)
         return command==Command.cd.value 
     
-    def handle(self, command,dir):
+    def handle(self,param =None, command,shell,kernel,file):
         RoutineCommand.handle(self, command)
-        #aca hay que acceder a ese directorio 
+        if(os.path.exists(file)):
+            os.chdir(file) 
     

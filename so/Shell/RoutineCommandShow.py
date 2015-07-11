@@ -10,6 +10,6 @@ class RoutineCommandShow(RoutineCommand):
         command=str(command)
         return command==Command.show.value 
     
-    def handle(self, command):
+    def handle(self,param=None, command,shell,kernel,file =None):
         RoutineCommand.handle(self, command)
-         #mostrar un file.. osea como si se ejecutara con un editor
+        

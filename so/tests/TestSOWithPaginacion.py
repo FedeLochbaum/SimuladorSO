@@ -1,8 +1,13 @@
 import unittest
 
-from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
+
+from IO.Printer import Printer
+from IO.Scanner import Scanner
+from IO.Window import Window
 from Irq.IrqHandler import IrqHandler
+from Paginacion.CpuPaginacion import CpuPaginacion
 from Paginacion.MMUPaginacion import MMUPaginacion
+from Paginacion.PhysicalMemory import PhysicalMemory
 from Program.InstructionCpu import InstructionCpu
 from Program.InstructionIO import InstructionIO
 from Program.Program import Program
@@ -15,10 +20,6 @@ from Shell.CommandHandler import CommandHandler
 from Shell.Shell import Shell
 from clases.Disk import Disk
 from clases.Kernel import Kernel
-from IO.Scanner import Scanner
-from IO.Printer import Printer
-from IO.Window import Window
-from Paginacion.CpuPaginacion import CpuPaginacion
 
 
 class Test(unittest.TestCase):
@@ -26,7 +27,7 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         
-        self.memory=PhysicalMemoryContinuedAllocation(20)
+        self.memory=PhysicalMemory(20)
         self.mmuPaginacion=MMUPaginacion(self.memory)
         
         self.colaReadyFifo = FIFOReadyQueue()
