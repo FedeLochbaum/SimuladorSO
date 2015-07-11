@@ -12,4 +12,4 @@ class RoutineCommandLoad(RoutineCommand):
     def handle(self, command,param=None,kernel=None):
         RoutineCommand.handle(self, command)
         param=str(param)
-        return kernel.newProcess(param)
+        return kernel.loadProgram(param)
