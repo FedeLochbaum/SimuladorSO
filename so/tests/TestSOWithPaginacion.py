@@ -115,9 +115,10 @@ class Test(unittest.TestCase):
         self.kernel.loadProgram("program2")
         self.kernel.loadProgram("program3")
         self.assertTrue(True)
-        #root = tk.Tk()
-        #view = ViewSo(master=root,self.shell)
-        #view.mainloop()
+        root = tk.Tk()
+        view = ViewSo(master=root)
+        view.setShell(self.shell)
+        view.mainloop()
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
