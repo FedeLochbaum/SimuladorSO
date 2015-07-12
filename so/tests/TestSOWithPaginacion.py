@@ -1,5 +1,5 @@
+from test.test_idle import tk
 import unittest
-
 
 from IO.Printer import Printer
 from IO.Scanner import Scanner
@@ -20,6 +20,7 @@ from Shell.CommandHandler import CommandHandler
 from Shell.Shell import Shell
 from clases.Disk import Disk
 from clases.Kernel import Kernel
+from clases.ViewSo import ViewSo
 
 
 class Test(unittest.TestCase):
@@ -78,7 +79,11 @@ class Test(unittest.TestCase):
         self.kernel.loadProgram("program2")
         self.kernel.loadProgram("program3")
         self.assertTrue(True)
+        #root = tk.Tk()
+        #view = ViewSo(master=root,self.shell)
+        #view.mainloop()
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
+    

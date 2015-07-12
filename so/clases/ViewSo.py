@@ -6,32 +6,27 @@ class ViewSo(tk.Frame):
         tk.Frame.__init__(self, master)
         self.pack()
         self.shell = shell
+        self.master.title("Sistema Operativo Shell")
+        self.master.minsize(400,200)
+        self.master.maxsize(600,400)
         self.showPrograms()
-        
-
-    def createWidgets(self):
-        self.hi_there = tk.Button(self)
-        self.hi_there["text"] = "Hello World\n(click me)"
-        self.hi_there["command"] = self.say_hi
-        self.hi_there.pack(side="top")
-
-        self.QUIT = tk.Button(self, text="QUIT", fg="red",
-                                            command=root.destroy)
-        self.QUIT.pack(side="bottom")
-
-    def say_hi(self):
-        print("hi there, everyone!")
+        self.programSelected = None 
         
     def showPrograms(self):
         self.programs = tk.Listbox()
-        self.programs = tk.Listbox(self.shell.programs(), name='programs')
-        self.programs.bind('<<ListboxSelect>>')
+        for program in self.shell.programs():
+            self.programs.insert(program)
+        self.programs.bind('<<ListboxSelect>>',self.programSelected)
+        
+        self.buttonLoad = tk.Button(self)
+        self.buttonLoad["text"] = "Load Program"
+        self.buttonLoad["command"] = self.load()
+        self.buttonLoad.pack(side="top")
     
-
+    def load(self):
+        #self.shell.load(self.programSelected)
+        pass
 
 root = tk.Tk()
 app = ViewSo(master=root)
-app.master.title("Sistema Operativo Shell")
-app.master.minsize(400,200)
-app.master.maxsize(600,400)
 app.mainloop()
