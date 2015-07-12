@@ -9,7 +9,7 @@ class RoutineCommandLoad(RoutineCommand):
         command=str(command)
         return command==Command.load.value 
     
-    def handle(self,command,param= None ,shell=None,kernel=None,file= None):
-        RoutineCommand.handle(self, command,shell,kernel,file)
+    def handle(self,command,param= None ,shell=None,file= None):
+        RoutineCommand.handle(self, command,shell,file)
         param=str(param)
-        return kernel.loadProgram(param)
+        return shell.getKernel().loadProgram(param)

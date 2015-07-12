@@ -1,4 +1,5 @@
 import unittest
+
 from AsignacionContinua.PhysicalMemoryContinuedAllocation import PhysicalMemoryContinuedAllocation
 from Irq.IrqHandler import IrqHandler
 from SchedullingAndQueuesManager.FIFO import FIFO
@@ -8,6 +9,7 @@ from SchedullingAndQueuesManager.QueuesManager import QueuesManager
 from SchedullingAndQueuesManager.WaitingQueue import WaitingQueue
 from Shell.CommandHandler import CommandHandler
 from Shell.Shell import Shell
+from clases.Clock import Clock
 from clases.Cpu import Cpu
 from clases.Disk import Disk
 from clases.Kernel import Kernel
@@ -37,9 +39,9 @@ class Test(unittest.TestCase):
         self.cpu=Cpu(self.memoryManager,self.irqHandler)
         
         
-       
+        self.clock=Clock(self.cpu)
         self.disk=Disk()
-        self.kernel=Kernel(self.cpu,self.disk,self.irqHandler)
+        self.kernel=Kernel(self.cpu,self.disk,self.irqHandler,self.clock)
         self.commandHandler=CommandHandler()
         self.shell=Shell(self.kernel,self.commandHandler)
 

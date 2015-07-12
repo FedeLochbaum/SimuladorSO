@@ -6,5 +6,5 @@ class RoutineCommand:
     def canHandle(self,command):
         pass
     
-    def handle(self,command,param=None ,shell=None,kernel=None,file =None):
+    def handle(self,command,param=None ,shell=None,file =None):
         pass

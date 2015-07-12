@@ -11,6 +11,6 @@ class RoutineCommandLs(RoutineCommand):
         command=str(command)
         return command==Command.ls.value 
     
-    def handle(self,command,param= None ,shell=None,kernel=None,file= None):
-        RoutineCommand.handle(self, command,shell,kernel,file)
+    def handle(self,command,param= None ,shell=None,file= None):
+        RoutineCommand.handle(self, command,shell,file)
         shell.showData(os.listdir(file))

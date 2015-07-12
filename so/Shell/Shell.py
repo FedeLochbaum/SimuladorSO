@@ -11,7 +11,7 @@ class Shell():
         self.root = os.getcwd()
         
     def readCommand(self,command,param= None,file=None):
-        success=self.commandHandler.handle(command,param,self,self.kernel,file)
+        success=self.commandHandler.handle(command,param,self,file)
         self.addOrDiscard(success,command) 
         return success
     
@@ -27,3 +27,6 @@ class Shell():
     
     def showData(self,data):
         print(data)
+        
+    def getKernel(self):
+        return self.kernel

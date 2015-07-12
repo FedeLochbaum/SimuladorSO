@@ -6,7 +6,7 @@ class IoResource(Thread):
     
     def __init__(self):
         Thread.__init__(self)
-        self.ioWaitingQueue=Queue()
+        self.ioWaitingQueue={}
         self.actualPcb=None
         self.info=''
         
@@ -14,7 +14,8 @@ class IoResource(Thread):
         pass
     
     def handle(self,pcb,ioInstruction):
-        self.ioWaitingQueue.put((pcb,ioInstruction))
+        index=self.ioWaitingQueue.__len__()
+        self.ioWaitingQueue[index]=(pcb,ioInstruction)
         
     def run(self):
         while self.RUNNING:
@@ -29,7 +30,7 @@ class IoResource(Thread):
         self.info+=message
         
     def get(self,index):
-        return self.ioWaitingQueue.queue.__getitem__(index)
+        return self.ioWaitingQueue[index]
     
     def pcbCount(self):
         return self.ioWaitingQueue._qsize()

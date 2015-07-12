@@ -16,4 +16,5 @@ class RoutineIO(Routine):
         Routine.handle(self, irq,cpu,program,ioInstruction)
         self.resourceManager.receiveResourcePcb( cpu.getPcb(),ioInstruction)
         cpu.cleanPcb()
+        cpu.callNext()
         

@@ -10,7 +10,7 @@ class RoutineCommandShow(RoutineCommand):
         command=str(command)
         return command==Command.show.value 
     
-    def handle(self,command,param=None ,shell=None,kernel=None,file= None):
-        RoutineCommand.handle(self, command,shell,kernel,file)
+    def handle(self,command,param=None ,shell=None,file= None):
+        RoutineCommand.handle(self, command,shell,file)
         shell.showData(open(file,"rb").read())
         

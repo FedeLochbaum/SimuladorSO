@@ -18,6 +18,8 @@ from SchedullingAndQueuesManager.WaitingQueue import WaitingQueue
 from clases.Cpu import Cpu
 from clases.Disk import Disk
 from clases.MemoryManager import MemoryManager
+from AsignacionContinua.MMUContinuedAllocation import MMUContinuedAllocation
+from AsignacionContinua.FirstFit import FirstFit
 
 
 class Test(unittest.TestCase):
@@ -46,8 +48,8 @@ class Test(unittest.TestCase):
         self.window=Window()
         self.instruction=InstructionCpu('holaaaa')
         self.memory=PhysicalMemoryContinuedAllocation(10)
-        self.memory.put(0, self.instruction)
-        self.memoryManager=MemoryManager(self.memory)
+        self.firstFit=FirstFit()
+        self.memoryManager=MMUContinuedAllocation(self.memory,self.firstFit)
         self.colaReadyFifo = FIFOReadyQueue()
         self.colaWaiting = WaitingQueue()
         self.ioWaitingQueue =IoWaitingQueue() 
@@ -73,6 +75,7 @@ class Test(unittest.TestCase):
 
 
     def testHandleIrqKill(self):
+        self.memoryManager.loadProgram(self.program1)
         self.irqHandler.handle(Irq.kill, self.cpu)
         self.assertEqual( self.irqHandler.cantIrqs(),1)
         self.irqHandler.runIrqs();
@@ -80,6 +83,7 @@ class Test(unittest.TestCase):
         self.assertEqual(self.cpu.instructionsInMemoryCount(),0)
     
     def testHandleIrqTimeout(self):
+        self.memory.put(0, self.instruction)
         self.irqHandler.handle(Irq.timeOut, self.cpu)
         self.assertEqual( self.irqHandler.cantIrqs(),1)
         self.irqHandler.runIrqs();
@@ -88,6 +92,7 @@ class Test(unittest.TestCase):
         self.assertEqual(self.cpu.instructionsInMemoryCount(),1)
         
     def testHandleIrqnewProcess(self):
+        self.memory.put(0, self.instruction)
         self.irqHandler.handle(Irq.newProcess, self.cpu, self.program2)
         self.assertEqual( self.irqHandler.cantIrqs(),1)
         self.irqHandler.runIrqs();
