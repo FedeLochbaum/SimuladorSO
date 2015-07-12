@@ -30,3 +30,6 @@ class Shell():
         
     def getKernel(self):
         return self.kernel
+    
+    def programs(self):
+        return self.kernel.getDisk().getProgramas().keys()

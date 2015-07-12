@@ -73,7 +73,7 @@ class Test(unittest.TestCase):
 
 
 
-    def TestLoadProgram(self):
+    def testLoadProgram(self):
         self.kernel.loadProgram("program1")
         self.kernel.loadProgram("program2")
         self.kernel.loadProgram("program3")

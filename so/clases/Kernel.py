@@ -1,5 +1,4 @@
 from Irq.Irq import Irq
-from clases.Clock import Clock
 
 
 class Kernel :
@@ -16,3 +15,6 @@ class Kernel :
         
     def start(self):
         self.clock.start()
+        
+    def getDisk(self):
+        return self.disk
