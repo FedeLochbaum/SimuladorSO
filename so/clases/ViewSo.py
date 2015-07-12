@@ -1,6 +1,7 @@
+from tkinter import Label, Scrollbar, Frame
+from tkinter.constants import RIGHT, TOP, BOTTOM, LEFT
+
 import tkinter as tk
-from tkinter.constants import RIGHT
-from tkinter import Label
 
 
 class ViewSo(tk.Frame):
@@ -11,25 +12,36 @@ class ViewSo(tk.Frame):
         self.master.title("Sistema Operativo Shell")
         self.master.minsize(400,200)
         self.master.maxsize(600,400)
-        self.programSelected = None 
+        self.programSelected = None
         
     def showPrograms(self):
-        self.programs = tk.Listbox(self,width =20,height = 10,name = "programs")
-        for program in [2,3,4]:
-            self.programs.insert(program)
-        self.programs.bind('<<ListboxSelect>>',self.seleccionarProgram)
-        self.programs.pack(side=RIGHT)
-        
-        self.buttonLoad = tk.Button(self)
+        frame = Frame()
+        frame.pack(side=RIGHT)
+        label = Label(self,name= "todos los programas en Disco")
+        self.buttonLoad = tk.Button(frame)
         self.buttonLoad["text"] = "Load Program"
         self.buttonLoad["command"] = self.load()
-        self.buttonLoad.pack(side=RIGHT)
+        self.buttonLoad.pack(side=BOTTOM, fill=tk.BOTH)
+        
+        
+        self.scrollbar = Scrollbar(frame, orient=tk.VERTICAL)
+        self.programs = tk.Listbox(frame,width =20,height = 5,name = "programs",yscrollcommand=self.scrollbar.set)
+        for program in self.shell.programs():
+            self.programs.insert(tk.END,program)
+        self.scrollbar.config(command=self.programs.yview())
+        self.scrollbar.pack(side=RIGHT,fill=tk.Y)
+        self.programs.pack(side=TOP)
+        self.programs.bind('<<ListboxSelect>>',self.onselect)
+        
+        
+
     
     def showConsole(self):
-        self.line = Label(self)
+        #self.line = Label(self)
+        #self.line.pack(side=LEFT)
         #self.line.bind(sequence, func, add)
-    
-    def seleccionarProgram(self,evt):
+        pass
+    def onselect(self,evt):
         w = evt.widget
         index = int(w.curselection()[0])
         value = w.get(index)
@@ -41,5 +53,5 @@ class ViewSo(tk.Frame):
         self.showConsole()
         
     def load(self):
-        #self.shell.load(self.programSelected)
-        pass
+        if(self.programSelected != None):
+            self.shell.readCommand('load',self.programSelected)
