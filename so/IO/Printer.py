@@ -13,7 +13,7 @@ class Printer(IoResource):
         IoResource.canHandle(self, resource)
         return resource==Resource.printer
     
-    def handle(self, resource):
-        IoResource.handle(self, resource)
+    def handle(self,pcb,ioInstruction):
+        IoResource.handle(self,pcb,ioInstruction)
       
         

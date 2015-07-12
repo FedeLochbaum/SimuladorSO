@@ -22,6 +22,6 @@ class Window(IoResource):
     def canHandle(self, resource):
         IoResource.canHandle(self, resource)
         return resource==Resource.window
-    def handle(self, resource):
-        IoResource.handle(self, resource)
+    def handle(self,pcb,ioInstruction):
+        IoResource.handle(self,pcb,ioInstruction)
         
