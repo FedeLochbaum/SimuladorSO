@@ -4,7 +4,7 @@ from Program.Pcb import Pcb
 class PcbPaginacion(Pcb):
 
     def __init__(self,name,pid,pc,finalPc,baseDirs):
-        Pcb.__init__(self, name, pid, pc, finalPc, None, None)
+        Pcb.__init__(self, name, pid, pc, finalPc, None, 0)
         self.baseDirs=baseDirs
         self.pages = baseDirs
         #baseDirs es una lista de direcciones base a las paginas asignadas

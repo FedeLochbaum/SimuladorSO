@@ -18,6 +18,7 @@ from SchedullingAndQueuesManager.QueuesManager import QueuesManager
 from SchedullingAndQueuesManager.WaitingQueue import WaitingQueue
 from Shell.CommandHandler import CommandHandler
 from Shell.Shell import Shell
+from clases.Clock import Clock
 from clases.Disk import Disk
 from clases.Kernel import Kernel
 from clases.ViewSo import ViewSo
@@ -28,7 +29,7 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         
-        self.memory=PhysicalMemory(20)
+        self.memory=PhysicalMemory(10,2)
         self.mmuPaginacion=MMUPaginacion(self.memory)
         
         self.colaReadyFifo = FIFOReadyQueue()
@@ -43,11 +44,12 @@ class Test(unittest.TestCase):
         
         self.irqHandler=IrqHandler(self.politicaFifo)
         
-        self.cpu=CpuPaginacion(self.memoryManager,self.irqHandler)
+        self.cpu=CpuPaginacion(self.mmuPaginacion,self.irqHandler)
         
         
         self.disk=Disk()
-        self.kernel=Kernel(self.cpu,self.disk,self.irqHandler)
+        self.clock=Clock(self.cpu)
+        self.kernel=Kernel(self.cpu,self.disk,self.irqHandler,self.cpu)
         self.commandHandler=CommandHandler()
         self.shell=Shell(self.kernel,self.commandHandler)
         
@@ -75,6 +77,40 @@ class Test(unittest.TestCase):
 
 
     def testLoadProgram(self):
+        self.kernel.loadProgram("program1")
+        self.assertEqual(self.irqHandler.cantIrqs(),1)
+        ## FIRST CYLCE
+        self.clock.notifyCycle()
+        self.assertEqual(self.irqHandler.cantIrqs(),0)
+        self.assertEqual(self.colaReadyFifo.first().getName(),self.program1.getName())
+        
+        self.kernel.loadProgram("program2")
+
+        self.assertEqual(self.irqHandler.cantIrqs(),1)
+        
+        ## SECOND CYCLE
+        self.clock.notifyCycle()
+        self.assertEqual(self.irqHandler.cantIrqs(),0)
+        self.assertEqual(self.colaReadyFifo.first().getName(),self.program2.getName())
+        self.assertEquals(self.cpu.getPcb().getName(),self.program1.getName())
+        
+        ##THIRD CYLCE
+        
+        ##USER MODE
+        self.clock.notifyUserMode()
+        self.assertEqual(self.irqHandler.cantIrqs(),1)
+        self.assertEqual(self.colaReadyFifo.first().getName(),self.program2.getName())
+        self.assertEquals(self.cpu.getPcb().getName(),self.program1.getName())
+        
+        ##KERNEL MODE
+        self.clock.notifyKernelMode()
+        self.assertEqual(self.irqHandler.cantIrqs(),0)
+        self.assertEqual(self.colaReadyFifo.first(),None)
+        self.assertEquals(self.cpu.getPcb().getName(),self.program2.getName())
+        self.assertEqual(self.scanner.get(0)[0].getName(),self.program1.getName())
+    
+    def testView(self):
+        
         self.kernel.loadProgram("program1")
         self.kernel.loadProgram("program2")
         self.kernel.loadProgram("program3")
