@@ -1,3 +1,5 @@
+import logging
+
 from Irq.Irq import Irq
 from SchedullingAndQueuesManager.Timer import Timer
 
@@ -13,25 +15,32 @@ class Cpu:
         self.setQuantum()
         self.actualInstruction=None
         self.info=''
+        logging.basicConfig(filename='logSo.log',level=logging.DEBUG)
        
 
 
     def fetch(self):
+        logging.debug('FETCHING.....')
         if(self.pcb != None):
+            logging.info('Process: %s' % self.pcb.getName())
             instruccionActual =  self.memoryManager.getInstruction(self.pcb.getBaseDir()+self.pcb.getPc())
             if(instruccionActual==None):
                 return;
+            
             self.actualInstruction=instruccionActual
             if(instruccionActual.isIO()):
+                logging.info('fetching I/O instruction' )
                 self.irqHandler.handle(Irq.io,self,None,instruccionActual)
                 #self.cleanRegisters()
                 return;
+            logging.info('fetching CPU instruction' )
             instruccionActual.execute()
             self.pcb.incrementPc()
             if(self.pcb.getPc()==self.pcb.getFinalPc()):
                 self.irqHandler.handle(Irq.kill,self)
                 return;
         else:
+            logging.info('No Process')
             self.callNext()    
                 
     def notifyUserMode(self):
