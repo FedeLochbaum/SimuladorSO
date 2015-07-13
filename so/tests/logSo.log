@@ -6,3 +6,408 @@ DEBUG:root:Running in User mode
 DEBUG:root:Running in Kernel mode
 DEBUG:root:Running in User mode
 DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running in User mode
+DEBUG:root:Running in Kernel mode

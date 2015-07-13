@@ -25,8 +25,8 @@ class IoResource(Thread):
             time.sleep(1)
             
     def takePcbAndExecute(self):
-        self.actualPcb=self.ioWaitingQueue.get()[0]
-        message=self.ioWaitingQueue.get()[1].getMessage()
+        self.actualPcb=self.ioWaitingQueue.get(0)[0]
+        message=self.ioWaitingQueue.get(0)[1].getMessage()
         self.info+=message
         
     def get(self,index):

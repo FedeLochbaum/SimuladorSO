@@ -109,7 +109,7 @@ class TestSOWithContinuedAllocation(unittest.TestCase):
         self.assertEqual(self.irqHandler.cantIrqs(),0)
         self.assertEqual(self.colaReadyFifo.first(),None)
         self.assertEquals(self.cpu.getPcb().getName(),self.program2.getName())
-        self.assertEqual(self.scanner.get(0)[0].getName(),self.program1.getName())
+        
         
         
 if __name__ == "__main__":
