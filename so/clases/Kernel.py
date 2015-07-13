@@ -1,3 +1,5 @@
+import logging
+
 from Irq.Irq import Irq
 
 
@@ -7,9 +9,10 @@ class Kernel :
         self.disk = disk
         self.irqHandler=irqHandler
         self.clock=clock
-        #self.clock.start()
+        logging.basicConfig(filename='logSo.log',level=logging.DEBUG)
     
     def loadProgram(self,programName):
+        logging.info('Loading program: %s' % programName)
         program = self.disk.getProgram(programName)
         self.irqHandler.handle(Irq.newProcess,self.cpu,program)
         

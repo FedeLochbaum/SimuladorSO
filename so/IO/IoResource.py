@@ -1,7 +1,9 @@
-from queue import Queue
+import logging
+import sys
 from threading import Thread  
 import time
-import sys
+
+
 class IoResource(Thread):
     
     def __init__(self):
@@ -9,6 +11,7 @@ class IoResource(Thread):
         self.ioWaitingQueue={}
         self.actualPcb=None
         self.info=''
+        logging.basicConfig(filename='logSo.log',level=logging.DEBUG)
         
     def canHandle(self,resource):
         pass
@@ -16,6 +19,7 @@ class IoResource(Thread):
     def handle(self,pcb,ioInstruction):
         index=self.ioWaitingQueue.__len__()
         self.ioWaitingQueue[index]=(pcb,ioInstruction)
+        logging.debug('Added %s to IoWaiting Queue of IoResource' % pcb.getName())
         
     def run(self):
         while self.RUNNING:
@@ -26,7 +30,10 @@ class IoResource(Thread):
             
     def takePcbAndExecute(self):
         self.actualPcb=self.ioWaitingQueue.get(0)[0]
+        logging.debug('Io Resource took %s' % self.actualPcb.getName())
         message=self.ioWaitingQueue.get(0)[1].getMessage()
+        logging.debug('Io Instruction message: %s' % message)
+
         self.info+=message
         
     def get(self,index):

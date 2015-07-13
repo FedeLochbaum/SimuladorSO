@@ -10,11 +10,10 @@ class IrqHandler:
     def __init__(self,schedullingPolitic):
         self.irqs={}
         self.routines=[RoutineKill(),RoutineTimeout(schedullingPolitic),RoutineNewprocess(),RoutineIO(),RoutineIOFinish(schedullingPolitic)]#falta la de page
-        #No se si va a estar el schedulling aca o solo la queueManager
         self.queueManager = schedullingPolitic.getqueuesManager()
         self.schedullingPolitic=schedullingPolitic
         
-    def handle(self,irq,cpu,program=None,ioInstruction=None): #falta la memoria y falta saber que le pasamos en routineIOfinish
+    def handle(self,irq,cpu,program=None,ioInstruction=None): 
         self.irqs[irq] = (cpu,program,ioInstruction)
         #self.anyRoutineHandle(irq,cpu,program,resource)
     
