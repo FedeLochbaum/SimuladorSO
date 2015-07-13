@@ -20,7 +20,9 @@ class RoutineNewprocess(Routine):
         Routine.handle(self, irq,cpu,program,ioInstruction)
         if(cpu.getMemoryManager().loadProgram(program)):
             pcb=self.generateProcess(program,cpu)
-            self.largePolitic.handleProcess(pcb, cpu.getQueuesManager())
+            self.largePolitic.handleReadyProcess(pcb, cpu.getQueuesManager())
+        else:
+            self.largePolitic.handleWaitingProgram(program, cpu.queuesManager)
         
         
     def generateProcess(self,program,cpu):

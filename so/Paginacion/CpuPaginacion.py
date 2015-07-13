@@ -19,7 +19,7 @@ class CpuPaginacion(Cpu):
                 return;
             self.actualInstruction=instruccionActual
             if(instruccionActual.isIO()):
-                self.irqHandler.handle(Irq.io)
+                self.irqHandler.handle(Irq.io,self)
                 self.cleanRegisters()
                 return;
             instruccionActual.execute()
