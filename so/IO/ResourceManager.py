@@ -15,7 +15,7 @@ class ResourceManager:
     def receiveResourcePcb(self,pcb,ioInstruction):
         self.anyHandle(pcb,ioInstruction)
         
-    def anyHandle(self,pcb,program=None,ioInstruction):
+    def anyHandle(self,pcb,ioInstruction=None):
         for res in self.ioResources:
             if(res.canHandle(ioInstruction.getResource())):
                 res.handle(pcb,ioInstruction)
