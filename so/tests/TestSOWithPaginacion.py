@@ -21,7 +21,7 @@ from Shell.Shell import Shell
 from clases.Clock import Clock
 from clases.Disk import Disk
 from clases.Kernel import Kernel
-from clases.ViewSo import ViewSo
+
 
 
 class Test(unittest.TestCase):
@@ -29,7 +29,7 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         
-        self.memory=PhysicalMemory(10,2)
+        self.memory=PhysicalMemory(20,2)
         self.mmuPaginacion=MMUPaginacion(self.memory)
         
         self.colaReadyFifo = FIFOReadyQueue()
@@ -109,15 +109,15 @@ class Test(unittest.TestCase):
         self.assertEquals(self.cpu.getPcb().getName(),self.program2.getName())
         self.assertEqual(self.scanner.get(0)[0].getName(),self.program1.getName())
     
-    def testView(self):
+    #def testView(self):
         
-        self.kernel.loadProgram("program1")
-        self.kernel.loadProgram("program2")
-        self.kernel.loadProgram("program3")
-        self.assertTrue(True)
+        #self.kernel.loadProgram("program1")
+        #self.kernel.loadProgram("program2")
+        #self.kernel.loadProgram("program3")
+        #self.assertTrue(True)
         #root = tk.Tk()
         #view = ViewSo(master=root,self.shell)
-        #view.mainloop()
+        #view.mainloop()'''
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

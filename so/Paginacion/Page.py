@@ -37,3 +37,6 @@ class Page():
 
     def getInstructions(self):
         return self.instructions   
+    
+    def getBaseDir(self):
+        return self.dirBase
