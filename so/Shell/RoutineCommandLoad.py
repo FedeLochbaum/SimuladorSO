@@ -12,4 +12,6 @@ class RoutineCommandLoad(RoutineCommand):
     def handle(self,command,param= None ,shell=None,file= None):
         RoutineCommand.handle(self, command,shell,file)
         param=str(param)
+        print("llegue")
         return shell.getKernel().loadProgram(param)
+        

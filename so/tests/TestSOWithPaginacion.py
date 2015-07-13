@@ -110,14 +110,15 @@ class Test(unittest.TestCase):
         self.assertEqual(self.scanner.get(0)[0].getName(),self.program1.getName())
     
     #def testView(self):
-        
         #self.kernel.loadProgram("program1")
         #self.kernel.loadProgram("program2")
         #self.kernel.loadProgram("program3")
         #self.assertTrue(True)
         #root = tk.Tk()
-        #view = ViewSo(master=root,self.shell)
-        #view.mainloop()'''
+        #view = ViewSo(master=root)
+        #view.setShell(self.shell)
+        #view.mainloop()
+
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
