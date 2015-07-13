@@ -4,6 +4,7 @@ from Irq.Routine import Routine
 from Program.Pcb import Pcb
 from SchedullingAndQueuesManager.SchedulingLargePolitic import SchedullingLargePolitic
 from Paginacion.PcbPaginacion import PcbPaginacion
+import logging
 
 
 class RoutineNewprocess(Routine):
@@ -17,6 +18,7 @@ class RoutineNewprocess(Routine):
         return irq==Irq.newProcess
     
     def handle(self,irq,cpu,program=None,ioInstruction=None):
+        logging.debug('Running New Process Interruption')
         Routine.handle(self, irq,cpu,program,ioInstruction)
         if(cpu.getMemoryManager().loadProgram(program)):
             pcb=self.generateProcess(program,cpu)

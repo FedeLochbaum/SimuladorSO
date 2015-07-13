@@ -1,5 +1,6 @@
 from Shell.RoutineCommand import RoutineCommand
 from Shell.typeCommand import Command
+import logging
 
 
 class RoutineCommandLoad(RoutineCommand):
@@ -10,8 +11,8 @@ class RoutineCommandLoad(RoutineCommand):
         return command==Command.load.value 
     
     def handle(self,command,param= None ,shell=None,file= None):
+        logging.debug('Executed Load %s' % str(param))
         RoutineCommand.handle(self, command,shell,file)
         param=str(param)
-        print("llegue")
         return shell.getKernel().loadProgram(param)
         

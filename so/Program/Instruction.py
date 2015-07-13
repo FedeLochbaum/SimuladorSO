@@ -1,3 +1,4 @@
+
 class Instruction:
     
     def __init__(self,message,resource=None):

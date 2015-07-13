@@ -1,5 +1,6 @@
 from Irq.Irq import Irq
 from Irq.Routine import Routine
+import logging
 
 
 class RoutineIOFinish(Routine):
@@ -12,6 +13,6 @@ class RoutineIOFinish(Routine):
         return irq==Irq.ioFinish
     
     def handle(self,irq,cpu,program=None,ioInstruction=None):
+        logging.debug('Running I/O Finisg Interruption')
         Routine.handle(self, irq,cpu,program,ioInstruction)
         self.schedullingPolitic.setPcbInReady(cpu.getPcb())
-        #aca esta mal por cpu

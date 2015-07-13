@@ -1,4 +1,8 @@
+import logging
+
 from Paginacion.Frame import Frame
+
+
 class PhysicalMemory():
     
     
@@ -9,6 +13,7 @@ class PhysicalMemory():
         self.totalSpace = space
         self.emptyFrames = []
         self.divideMemoryIn(sizeFrame)
+        logging.basicConfig(filename='logSo.log',level=logging.DEBUG)
     
 
     def removeFromFrame(self,physicalDir):
@@ -16,6 +21,7 @@ class PhysicalMemory():
     
     def divideMemoryIn(self,sizeFrame):
         cant = round(self.totalSpace / sizeFrame,1)
+        logging.debug('Creating %i frames for Physical Memory' % cant)
         sigDir = 1
         while(cant > 0):
             frame = Frame(sigDir, sigDir +sizeFrame-1)

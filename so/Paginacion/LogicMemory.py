@@ -1,3 +1,5 @@
+import logging
+
 from Paginacion.Page import Page
 
 
@@ -12,8 +14,10 @@ class LogicMemory():
         self.sizePage = sizePage
         self.emptyFrames = []
         self.divideMemoryIn(sizePage)
+        logging.basicConfig(filename='logSo.log',level=logging.DEBUG)
         
     def setandLoadPages(self,program):
+        logging.debug('Setting and Loading Pages for program: %s' % program.getName())
         pages = self.pagesFor(program.getInstructionsCount())
         self.fillPagesWithProgram(pages,program)
         program.setPages(pages)
@@ -41,6 +45,7 @@ class LogicMemory():
             
     def divideMemoryIn(self,sizePage):
         cant = round(self.totalSpace / sizePage,1)
+        logging.debug('Creating %i pages for Logic Memory' % cant)
         sigDir = 1
         while(cant > 0):
             page = Page(sigDir,sizePage)

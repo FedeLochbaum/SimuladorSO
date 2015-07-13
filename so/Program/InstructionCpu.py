@@ -1,4 +1,6 @@
+
 from Program.Instruction import Instruction
+
 
 class InstructionCpu(Instruction):
     

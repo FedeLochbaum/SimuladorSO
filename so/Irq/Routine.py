@@ -1,7 +1,10 @@
+import logging
+
+
 class Routine:
     
     def __init__(self):
-        pass
+        logging.basicConfig(filename='logSo.log',level=logging.DEBUG)
     
     def canHandle(self,irq):
         pass

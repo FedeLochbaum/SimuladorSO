@@ -1,3 +1,4 @@
+import logging
 from os.path import os
 
 
@@ -9,8 +10,10 @@ class Shell():
         self.successCommands=[]
         os.chdir("C:/")
         self.root = os.getcwd()
+        logging.basicConfig(filename='logSo.log',level=logging.DEBUG)
         
     def readCommand(self,command,param= None,file=None):
+        logging.debug('Reading Command')
         success=self.commandHandler.handle(command,param,self,file)
         self.addOrDiscard(success,command) 
         return success

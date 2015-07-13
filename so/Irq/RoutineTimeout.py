@@ -1,5 +1,6 @@
 from Irq.Irq import Irq
 from Irq.Routine import Routine
+import logging
 
 
 class RoutineTimeout(Routine):
@@ -12,6 +13,7 @@ class RoutineTimeout(Routine):
         return irq==Irq.timeOut
     
     def handle(self,irq,cpu,program=None,ioInstruction=None):
+        logging.debug('Running Time Out Interruption')
         Routine.handle(self, irq,cpu,program,ioInstruction)
         self.schedullingPolitic.setPcbInReady(cpu.getPcb())
         cpu.cleanPcb()

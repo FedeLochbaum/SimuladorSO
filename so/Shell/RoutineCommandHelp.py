@@ -1,5 +1,6 @@
 from Shell.RoutineCommand import RoutineCommand
 from Shell.typeCommand import Command
+import logging
 
 
 class RoutineCommandHelp(RoutineCommand):
@@ -12,6 +13,7 @@ class RoutineCommandHelp(RoutineCommand):
         return command==Command.help1.value or command==Command.help2.value or command==Command.help3.value 
     
     def handle(self,command,param=None ,shell=None,file=None):
+        logging.debug('Executed help command')
         RoutineCommand.handle(self, command,shell,file)
         return self.MESSAGE
         

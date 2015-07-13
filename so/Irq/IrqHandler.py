@@ -1,3 +1,5 @@
+import logging
+
 from Irq.RoutineIO import RoutineIO
 from Irq.RoutineIOFinish import RoutineIOFinish
 from Irq.RoutineKill import RoutineKill
@@ -12,13 +14,16 @@ class IrqHandler:
         self.routines=[RoutineKill(),RoutineTimeout(schedullingPolitic),RoutineNewprocess(),RoutineIO(),RoutineIOFinish(schedullingPolitic)]#falta la de page
         self.queueManager = schedullingPolitic.getqueuesManager()
         self.schedullingPolitic=schedullingPolitic
+        logging.basicConfig(filename='logSo.log',level=logging.DEBUG)
         
     def handle(self,irq,cpu,program=None,ioInstruction=None): 
         self.irqs[irq] = (cpu,program,ioInstruction)
+        logging.debug('New Interruption: %s' % irq.value)
         #self.anyRoutineHandle(irq,cpu,program,resource)
     
         
     def runIrqs(self):
+        logging.debug('Running all added Interruptions')
         for (irq,params) in self.irqs.items():
             self.anyRoutineHandle(irq,params[0],params[1],params[2])
         self.irqs = {}
