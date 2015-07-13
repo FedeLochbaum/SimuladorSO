@@ -10,8 +10,8 @@ class ViewSo(tk.Frame):
         self.pack()
         self.shell = None
         self.master.title("Sistema Operativo Shell")
-        self.master.minsize(400,200)
-        self.master.maxsize(600,400)
+        self.master.minsize(100,150)
+        self.master.maxsize(150,200)
         self.programSelected = None
         
     def showPrograms(self):

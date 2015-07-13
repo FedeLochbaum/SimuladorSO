@@ -18,8 +18,9 @@ class RoutineNewprocess(Routine):
     
     def handle(self,irq,cpu,program=None,ioInstruction=None):
         Routine.handle(self, irq,cpu,program,ioInstruction)
-        pcb=self.generateProcess(program,cpu)
-        self.largePolitic.handleProcess(program, pcb, cpu.getQueuesManager(), cpu.getMemoryManager())
+        if(cpu.getMemoryManager().loadProgram(program)):
+            pcb=self.generateProcess(program,cpu)
+            self.largePolitic.handleProcess(pcb, cpu.getQueuesManager())
         
         
     def generateProcess(self,program,cpu):

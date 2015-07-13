@@ -13,7 +13,7 @@ class CpuPaginacion(Cpu):
             
             actualBaseDirPage=self.pcb.getPages()
             
-            instruccionActual =  self.memoryManager.getInstruction( actualBaseDirPage.__getitem__(0),self.pcb.getActualBaseDir())
+            instruccionActual =  self.memoryManager.getInstruction( actualBaseDirPage[0],self.pcb.getActualBaseDir())
             
             if(instruccionActual==None):
                 return;

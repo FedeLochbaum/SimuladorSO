@@ -38,6 +38,7 @@ class LogicMemory():
             page.fill(instructions)
             program.removeInstructionsFrom(page)
             
+            
     def divideMemoryIn(self,sizePage):
         cant = round(self.totalSpace / sizePage,1)
         sigDir = 1
