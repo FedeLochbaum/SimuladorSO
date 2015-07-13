@@ -102,6 +102,7 @@ class Test(unittest.TestCase):
         self.assertEqual(self.colaReadyFifo.first().getName(),self.program2.getName())
         self.assertEquals(self.cpu.getPcb().getName(),self.program1.getName())
         
+        
         ##KERNEL MODE
         self.clock.notifyKernelMode()
         self.assertEqual(self.irqHandler.cantIrqs(),0)

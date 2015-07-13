@@ -20,7 +20,6 @@ class CpuPaginacion(Cpu):
             self.actualInstruction=instruccionActual
             if(instruccionActual.isIO()):
                 self.irqHandler.handle(Irq.io,self)
-                self.cleanRegisters()
                 return;
             instruccionActual.execute()
             self.pcb.incrementDir()
