@@ -59,14 +59,20 @@ instruction4=InstructionIO('hello',printer)
 instruction5=InstructionCpu('hello',window)
 instruction6=InstructionCpu('hello',window)
         
-program1 = Program('program1',instruction2,instruction1,instruction3)
+program1 = Program('WordPad',instruction2,instruction1,instruction3)
 disk.addProgram(program1)
         
-program2 = Program('program2',instruction4,instruction1,instruction2,instruction5)
+program2 = Program('VirtualBox',instruction4,instruction1,instruction2,instruction5)
 disk.addProgram(program2)
         
-program3 = Program('program3',instruction1,instruction2,instruction3,instruction4,instruction5,instruction6)
+program3 = Program('Eclipse',instruction1,instruction2,instruction3,instruction4,instruction5,instruction6)
 disk.addProgram(program3)
+
+program4 = Program('Internet Explored',instruction1,instruction4,instruction6,instruction2,instruction3,instruction4,instruction5,instruction6)
+disk.addProgram(program4)
+
+program5 = Program('NotePad',instruction2,instruction1,instruction3)
+disk.addProgram(program5)
 
 def main():
     root = tk.Tk()
