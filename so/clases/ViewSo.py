@@ -18,7 +18,7 @@ class ViewSo(tk.Frame):
         frame = Frame()
         frame.pack(side=RIGHT)
         label = Label(self,name= "todos los programas en Disco")
-        self.buttonLoad = tk.Button(frame,text= "Load Program",command =self.load() )
+        self.buttonLoad = tk.Button(frame,text= "Load Program",command = self.load)
         self.buttonLoad.pack(side=BOTTOM, fill=tk.BOTH)
         
         

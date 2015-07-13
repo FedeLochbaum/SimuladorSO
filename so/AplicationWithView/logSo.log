@@ -1,8 +1,47 @@
-DEBUG:root:Creating 2 pages for Logic Memory
-DEBUG:root:added program program1
-DEBUG:root:added program program2
-DEBUG:root:added program program3
-DEBUG:root:Creating 2 pages for Logic Memory
-DEBUG:root:added program program1
-DEBUG:root:added program program2
-DEBUG:root:added program program3
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed Load Eclipse
+INFO:root:Loading program: Eclipse
+DEBUG:root:getting program Eclipse from disk 
+DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Reading Command
+DEBUG:root:Executed Load Eclipse
+INFO:root:Loading program: Eclipse
+DEBUG:root:getting program Eclipse from disk 
+DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Reading Command
+DEBUG:root:Executed Load Eclipse
+INFO:root:Loading program: Eclipse
+DEBUG:root:getting program Eclipse from disk 
+DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Reading Command
+DEBUG:root:Executed Load Eclipse
+INFO:root:Loading program: Eclipse
+DEBUG:root:getting program Eclipse from disk 
+DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Reading Command
+DEBUG:root:Executed Load Eclipse
+INFO:root:Loading program: Eclipse
+DEBUG:root:getting program Eclipse from disk 
+DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Reading Command
+DEBUG:root:Executed Load Eclipse
+INFO:root:Loading program: Eclipse
+DEBUG:root:getting program Eclipse from disk 
+DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Reading Command
+DEBUG:root:Executed Load Eclipse
+INFO:root:Loading program: Eclipse
+DEBUG:root:getting program Eclipse from disk 
+DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:New Interruption: New Process
