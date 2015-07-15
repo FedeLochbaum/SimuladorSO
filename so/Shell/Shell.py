@@ -21,7 +21,13 @@ class Shell():
     def addOrDiscard(self,success,command):
         if(success):
             self.successCommands.append(command)
-            
+     
+    def getRoot(self):
+        return self.root
+    
+    def setRoot(self,root):
+        self.root = root
+          
     def successCommandCount(self):
         return self.successCommands.__len__()
     

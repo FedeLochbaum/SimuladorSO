@@ -14,5 +14,5 @@ class RoutineCommandShow(RoutineCommand):
     def handle(self,command,param=None ,shell=None,file= None):
         logging.debug('Executed Show %s' %file)
         RoutineCommand.handle(self, command,shell,file)
-        shell.showData(open(file,"rb").read())
+        return (open(file,"rb").read())
         

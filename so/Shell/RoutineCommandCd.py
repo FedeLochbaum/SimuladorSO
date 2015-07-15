@@ -16,5 +16,6 @@ class RoutineCommandCd(RoutineCommand):
         logging.debug('Executed cd %s' % file)
         RoutineCommand.handle(self, command,shell,file)
         if(os.path.exists(file)):
-            os.chdir(file) 
+            os.chdir(file)
+            shell.setRoot(os.getcwd()) 
     

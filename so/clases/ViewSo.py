@@ -1,23 +1,27 @@
-from tkinter import Label, Scrollbar, Frame
-from tkinter.constants import RIGHT, TOP, BOTTOM, LEFT
+from tkinter import Label, Scrollbar, Frame, StringVar
+from tkinter._fix import v
+from tkinter.constants import RIGHT, TOP, BOTTOM, LEFT, CENTER
+from tkinter.ttk import Entry
 
 import tkinter as tk
+from pydoc_data.topics import topics
 
 
 class ViewSo(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
-        self.pack()
+        self.pack(side=BOTTOM)
         self.shell = None
         self.master.title("Sistema Operativo Shell")
-        self.master.minsize(100,150)
-        self.master.maxsize(150,200)
+        self.master.minsize(150,200)
+        self.master.maxsize(1000,300)
         self.programSelected = None
         
     def showPrograms(self):
         frame = Frame()
         frame.pack(side=RIGHT)
-        label = Label(self,name= "todos los programas en Disco")
+        self.label = Label(frame,text= "Todos los Programas en Disco")
+        self.label.pack(side=TOP)
         self.buttonLoad = tk.Button(frame,text= "Load Program",command = self.load)
         self.buttonLoad.pack(side=BOTTOM, fill=tk.BOTH)
         
@@ -35,10 +39,34 @@ class ViewSo(tk.Frame):
 
     
     def showConsole(self):
-        #self.line = Label(self)
-        #self.line.pack(side=LEFT)
-        #self.line.bind(sequence, func, add)
-        pass
+        self.prompCm = StringVar()
+        self.prompFile = StringVar()
+        frame = Frame()
+        frame.pack(side=LEFT)
+        self.buttonLoadCommand = tk.Button(frame,text= "Load Command", command = self.runCommand)
+        self.buttonLoadCommand.pack(side=BOTTOM, fill=tk.BOTH)
+        self.titleRoot = Label(frame,text="Direccion Actual :")
+        self.titleRoot.pack(side =TOP)
+        self.line = Label(frame,text=self.shell.getRoot())
+        self.line.pack(side=TOP)
+        self.com = Entry(frame, textvariable=self.prompCm,width =3)
+        self.com.pack(side =LEFT)
+        self.file = Entry(frame, textvariable=self.prompFile,width =15)
+        self.file.pack(side =LEFT)
+        self.showViewData(self)
+        
+        
+    def showViewData(self,master):
+        self.error = Label(master,text="")
+        self.error.pack(side=BOTTOM)
+    
+    def runCommand(self):
+        self.error["text"] = self.shell.readCommand(self.prompCm.get(),None,self.prompFile.get())
+        self.line["text"] = self.shell.getRoot()
+        self.prompCm.set("")
+        self.prompFile.set("")
+        print(self.error["text"])
+        
     def onselect(self,evt):
         w = evt.widget
         index = int(w.curselection()[0])

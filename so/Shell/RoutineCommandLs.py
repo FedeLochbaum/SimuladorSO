@@ -15,4 +15,4 @@ class RoutineCommandLs(RoutineCommand):
     def handle(self,command,param= None ,shell=None,file= None):
         logging.debug('Executed Ls command')
         RoutineCommand.handle(self, command,shell,file)
-        shell.showData(os.listdir(file))
+        return os.listdir(os.getcwd())

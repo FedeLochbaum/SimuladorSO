@@ -4,7 +4,7 @@ import logging
 
 
 class RoutineCommandHelp(RoutineCommand):
-    MESSAGE='Bienvenido a la ayuda del Sistema Operativo, tiene los siguientes comando disponibles:\n-help\n-?\n-load\n'
+    MESSAGE='Bienvenido a la ayuda del Sistema Operativo, tiene los siguientes comando disponibles:\n-help,-?,-load,-ls,-show\n'
     #Modificar texto
 
     def canHandle(self, command):

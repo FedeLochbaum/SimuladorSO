@@ -1,1 +1,83 @@
 
+DEBUG:root:added program program1
+DEBUG:root:added program program2
+DEBUG:root:added program program3
+INFO:root:Loading program: program1
+DEBUG:root:getting program program1 from disk 
+DEBUG:root:succesfully getting program: program1
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Notifying Cycle Number 0
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running New Process Interruption
+DEBUG:root:Added process program1 to Ready Queue
+INFO:root:Loading program: program2
+DEBUG:root:getting program program2 from disk 
+DEBUG:root:succesfully getting program: program2
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Notifying Cycle Number 1
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:No Process
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running New Process Interruption
+DEBUG:root:Added process program2 to Ready Queue
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: program1
+INFO:root:fetching I/O instruction
+DEBUG:root:New Interruption: IO
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running I/O Interruptions
+DEBUG:root:ResourceManager received: program1
+DEBUG:root:Added program1 to IoWaiting Queue of IoResource
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:added program asd
+DEBUG:root:added program asd2
+DEBUG:root:New Interruption: IO
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running I/O Interruptions
+DEBUG:root:ResourceManager received: asd
+DEBUG:root:added program asd
+DEBUG:root:added program asd2
+DEBUG:root:New Interruption: IO Finish
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running I/O Finisg Interruption
+DEBUG:root:added program asd
+DEBUG:root:added program asd2
+DEBUG:root:New Interruption: Kill
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running Kill Interruption
+DEBUG:root:added program asd
+DEBUG:root:added program asd2
+DEBUG:root:New Interruption: TimeOut
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running Time Out Interruption
+DEBUG:root:added program asd
+DEBUG:root:added program asd2
+DEBUG:root:New Interruption: New Process
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running New Process Interruption
+DEBUG:root:Added process asd2 to Ready Queue
+DEBUG:root:FETCHING.....
+INFO:root:Process: proceso
+INFO:root:fetching CPU instruction
+DEBUG:root:New Interruption: Kill
+DEBUG:root:Running in User mode
+DEBUG:root:FETCHING.....
+INFO:root:Process: proceso
+INFO:root:fetching CPU instruction
+DEBUG:root:New Interruption: Kill
+DEBUG:root:Running in Kernel mode
+DEBUG:root:Running all added Interruptions
+DEBUG:root:Running Kill Interruption

@@ -4,44 +4,632 @@ DEBUG:root:added program Eclipse
 DEBUG:root:added program Internet Explored
 DEBUG:root:added program NotePad
 DEBUG:root:Reading Command
-DEBUG:root:Executed Load Eclipse
-INFO:root:Loading program: Eclipse
-DEBUG:root:getting program Eclipse from disk 
-DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:Executed Load Internet Explored
+INFO:root:Loading program: Internet Explored
+DEBUG:root:getting program Internet Explored from disk 
+DEBUG:root:succesfully getting program: Internet Explored
 DEBUG:root:New Interruption: New Process
 DEBUG:root:Reading Command
-DEBUG:root:Executed Load Eclipse
-INFO:root:Loading program: Eclipse
-DEBUG:root:getting program Eclipse from disk 
-DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:Executed Load Internet Explored
+INFO:root:Loading program: Internet Explored
+DEBUG:root:getting program Internet Explored from disk 
+DEBUG:root:succesfully getting program: Internet Explored
 DEBUG:root:New Interruption: New Process
 DEBUG:root:Reading Command
-DEBUG:root:Executed Load Eclipse
-INFO:root:Loading program: Eclipse
-DEBUG:root:getting program Eclipse from disk 
-DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:Executed Load Internet Explored
+INFO:root:Loading program: Internet Explored
+DEBUG:root:getting program Internet Explored from disk 
+DEBUG:root:succesfully getting program: Internet Explored
 DEBUG:root:New Interruption: New Process
 DEBUG:root:Reading Command
-DEBUG:root:Executed Load Eclipse
-INFO:root:Loading program: Eclipse
-DEBUG:root:getting program Eclipse from disk 
-DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:Executed Load Internet Explored
+INFO:root:Loading program: Internet Explored
+DEBUG:root:getting program Internet Explored from disk 
+DEBUG:root:succesfully getting program: Internet Explored
 DEBUG:root:New Interruption: New Process
 DEBUG:root:Reading Command
-DEBUG:root:Executed Load Eclipse
-INFO:root:Loading program: Eclipse
-DEBUG:root:getting program Eclipse from disk 
-DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:Executed Load Internet Explored
+INFO:root:Loading program: Internet Explored
+DEBUG:root:getting program Internet Explored from disk 
+DEBUG:root:succesfully getting program: Internet Explored
 DEBUG:root:New Interruption: New Process
 DEBUG:root:Reading Command
-DEBUG:root:Executed Load Eclipse
-INFO:root:Loading program: Eclipse
-DEBUG:root:getting program Eclipse from disk 
-DEBUG:root:succesfully getting program: Eclipse
+DEBUG:root:Executed Load Internet Explored
+INFO:root:Loading program: Internet Explored
+DEBUG:root:getting program Internet Explored from disk 
+DEBUG:root:succesfully getting program: Internet Explored
 DEBUG:root:New Interruption: New Process
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
 DEBUG:root:Reading Command
-DEBUG:root:Executed Load Eclipse
-INFO:root:Loading program: Eclipse
-DEBUG:root:getting program Eclipse from disk 
-DEBUG:root:succesfully getting program: Eclipse
-DEBUG:root:New Interruption: New Process
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Usuarios
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Users
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Users
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Useas
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Useas
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd as
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Desktop
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Users
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Users
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd users
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd ..
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd users
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd nada
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd ..
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd nada
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd nada
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Users
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Users
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Users
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed help command
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:added program WordPad
+DEBUG:root:added program VirtualBox
+DEBUG:root:added program Eclipse
+DEBUG:root:added program Internet Explored
+DEBUG:root:added program NotePad
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
+DEBUG:root:Reading Command
+DEBUG:root:Executed cd Users
+DEBUG:root:Reading Command
+DEBUG:root:Executed Ls command
