@@ -1,8 +1,9 @@
+import glob
+import logging
 from os.path import os
 
 from Shell.RoutineCommand import RoutineCommand
 from Shell.typeCommand import Command
-import logging
 
 
 class RoutineCommandLs(RoutineCommand):
@@ -15,4 +16,8 @@ class RoutineCommandLs(RoutineCommand):
     def handle(self,command,param= None ,shell=None,file= None):
         logging.debug('Executed Ls command')
         RoutineCommand.handle(self, command,shell,file)
-        return os.listdir(os.getcwd())
+        list = []
+        for p in os.listdir(os.getcwd()):
+            if(not (p.startswith("install") or p.startswith("eula") or p.startswith("."))):
+                list.append(glob.glob(p))
+        return list
